@@ -44,7 +44,7 @@ class RiskRepositoryImpl(private val alertDao: AlertDao, private val context: Co
         }
     }
     override fun observeSettings(): Flow<UserSettings> = context.settingsStore.data.map { preferences ->
-        UserSettings(preferences[LANGUAGE] ?: "en-IN", preferences[VOICE] ?: true)
+        UserSettings(preferences[LANGUAGE] ?: "en", preferences[VOICE] ?: true)
     }
     override suspend fun updateSettings(settings: UserSettings) {
         context.settingsStore.edit { preferences -> preferences[LANGUAGE] = settings.languageTag; preferences[VOICE] = settings.voiceAlertsEnabled }

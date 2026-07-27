@@ -118,7 +118,7 @@ private fun GramKavachApp() {
 
 @Composable 
 private fun Splash(onReady: () -> Unit) { 
-    LaunchedEffect(Unit) { kotlinx.coroutines.delay(1.5.seconds); onReady() }
+    LaunchedEffect(Unit) { kotlinx.coroutines.delay(0.8.seconds); onReady() }
     Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) { 
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
             Image(painter = painterResource(id = R.drawable.ic_launcher_foreground), contentDescription = null, modifier = Modifier.size(160.dp))

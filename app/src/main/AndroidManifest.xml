@@ -5,8 +5,13 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <application android:name=".GramKavachApplication" android:allowBackup="false" android:label="GramKavach" android:theme="@style/Theme.GramKavach" android:icon="@mipmap/ic_launcher" android:roundIcon="@mipmap/ic_launcher" android:enableOnBackInvokedCallback="true">
-        <activity android:name=".MainActivity" android:exported="true"><intent-filter><action android:name="android.intent.action.MAIN"/><category android:name="android.intent.category.LAUNCHER"/></intent-filter></activity>
-        <activity android:name="org.gramkavach.alerts.FullScreenWarningActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" android:launchMode="singleTop" />
-        <service android:name="org.gramkavach.monitoring.RiskMonitoringService" android:exported="false" />
+        <activity android:name=".MainActivity" android:exported="true" android:windowSoftInputMode="adjustResize"><intent-filter><action android:name="android.intent.action.MAIN"/><category android:name="android.intent.category.LAUNCHER"/></intent-filter></activity>
+        <activity
+            android:name="org.gramkavach.alerts.FullScreenWarningActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"
+            android:launchMode="singleTop"
+            android:showWhenLocked="true"
+            android:turnScreenOn="true"
+            android:exported="false" />
     </application>
 </manifest>

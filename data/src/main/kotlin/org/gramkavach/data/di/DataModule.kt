@@ -19,6 +19,7 @@ import org.gramkavach.domain.repository.RiskRepository
 object DataModule {
     @Provides @Singleton fun database(@ApplicationContext context: Context): GramKavachDatabase = Room.databaseBuilder(context, GramKavachDatabase::class.java, "gram-kavach.db")
         .addMigrations(MIGRATION_1_2, MIGRATION_2_3)
+        .fallbackToDestructiveMigration()
         .build()
     @Provides fun alertDao(database: GramKavachDatabase): AlertDao = database.alertDao()
     @Provides @Singleton fun repository(dao: AlertDao, @ApplicationContext context: Context): RiskRepository = RiskRepositoryImpl(dao, context)
