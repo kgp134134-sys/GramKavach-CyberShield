@@ -143,7 +143,7 @@ Explore the GramKavach interface and dynamic safety alerts:
 ### 🚨 Real-time Alerts
 | Warning Overlay | Moderate Alert | History Log |
 | :--- | :--- | :--- |
-| <img src="screenshots/critical-alert.jpg" width="200"/> | <img src="screenshots/moderate-alert.jpg" width="200"/> | <img src="screenshots/alert-history1.jpg" width="200"/> |
+| <img src="screenshots/critical-alert.jpg" width="200"/> | <img src="screenshots/moderate-alert.jpg" width="200"/> | <img src="screenshots/alert-history.jpg" width="200"/> |
 
 ### ⚙️ Settings & App Info
 | My Profile | Settings | About GramKavach |
