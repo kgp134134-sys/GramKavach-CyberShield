@@ -3,7 +3,7 @@
 [![Kotlin](https://img.shields.io/badge/Kotlin-2.1.0-blue.svg?style=flat&logo=kotlin)](https://kotlinlang.org)
 [![Android](https://img.shields.io/badge/Android-API%2026%2B-green.svg?style=flat&logo=android)](https://developer.android.com)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Version](https://img.shields.io/badge/Version-0.3.0-orange.svg)](https://github.com/kgp134134-sys/GramKavach-CyberShield/releases)
+[![Version](https://img.shields.io/badge/Version-0.3.0-orange.svg)](https://github.com/kgp134134-sys/GramKavach456/releases)
 
 > **AI-powered digital financial safety assistant for preventing UPI fraud.**
 
@@ -26,7 +26,7 @@
 ## 📥 Download & Demo
 
 **Get the latest hackathon-ready build here:**
-[**Download GramKavach v0.3.0 APK**](https://github.com/kgp134134-sys/GramKavach-CyberShield/releases/download/v0.3.0-stable/app-release.apk)
+[**Download GramKavach v0.3.0 APK**](https://github.com/kgp134134-sys/GramKavach456/releases/download/v0.3.0-stable/app-release.apk)
 
 **Hackathon Highlights:**
 - **Full Localization**: Support for 7+ Indian languages (Hindi, Marathi, Gujarati, Bengali, Tamil, Telugu, English).
