@@ -13,8 +13,8 @@ android {
         applicationId = "org.gramkavach.app"
         minSdk = 26
         targetSdk = 35
-        versionCode = 3
-        versionName = "0.3.0"
+        versionCode = 4
+        versionName = "0.4.0"
         buildConfigField("String", "BHASHINI_BASE_URL", "\"${providers.gradleProperty("BHASHINI_BASE_URL").orElse("https://dhruva-api.bhashini.gov.in/").get()}\"")
         buildConfigField("String", "BHASHINI_USER_ID", "\"${providers.gradleProperty("BHASHINI_USER_ID").orElse("").get()}\"")
         buildConfigField("String", "BHASHINI_API_KEY", "\"${providers.gradleProperty("BHASHINI_API_KEY").orElse("").get()}\"")
