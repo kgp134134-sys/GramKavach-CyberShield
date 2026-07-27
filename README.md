@@ -164,9 +164,19 @@ Explore the GramKavach interface and dynamic safety alerts:
 - Encrypted exportable incident reports for law enforcement.
 - Community-based usability testing in rural clusters.
 
-## 👥 Team Members
+## 👨‍💻 Developer
 
-Add project contributors here.
+**Khushbu Prajapati** 
+Solo Developer  
+Government Engineering College, Patan
+
+GitHub: https://github.com/kgp134134-sys
+
+## 🙏 Acknowledgments
+
+This project was built with my own idea, concept, planning, and hard work. AI tools helped me with code generation, debugging, improvements, and documentation.
+
+> 🤖 AI helped me during development. The idea and concept are my own.
 
 ## 📄 License
 
