@@ -174,9 +174,9 @@ GitHub: https://github.com/kgp134134-sys
 
 ## 🙏 Acknowledgments
 
-This project was built with my own idea, concept, planning, and hard work. AI tools helped me with code generation, debugging, improvements, and documentation.
+This project was built from my own idea, concept, planning, and hard work. AI tools helped with code generation, debugging, improvements, and documentation.
 
-> 🤖 AI helped me during development. The idea and concept are my own.
+> 🤖 AI assisted during development. The idea and concept are original.
 
 ## 📄 License
 
