@@ -167,6 +167,7 @@ Explore the GramKavach interface and dynamic safety alerts:
 ## 👨‍💻 Developer
 
 **Khushbu Prajapati** 
+
 Solo Developer  
 Government Engineering College, Patan
 
