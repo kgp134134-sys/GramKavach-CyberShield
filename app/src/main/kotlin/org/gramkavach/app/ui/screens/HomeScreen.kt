@@ -5,7 +5,6 @@ import android.provider.Settings as AndroidSettings
 import androidx.compose.animation.*
 import androidx.compose.animation.core.*
 import androidx.compose.foundation.Canvas
-import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
@@ -25,7 +24,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.core.net.toUri
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.Lifecycle
@@ -34,6 +32,7 @@ import androidx.lifecycle.compose.LocalLifecycleOwner
 import org.gramkavach.app.R
 import org.gramkavach.app.ui.theme.*
 import org.gramkavach.domain.model.RiskAssessment
+import org.gramkavach.domain.model.AlertRecord
 import org.gramkavach.app.HomeViewModel
 import org.gramkavach.app.HistoryViewModel
 
@@ -52,8 +51,15 @@ fun Home(userName: String, onAssess: (RiskAssessment) -> Unit, onOpen: (String) 
     val sheetState = rememberModalBottomSheetState()
 
     DisposableEffect(lifecycleOwner) {
-        val observer = LifecycleEventObserver { _, event -> if (event == Lifecycle.Event.ON_RESUME) hasOverlayPermission = AndroidSettings.canDrawOverlays(context) }
-        lifecycleOwner.lifecycle.addObserver(observer); onDispose { lifecycleOwner.lifecycle.removeObserver(observer) }
+        val observer = LifecycleEventObserver { _, event ->
+            if (event == Lifecycle.Event.ON_RESUME) {
+                hasOverlayPermission = AndroidSettings.canDrawOverlays(context)
+            }
+        }
+        lifecycleOwner.lifecycle.addObserver(observer)
+        onDispose {
+            lifecycleOwner.lifecycle.removeObserver(observer)
+        }
     }
 
     LaunchedEffect(assessment) { assessment?.let { onAssess(it); viewModel.consumeAssessment() } }
@@ -86,7 +92,6 @@ fun Home(userName: String, onAssess: (RiskAssessment) -> Unit, onOpen: (String) 
                         val status = when { 
                             isLoading -> "Analyzing context..."
                             latestScore >= 60 -> stringResource(R.string.risk_detected) + ": " + stringResource(R.string.high_risk_badge)
-                            latestScore >= 40 -> stringResource(R.string.risk_detected) + " ⚠️"
                             latestScore > 0 -> stringResource(R.string.risk_detected) + " ⚠️"
                             hasOverlayPermission -> stringResource(R.string.system_protected) + " ✅"
                             else -> stringResource(R.string.setup_required) + " ⚠️" 
@@ -212,7 +217,7 @@ fun RiskGauge(score: Int, isScanning: Boolean, modifier: Modifier = Modifier) {
 }
 
 @Composable
-fun RiskBreakdownSheet(latestAlert: org.gramkavach.domain.model.AlertRecord?) {
+fun RiskBreakdownSheet(latestAlert: AlertRecord?) {
     val factors = listOf(
         Pair(stringResource(R.string.factor_sms_link), (latestAlert?.reasons?.any { it.contains("SMS", true) || it.contains("link", true) } ?: false)),
         Pair(stringResource(R.string.factor_remote_apps), (latestAlert?.reasons?.any { it.contains("remote", true) || it.contains("screen", true) } ?: false)),

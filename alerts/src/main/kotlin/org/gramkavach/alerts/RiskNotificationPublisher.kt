@@ -11,10 +11,14 @@ import android.os.Build
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import androidx.core.content.ContextCompat
+import dagger.hilt.android.qualifiers.ApplicationContext
 import org.gramkavach.domain.model.RiskAssessment
 import org.gramkavach.alerts.R
+import javax.inject.Inject
+import javax.inject.Singleton
 
-class RiskNotificationPublisher(private val context: Context) {
+@Singleton
+class RiskNotificationPublisher @Inject constructor(@ApplicationContext private val context: Context) {
     @SuppressLint("MissingPermission")
     fun show(risk: RiskAssessment) {
         if ((Build.VERSION.SDK_INT >= 33) && (ContextCompat.checkSelfPermission(context, android.Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED)) return

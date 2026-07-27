@@ -11,12 +11,16 @@ import android.widget.LinearLayout
 import android.widget.ImageView
 import android.graphics.drawable.GradientDrawable
 import android.animation.ValueAnimator
+import dagger.hilt.android.qualifiers.ApplicationContext
 import org.gramkavach.core.logging.KavachLogger
 import org.gramkavach.domain.model.RiskAssessment
 import org.gramkavach.domain.model.RiskLevel
+import javax.inject.Inject
+import javax.inject.Singleton
 
 /** Manages a floating "Safety Badge" overlay to warn users over other apps. */
-class OverlayController(private val context: Context) {
+@Singleton
+class OverlayController @Inject constructor(@ApplicationContext private val context: Context) {
     private val windowManager = context.getSystemService(Context.WINDOW_SERVICE) as WindowManager
     private var overlayView: View? = null
     private var animator: ValueAnimator? = null

@@ -1,25 +1,25 @@
 # Task: Architecture Optimization & Project Cleanup
 
-- `[ ]` Cleanup redundant project files
-    - `[ ]` Delete duplicate `GRAMKAVACHA/` directory
-- `[ ]` Update build configuration
-    - `[ ]` Add `androidx.core:core-splashscreen` to `:app/build.gradle.kts`
-- `[ ]` Refactor `:app` UI structure
-    - `[ ]` Create `org.gramkavach.app.ui.screens` package
-    - `[ ]` Extract `CommonComponents.kt` (Rangoli, Splash)
-    - `[ ]` Extract `AuthScreens.kt` (AuthLanding, Onboarding)
-    - `[ ]` Extract `HomeScreen.kt` (Home, RiskGauge, Breakdown)
-    - `[ ]` Extract `RiskAlertScreen.kt` (RiskAlert, Analysis)
-    - `[ ]` Extract `InfoScreens.kt` (UserGuide, About, Manual)
-    - `[ ]` Extract `HistoryScreen.kt` (AlertHistory)
-    - `[ ]` Extract `ProfileScreen.kt` (Profile)
-    - `[ ]` Extract `SettingsScreen.kt` (Settings, Language)
-- `[ ]` Modernize `MainActivity.kt`
-    - `[ ]` Implement `installSplashScreen()`
-    - `[ ]` Implement `enableEdgeToEdge()`
-    - `[ ]` Cleanup imports and unused code
-- `[ ]` Update Documentation
-    - `[ ]` Update `README.md` architecture diagram and links
-- `[ ]` Verification
-    - `[ ]` Run build
-    - `[ ]` Verify UI on device
+- `[x]` Cleanup redundant project files
+    - `[x]` Delete duplicate `GRAMKAVACHA/` directory
+- `[x]` Update build configuration
+    - `[x]` Add `androidx.core:core-splashscreen` to `:app/build.gradle.kts`
+- `[x]` Refactor `:app` UI structure
+    - `[x]` Create `org.gramkavach.app.ui.screens` package
+    - `[x]` Extract `CommonComponents.kt` (Rangoli, Splash)
+    - `[x]` Extract `AuthScreens.kt` (AuthLanding, Onboarding)
+    - `[x]` Extract `HomeScreen.kt` (Home, RiskGauge, Breakdown)
+    - `[x]` Extract `RiskAlertScreen.kt` (RiskAlert, Analysis)
+    - `[x]` Extract `InfoScreens.kt` (UserGuide, About, Manual)
+    - `[x]` Extract `HistoryScreen.kt` (AlertHistory)
+    - `[x]` Extract `ProfileScreen.kt` (Profile)
+    - `[x]` Extract `SettingsScreen.kt` (Settings, Language)
+- `[x]` Modernize `MainActivity.kt`
+    - `[x]` Implement `installSplashScreen()`
+    - `[x]` Implement `enableEdgeToEdge()`
+    - `[x]` Cleanup imports and unused code
+- `[x]` Update Documentation
+    - `[x]` Update `README.md` architecture diagram and links
+- `[x]` Verification
+    - `[x]` Run build
+    - `[x]` Verify UI on device

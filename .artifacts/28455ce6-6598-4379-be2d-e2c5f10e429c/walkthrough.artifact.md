@@ -18,9 +18,10 @@ The monolithic `MainActivity.kt` (previously 800+ lines) has been broken down in
 - [InfoScreens.kt](file:///C:/Project/gram%20kavacha/app/src/main/kotlin/org/gramkavach/app/ui/screens/InfoScreens.kt): User guide, About section, and Safety Manual.
 - [CommonComponents.kt](file:///C:/Project/gram%20kavacha/app/src/main/kotlin/org/gramkavach/app/ui/screens/CommonComponents.kt): Shared UI like the animated Rangoli pattern.
 
-### 🧹 Project Cleanup
-- **Redundant Folders**: Deleted the duplicate `GRAMKAVACHA/` and `GramKavach/` directories that were cluttering the project root.
-- **Architecture Diagram**: Updated the `README.md` with a new Mermaid diagram reflecting the modular UI structure.
+### 📸 Documentation & Visual Updates
+- **New High-Quality Screenshots**: Replaced old/generic screenshots with 20+ new high-quality versions covering the entire user journey (Guide, Auth, Dashboard, Risk Alerts, Settings, Profile).
+- **README Fixed**: Updated all screenshot links in `README.md` to ensure they point to the correct new files.
+- **GitHub Synced**: All visual and code changes are now pushed to both GitHub remotes (`main` and `origin`).
 
 ## Verification Results
 

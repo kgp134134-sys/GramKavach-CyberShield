@@ -81,26 +81,34 @@ GramKavach honors the "Maverick Effect" legacy through:
 
 ## 📐 Architecture
 
-GramKavach follows Clean Architecture principles with a modular UI. The `app` module is organized into specialized screen components.
+GramKavach follows a **Domain-Centric Dependency Inverted Architecture** (Clean Architecture). The core business logic remains independent of frameworks and implementation details.
+
+### Dependency Flow
+*   **Domain**: Center of the universe. Pure Kotlin. No external dependencies.
+*   **Data/AI/Alerts**: Implementation layers. They depend on `domain` and implement its interfaces.
+*   **Monitoring**: Service orchestration layer. Depends only on `domain` abstractions.
+*   **App**: Composition root. Wires everything together using Hilt.
 
 ```mermaid
 flowchart TD
-    subgraph UI ["app: UI Layer"]
+    subgraph UI ["app: UI Layer (Hilt Host)"]
         MA[MainActivity] --> Nav[Navigation Graph]
-        Nav --> Home[HomeScreen]
-        Nav --> Auth[AuthScreens]
-        Nav --> Risk[RiskAlertScreen]
-        Nav --> Settings[SettingsScreen]
-        Nav --> Info[InfoScreens]
-        Nav --> History[HistoryScreen]
+        Nav --> Screens[UI Screens]
     end
 
-    UI --> Domain[domain: Models & UseCases]
-    Data[data: Room/DataStore] --> Domain
-    AI[ai: ONNX & Rules Scorer] --> Domain
-    Monitor[monitoring: Signal Facade] --> Domain
-    Voice[bhashini: Voice Adapter] --> Domain
-    Alerts[alerts: Notification Policy] --> Domain
+    subgraph Domain ["domain: Business Logic (Center)"]
+        UC[Use Cases]
+        Model[Models]
+        RepoIntf[Repository Interfaces]
+        NotifIntf[Notifier Interfaces]
+    end
+
+    UI --> Domain
+    Data[data: Room/DataStore] -- implements --> RepoIntf
+    AI[ai: ONNX Scorer] -- implements --> UC
+    Alerts[alerts: Overlay/Notify] -- implements --> NotifIntf
+    Monitor[monitoring: Service] -- uses --> UC
+    Monitor -- uses --> NotifIntf
 ```
 
 See [Architecture.md](docs/Architecture.md) and [Workflow.md](docs/Workflow.md) for more details.
@@ -166,7 +174,7 @@ Explore the GramKavach interface and dynamic safety alerts:
 
 ## 👥 Team Members
 
-Add project contributors here.
+- **PRAJAPATI KHUSHBU** (Individual Participant)
 
 ## 📄 License
 

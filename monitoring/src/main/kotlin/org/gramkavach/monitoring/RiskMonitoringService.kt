@@ -9,23 +9,17 @@ import javax.inject.Inject
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import org.gramkavach.core.logging.KavachLogger
-import org.gramkavach.ai.HybridRiskEngine
-import org.gramkavach.alerts.OverlayController
-import org.gramkavach.alerts.RiskNotificationPublisher
 import org.gramkavach.domain.model.AlertRecord
 import org.gramkavach.domain.repository.RiskRepository
+import org.gramkavach.domain.usecase.AssessPaymentRiskUseCase
+import org.gramkavach.domain.usecase.RiskNotifier
 
 @AndroidEntryPoint
 class RiskMonitoringService : LifecycleService() {
-    @Inject lateinit var engine: HybridRiskEngine
+    @Inject lateinit var engine: AssessPaymentRiskUseCase
     @Inject lateinit var repository: RiskRepository
+    @Inject lateinit var notifier: RiskNotifier
     private var collection: Job? = null
-    private var overlay: OverlayController? = null
-
-    override fun onCreate() {
-        super.onCreate()
-        overlay = OverlayController(this)
-    }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         super.onStartCommand(intent, flags, startId)
@@ -47,15 +41,12 @@ class RiskMonitoringService : LifecycleService() {
                     )
                     
                     val isAppForeground = isAppInForeground()
-                    // Never show overlay if score is low or if app is in foreground
-                    if (android.provider.Settings.canDrawOverlays(this@RiskMonitoringService) && !isAppForeground && risk.score >= 15) {
-                        overlay?.show(risk)
+                    // Never show overlay if app is in foreground
+                    if (!isAppForeground) {
+                        notifier.show(risk)
                     } else {
-                        overlay?.dismiss()
+                        notifier.dismiss()
                     }
-
-                    // Always show notification for demo (even for Score 0 / Safe)
-                    RiskNotificationPublisher(this@RiskMonitoringService).show(risk)
                 }.onFailure { e ->
                     KavachLogger.e("Critical error in risk collection", e)
                 }
@@ -73,7 +64,7 @@ class RiskMonitoringService : LifecycleService() {
     override fun onDestroy() {
         KavachLogger.i("RiskMonitoringService destroyed")
         collection?.cancel()
-        overlay?.dismiss()
+        notifier.dismiss()
         super.onDestroy()
     }
 }

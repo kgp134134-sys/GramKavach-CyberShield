@@ -1,62 +1,52 @@
-# Implementation Plan - Modernizing MainActivity and Refactoring
+# Implementation Plan - Architecture Optimization & Project Cleanup
 
-The current implementation of `MainActivity` in `org.gramkavach.app` is a large monolithic file that handles everything from Activity lifecycle and permissions to the entire UI logic of the application. The `onCreate` method itself is functional but lacks modern Android best practices like edge-to-edge support and the standard Splash Screen API.
+The goal is to modernize the app's entry point (`MainActivity`), refactor the monolithic UI into a clean modular structure, and clean up redundant files in the project. We will also update the project documentation (`README.md`) while preserving its original design.
 
 ## User Review Required
 
 > [!IMPORTANT]
-> I am proposing a significant refactoring to extract screen composables into their own files. This will greatly improve readability and maintainability but will change the file structure of the `:app` module.
+> **Project Cleanup**: I will delete the `GRAMKAVACHA/` directory as it appears to be a redundant copy of the project.
+> **Architecture**: I will move all UI screens from `MainActivity.kt` to a new package `org.gramkavach.app.ui.screens`. This is a major structural change for the `:app` module.
 
 > [!NOTE]
-> I will add the `androidx.core:core-splashscreen` dependency to handle the app startup experience more professionally.
+> I will add the `androidx.core:core-splashscreen` dependency and use `enableEdgeToEdge()` as discussed to improve the modern feel of the app.
 
 ## Proposed Changes
 
-### 1. Build Configuration
+### 1. Build & Dependency Updates
+#### [MODIFY] [build.gradle.kts](file:///C:/Project/gram%20kavacha/app/build.gradle.kts)
+- Add `androidx.core:core-splashscreen:1.0.1` dependency.
 
-#### [MODIFY] [build.gradle.kts](file:///C:/Project/gram kavacha/app/build.gradle.kts)
-- Add `androidx.core:core-splashscreen` dependency.
+### 2. MainActivity Refactoring
+#### [MODIFY] [MainActivity.kt](file:///C:/Project/gram%20kavacha/app/src/main/kotlin/org/gramkavach/app/MainActivity.kt)
+- Implement `installSplashScreen()` and `enableEdgeToEdge()`.
+- Extract all `@Composable` functions into separate files in `org.gramkavach.app.ui.screens`.
 
-### 2. MainActivity Modernization
+### 3. New UI Architecture (Package: `org.gramkavach.app.ui.screens`)
+- **[NEW] `AuthScreens.kt`**: `AuthLanding`, `Onboarding`.
+- **[NEW] `HomeScreen.kt`**: `Home`, `RiskGauge`, `RiskBreakdownSheet`.
+- **[NEW] `RiskAlertScreen.kt`**: `RiskAlert`, `DetectionAnalysisSection`.
+- **[NEW] `InfoScreens.kt`**: `UserGuide`, `About`, `SafetyManual`.
+- **[NEW] `HistoryScreen.kt`**: `AlertHistory`.
+- **[NEW] `ProfileScreen.kt`**: `ProfileScreen`.
+- **[NEW] `SettingsScreen.kt`**: `Settings`, `LanguageSelection`.
+- **[NEW] `CommonComponents.kt`**: `RangoliPattern`, `Splash`.
 
-#### [MODIFY] [MainActivity.kt](file:///C:/Project/gram kavacha/app/src/main/kotlin/org/gramkavach/app/MainActivity.kt)
-- Add `installSplashScreen()` to handle the cold start.
-- Add `enableEdgeToEdge()` to support modern immersive displays.
-- Extract the 800+ lines of Composables into a new package `org.gramkavach.app.ui.screens`.
+### 4. Project Cleanup
+- **[DELETE] `GRAMKAVACHA/`**: Remove the entire duplicate directory.
 
-### 3. UI Refactoring (New Package: `org.gramkavach.app.ui.screens`)
-
-#### [NEW] `HomeScreen.kt`
-- Extract `Home`, `RiskGauge`, `RiskBreakdownSheet`, `DetectionAnalysisSection` composables.
-
-#### [NEW] `AuthScreens.kt`
-- Extract `AuthLanding`, `Onboarding` composables.
-
-#### [NEW] `RiskAlertScreen.kt`
-- Extract `RiskAlert` composable.
-
-#### [NEW] `InfoScreens.kt`
-- Extract `UserGuide`, `About`, `SafetyManual` composables.
-
-#### [NEW] `HistoryScreen.kt`
-- Extract `AlertHistory` composable.
-
-#### [NEW] `ProfileScreen.kt`
-- Extract `ProfileScreen` composable.
-
-#### [NEW] `SettingsScreen.kt`
-- Extract `Settings`, `LanguageSelection` composables.
-
-#### [NEW] `CommonComponents.kt`
-- Extract `RangoliPattern`, `Splash` (if still needed for internal transition) composables.
+### 5. Documentation Update
+#### [MODIFY] [README.md](file:///C:/Project/gram%20kavacha/README.md)
+- Update the **Architecture** section to reflect the new UI modularization.
+- Ensure all screenshot links are correct and aligned with the latest UI.
 
 ## Verification Plan
 
 ### Automated Tests
-- Run `./gradlew :app:assembleDebug` to ensure everything compiles after refactoring.
-- Run existing unit tests: `./gradlew :app:test`.
+- Build the project: `./gradlew :app:assembleDebug`.
+- Run lint to check for any issues with the new structure.
 
 ### Manual Verification
-- Deploy the app and verify that the splash screen transitions smoothly.
-- Check that the UI correctly respects system bars (Edge-to-Edge).
-- Verify that navigation between screens still works as expected.
+- Deploy to a device/emulator.
+- Verify the Splash Screen animation.
+- Navigate through all screens to ensure DI (Hilt) and ViewModels are still working correctly.
