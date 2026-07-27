@@ -1,0 +1,130 @@
+<resources>
+    <string name="app_name">GramKavach</string>
+    <string name="tagline">Your Rural Safety Shield</string>
+    <string name="digital_safety_companion">Digital Safety Companion</string>
+    <string name="hero_description">Before you enter a UPI PIN, check the amount and recipient. Never pay to receive money.</string>
+
+    <!-- Dashboard -->
+    <string name="system_protected">System Protected</string>
+    <string name="setup_required">Setup Required</string>
+    <string name="risk_detected">Risk Detected</string>
+    <string name="monitoring_active">Real-time monitoring active</string>
+    <string name="high_risk_badge">Stay Alert 🚨</string>
+    <string name="quick_actions">Quick Actions</string>
+    <string name="history">History</string>
+    <string name="alerts_count">%1$d alerts</string>
+    <string name="help_1930">1930 Help</string>
+    <string name="report_fraud">Report Fraud</string>
+    <string name="overlay_disabled">Overlay Disabled</string>
+    <string name="overlay_required">Required for live alerts.</string>
+    <string name="enable">Enable</string>
+    <string name="hackathon_demo">Hackathon Demo (4 Levels)</string>
+    <string name="how_it_works">How it Works</string>
+    <string name="view_guide">View User Guide</string>
+
+    <!-- Guide Steps -->
+    <string name="guide_title">App Guide</string>
+    <string name="guide_step_1_title">1. Real-time Monitoring</string>
+    <string name="guide_step_1_desc">GramKavach runs in the background and monitors for suspicious activities like unknown callers or remote access apps.</string>
+    <string name="guide_step_2_title">2. Smart Risk Analysis</string>
+    <string name="guide_step_2_desc">When a potential fraud is detected, you will see a risk score and a detailed breakdown of why the alert was generated.</string>
+    <string name="guide_step_3_title">3. Local Voice Alerts</string>
+    <string name="guide_step_3_desc">Receive instant voice warnings in your own language to stay alert during high-pressure situations.</string>
+    <string name="guide_step_4_title">4. Emergency Reporting</string>
+    <string name="guide_step_4_desc">Immediately report fraud attempts to the Cyber Cell by calling 1930 directly from the app.</string>
+    <string name="get_started">Get Started</string>
+    <string name="next">Next</string>
+    <string name="finish">Finish</string>
+
+    <!-- Alert Screen -->
+    <string name="payment_safety_alert">Payment Safety Alert</string>
+    <string name="risk_score_label">Risk Score</string>
+    <string name="risk_level_label">Risk Level</string>
+    <string name="level_safe">SAFE</string>
+    <string name="level_caution">CAUTION</string>
+    <string name="level_moderate">MODERATE</string>
+    <string name="level_high">HIGH</string>
+    <string name="level_critical">CRITICAL</string>
+    <string name="suspect_label">Suspect</string>
+    <string name="verified_contact">Verified Contact</string>
+    <string name="risk_source">Risk Source</string>
+    <string name="detection_analysis">Detection Analysis</string>
+    <string name="factor_header">Detection Factor</string>
+    <string name="status_header">Status</string>
+    <string name="pts_header">Pts</string>
+    <string name="detected">Detected</string>
+    <string name="clear">Clear</string>
+    <string name="why_alert">Why this alert?</string>
+    <string name="recommended_action">Recommended Action</string>
+    <string name="i_understand">I Understand</string>
+    <string name="share">Share</string>
+    <string name="report_1930">Report 1930</string>
+    <string name="play_voice_warning">Play Voice Warning</string>
+    <string name="voice_unavailable">Voice guidance unavailable.</string>
+    <string name="alert_footer">Do not share your UPI PIN, OTP, or screen. Cancel if you are unsure.</string>
+
+    <!-- History -->
+    <string name="alert_history">Alert History</string>
+    <string name="no_alerts">No alerts recorded yet.</string>
+    <string name="history_empty_desc">Safe usage history will appear here.</string>
+
+    <!-- Settings -->
+    <string name="settings">Settings</string>
+    <string name="voice_alerts">Voice Safety Alerts</string>
+    <string name="voice_alerts_desc">Speak warnings during high-risk calls</string>
+    <string name="app_language">App Language</string>
+    <string name="about_gramkavach">About GramKavach</string>
+    <string name="version">Version 0.3.0</string>
+    <string name="choose_language">Choose Language</string>
+
+    <!-- About -->
+    <string name="about_desc">GramKavach is a local-first digital financial safety assistant designed to protect rural and first-time digital-payment users from UPI fraud.</string>
+    <string name="tech_stack">Tech Stack:</string>
+    <string name="safer_india">Built for safer digital India</string>
+
+    <!-- Analysis Scenarios -->
+    <string name="source_bank_scam">Unknown Caller + Remote Access App</string>
+    <string name="why_bank_scam">Multiple high-risk indicators suggest a possible social engineering attempt.</string>
+    <string name="action_bank_scam">End the call immediately, close any remote-access app, and never share your OTP or UPI PIN.</string>
+
+    <string name="source_collect">UPI Collect Request</string>
+    <string name="why_collect">A collect request asks you to authorize a payment. Receiving money never requires entering your UPI PIN.</string>
+    <string name="action_collect">Verify the sender before approving the request. Reject unexpected collect requests.</string>
+
+    <string name="source_phishing">SMS/WhatsApp Link</string>
+    <string name="why_phishing">Suspicious or unverified link detected that may attempt to steal personal or banking information.</string>
+    <string name="action_phishing">Do not open the link or enter any sensitive information. Verify the sender first.</string>
+
+    <string name="source_qr">External QR Code</string>
+    <string name="why_qr">The scanned QR code initiates a payment request. Always verify the recipient and amount before entering your UPI PIN.</string>
+    <string name="action_qr">Confirm the merchant and payment details before proceeding.</string>
+
+    <!-- Signal Keys -->
+    <string name="signal_remote_access">A screen-sharing or remote-access app is active</string>
+    <string name="signal_accessibility">An untrusted app may control accessibility features</string>
+    <string name="signal_unknown_call">A call from an unknown number is active</string>
+    <string name="signal_collect">This is a Collect Request — receiving money never requires paying</string>
+    <string name="signal_phishing">A suspicious link was opened recently</string>
+    <string name="signal_qr">Verify the merchant and amount before scanning a QR code</string>
+
+    <!-- Transaction Type Keys -->
+    <string name="type_verified">Verified Payment</string>
+    <string name="type_phishing">Phishing Attempt</string>
+    <string name="type_collect">UPI Collect Request</string>
+    <string name="type_bank_scam">Bank Scam Call</string>
+    <string name="type_incoming_call">Incoming Call</string>
+
+    <!-- Factors -->
+    <string name="factor_remote">Remote Access Detection</string>
+    <string name="factor_accessibility">Accessibility Vulnerability</string>
+    <string name="factor_unknown_call">Call from Unknown Source</string>
+    <string name="factor_collect">Collect Request Detected</string>
+    <string name="factor_external_source">External UPI Source</string>
+    <string name="factor_phishing">Phishing Indicators</string>
+    <string name="factor_phishing_url">Suspicious URL Analysis</string>
+    <string name="factor_sms_check">SMS Permission Check</string>
+    <string name="factor_blacklist">Blacklisted Domain</string>
+    <string name="factor_qr_scanned">External QR Scanned</string>
+    <string name="factor_merchant_trust">Merchant Trust Score</string>
+    <string name="factor_amount_check">Amount Verification</string>
+</resources>

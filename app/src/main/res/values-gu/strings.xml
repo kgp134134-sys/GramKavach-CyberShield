@@ -1,0 +1,124 @@
+<resources>
+    <string name="app_name">ગ્રામકવચ</string>
+    <string name="tagline">તમારી ગ્રામીણ સુરક્ષા કવચ</string>
+    <string name="digital_safety_companion">ડિજિટલ સુરક્ષા સાથી</string>
+    <string name="hero_description">UPI પિન નાખતા પહેલા, રકમ અને મેળવનારની તપાસ કરો. પૈસા મેળવવા માટે ક્યારેય ચૂકવણી ન કરો.</string>
+
+    <string name="system_protected">સિસ્ટમ સુરક્ષિત છે</string>
+    <string name="setup_required">સેટઅપ જરૂરી છે</string>
+    <string name="risk_detected">જોખમ જણાયું</string>
+    <string name="monitoring_active">રીઅલ-ટાઇમ મોનિટરિંગ સક્રિય છે</string>
+    <string name="high_risk_badge">સતર્ક રહો 🚨</string>
+    <string name="quick_actions">ઝડપી પગલાં</string>
+    <string name="history">ઇતિહાસ</string>
+    <string name="alerts_count">%1$d એલર્ટ્સ</string>
+    <string name="help_1930">1930 સહાય</string>
+    <string name="report_fraud">છેતરપિંડીની જાણ કરો</string>
+    <string name="overlay_disabled">ઓવરલે અક્ષમ છે</string>
+    <string name="overlay_required">લાઇવ એલર્ટ્સ માટે જરૂરી છે.</string>
+    <string name="enable">સક્ષમ કરો</string>
+    <string name="hackathon_demo">હેકાથોન ડેમો (4 સ્તર)</string>
+    <string name="how_it_works">તે કેવી રીતે કામ કરે છે</string>
+    <string name="view_guide">વપરાશકર્તા માર્ગદર્શિકા જુઓ</string>
+
+    <!-- Guide Steps -->
+    <string name="guide_title">એપ માર્ગદર્શિકા</string>
+    <string name="guide_step_1_title">1. રીઅલ-ટાઇમ મોનિટરિંગ</string>
+    <string name="guide_step_1_desc">ગ્રામકવચ બેકગ્રાઉન્ડમાં ચાલે છે અને અજાણ્યા કોલર અથવા રિમોટ એક્સેસ એપ જેવી શંકાસ્પદ પ્રવૃત્તિઓ પર નજર રાખે છે.</string>
+    <string name="guide_step_2_title">2. સ્માર્ટ જોખમ વિશ્લેષણ</string>
+    <string name="guide_step_2_desc">જ્યારે સંભવિત છેતરપિંડી જણાય, ત્યારે તમને જોખમ સ્કોર અને એલર્ટના કારણોની વિગતવાર માહિતી દેખાશે.</string>
+    <string name="guide_step_3_title">3. સ્થાનિક અવાજ એલર્ટ્સ</string>
+    <string name="guide_step_3_desc">મુશ્કેલ પરિસ્થિતિઓમાં સતર્ક રહેવા માટે તમારી પોતાની ભાષામાં ત્વરિત અવાજ ચેતવણીઓ મેળવો.</string>
+    <string name="guide_step_4_title">4. ઇમરજન્સી રિપોર્ટિંગ</string>
+    <string name="guide_step_4_desc">એપમાંથી સીધા 1930 પર કોલ કરીને છેતરપિંડીના પ્રયાસોની તાત્કાલિક સાયબર સેલમાં જાણ કરો.</string>
+    <string name="get_started">શરૂ કરો</string>
+    <string name="next">આગળ</string>
+    <string name="finish">પૂર્ણ</string>
+
+    <string name="payment_safety_alert">ચુકવણી સુરક્ષા ચેતવણી</string>
+    <string name="risk_score_label">જોખમ સ્કોર</string>
+    <string name="risk_level_label">જોખમ સ્તર</string>
+    <string name="level_safe">સુરક્ષિત</string>
+    <string name="level_caution">સાવચેતી</string>
+    <string name="level_moderate">મધ્યમ જોખમ</string>
+    <string name="level_high">ઉચ્ચ જોખમ</string>
+    <string name="level_critical">અતિશય જોખમ</string>
+    <string name="suspect_label">શંકાસ્પદ</string>
+    <string name="verified_contact">ચકાસાયેલ સંપર્ક</string>
+    <string name="risk_source">જોખમનું સ્ત્રોત</string>
+    <string name="detection_analysis">તપાસ વિશ્લેષણ</string>
+    <string name="factor_header">તપાસ પરિબળ</string>
+    <string name="status_header">સ્થિતિ</string>
+    <string name="pts_header">પોઈન્ટ્સ</string>
+    <string name="detected">જણાયું</string>
+    <string name="clear">સુરક્ષિત</string>
+    <string name="why_alert">આ એલર્ટ કેમ?</string>
+    <string name="recommended_action">ભલામણ કરેલ પગલાં</string>
+    <string name="i_understand">હું સમજું છું</string>
+    <string name="share">શેર કરો</string>
+    <string name="report_1930">1930 રિપોર્ટ</string>
+    <string name="play_voice_warning">અવાજ ચેતવણી સાંભળો</string>
+    <string name="voice_unavailable">અવાજ માર્ગદર્શન ઉપલબ્ધ નથી.</string>
+    <string name="alert_footer">તમારો UPI પિન, OTP અથવા સ્ક્રીન શેર કરશો નહીં. ખાતરી ન હોય તો રદ કરો.</string>
+
+    <string name="alert_history">એલર્ટ ઇતિહાસ</string>
+    <string name="no_alerts">હજુ સુધી કોઈ એલર્ટ રેકોર્ડ થયું નથી.</string>
+    <string name="history_empty_desc">સુરક્ષિત વપરાશનો ઇતિહાસ અહીં દેખાશે.</string>
+
+    <string name="settings">સેટિંગ્સ</string>
+    <string name="voice_alerts">અવાજ સુરક્ષા એલર્ટ્સ</string>
+    <string name="voice_alerts_desc">જોખમી કોલ દરમિયાન ચેતવણી બોલો</string>
+    <string name="app_language">એપ્લિકેશન ભાષા</string>
+    <string name="about_gramkavach">ગ્રામકવચ વિશે</string>
+    <string name="version">વર્ઝન 0.3.0</string>
+    <string name="choose_language">ભાષા પસંદ કરો</string>
+
+    <string name="about_desc">ગ્રામકવચ એ એક ડિજિટલ નાણાકીય સુરક્ષા સહાયક છે જે ગ્રામીણ અને પ્રથમ વખત ડિજિટલ પેમેન્ટ કરનારા વપરાશકર્તાઓને UPI છેતરપિંડીથી બચાવવા માટે રચાયેલ છે.</string>
+    <string name="tech_stack">તકનીકી વિગતો:</string>
+    <string name="safer_india">સુરક્ષિત ડિજિટલ ભારત માટે નિર્મિત</string>
+
+    <string name="source_bank_scam">અજાણ્યા કોલર + રિમોટ એક્સેસ એપ</string>
+    <string name="why_bank_scam">ઘણી ઉચ્ચ-જોખમ સૂચકાંકો સંભવિત છેતરપિંડી સૂચવે છે.</string>
+    <string name="action_bank_scam">કોલ તરત જ કાપી નાખો, રિમોટ-એક્સેસ એપ બંધ કરો અને તમારો OTP અથવા UPI પિન ક્યારેય શેર કરશો નહીં.</string>
+
+    <string name="source_collect">UPI કલેક્ટ વિનંતી</string>
+    <string name="why_collect">કલેક્ટ વિનંતી તમને ચુકવણી અધિકૃત કરવા માટે કહે છે. પૈસા મેળવવા માટે ક્યારેય UPI પિનની જરૂર પડતી નથી.</string>
+    <string name="action_collect">વિનંતી મંજૂર કરતા પહેલા મોકલનારની ખાતરી કરો. અણધારી કલેક્ટ વિનંતીઓ નકારો.</string>
+
+    <string name="source_phishing">SMS/WhatsApp લિંક</string>
+    <string name="why_phishing">શંકાસ્પદ લિંક મળી છે જે વ્યક્તિગત અથવા બેંકિંગ માહિતી ચોરવાનો પ્રયાસ કરી શકે છે.</string>
+    <string name="action_phishing">લિંક ખોલશો નહીં અથવા કોઈ સંવેદનશીલ માહિતી દાખલ કરશો નહીં. પહેલા મોકલનારની ખાતરી કરો.</string>
+
+    <string name="source_qr">બાહ્ય QR કોડ</string>
+    <string name="why_qr">સ્કેન કરેલ QR કોડ પેમેન્ટ વિનંતી શરૂ કરે છે. UPI પિન નાખતા પહેલા હંમેશા મેળવનાર અને રકમ તપાસો.</string>
+    <string name="action_qr">આગળ વધતા પહેલા મર્ચન્ટ અને પેમેન્ટ વિગતોની પુષ્ટિ કરો.</string>
+
+    <!-- Signal Keys -->
+    <string name="signal_remote_access">સ્ક્રીન-શેરિંગ અથવા રિમોટ-એક્સેસ એપ સક્રિય છે</string>
+    <string name="signal_accessibility">અવિશ્વસનીય એપ એક્સેસિબિલિટી સુવિધાઓને નિયંત્રિત કરી શકે છે</string>
+    <string name="signal_unknown_call">અજ્ઞાત નંબર પરથી કોલ સક્રિય છે</string>
+    <string name="signal_collect">આ એક કલેક્ટ વિનંતી છે — પૈસા મેળવવા માટે ક્યારેય ચૂકવણી કરવાની જરૂર નથી</string>
+    <string name="signal_phishing">તાજેતરમાં એક શંકાસ્પદ લિંક ખોલવામાં આવી હતી</string>
+    <string name="signal_qr">QR કોડ સ્કેન કરતા પહેલા મર્ચન્ટ અને રકમની ખાતરી કરો</string>
+
+    <!-- Transaction Type Keys -->
+    <string name="type_verified">ચકાસાયેલ ચુકવણી</string>
+    <string name="type_phishing">ફિશિંગનો પ્રયાસ</string>
+    <string name="type_collect">UPI કલેક્ટ વિનંતી</string>
+    <string name="type_bank_scam">બેંક સ્કેમ કોલ</string>
+    <string name="type_incoming_call">ઇનકમિંગ કોલ</string>
+
+    <!-- Factors -->
+    <string name="factor_remote">રિમોટ એક્સેસની ઓળખ</string>
+    <string name="factor_accessibility">એક્સેસિબિલિટી નબળાઈ</string>
+    <string name="factor_unknown_call">અજાણ્યા સ્ત્રોતથી કોલ</string>
+    <string name="factor_collect">કલેક્ટ વિનંતીની જાણ થઈ</string>
+    <string name="factor_external_source">બાહ્ય UPI સ્ત્રોત</string>
+    <string name="factor_phishing">ફિશિંગના સંકેતો</string>
+    <string name="factor_phishing_url">શંકાસ્પદ URL વિશ્લેષણ</string>
+    <string name="factor_sms_check">SMS પરવાનગી તપાસ</string>
+    <string name="factor_blacklist">બ્લેકલિસ્ટ કરેલ ડોમેન</string>
+    <string name="factor_qr_scanned">બાહ્ય QR સ્કેન કર્યું</string>
+    <string name="factor_merchant_trust">મર્ચન્ટ ટ્રસ્ટ સ્કોર</string>
+    <string name="factor_amount_check">રકમની ચકાસણી</string>
+</resources>

@@ -1,0 +1,5 @@
+- [ ] Add Risk Signal and Transaction Type keys to `strings.xml` (All 7 languages)
+- [ ] Refactor `HybridRiskEngine.kt` to return resource keys
+- [ ] Refactor `HomeViewModel.kt` to use resource keys in simulations
+- [ ] Update `MainActivity.kt` to resolve dynamic keys in History and Alerts
+- [ ] Final UI Polish for localization consistency

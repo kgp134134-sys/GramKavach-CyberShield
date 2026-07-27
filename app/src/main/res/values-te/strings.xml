@@ -1,0 +1,124 @@
+<resources>
+    <string name="app_name">గ్రామ్‌కవచ్</string>
+    <string name="tagline">మీ గ్రామీణ భద్రతా కవచం</string>
+    <string name="digital_safety_companion">డిజిటల్ భద్రతా సహచరుడు</string>
+    <string name="hero_description">UPI పిన్‌ని నమోదు చేసే ముందు, మొత్తం మరియు గ్రహీతను తనిఖీ చేయండి. డబ్బు పొందడానికి ఎప్పుడూ డబ్బు చెల్లించకండి.</string>
+
+    <string name="system_protected">సిస్టమ్ రక్షించబడింది ✅</string>
+    <string name="setup_required">సెటప్ అవసరం ⚠️</string>
+    <string name="risk_detected">రిస్క్ గుర్తించబడింది</string>
+    <string name="monitoring_active">రియల్-టైమ్ మానిటరింగ్ యాక్టివ్‌గా ఉంది</string>
+    <string name="high_risk_badge">అప్రమత్తంగా ఉండండి 🚨</string>
+    <string name="quick_actions">త్వరిత చర్యలు</string>
+    <string name="history">చరిత్ర</string>
+    <string name="alerts_count">%1$d హెచ్చరికలు</string>
+    <string name="help_1930">1930 సహాయం</string>
+    <string name="report_fraud">మోసాన్ని నివేదించండి</string>
+    <string name="overlay_disabled">ఓవర్‌లే నిలిపివేయబడింది</string>
+    <string name="overlay_required">లైవ్ హెచ్చరికల కోసం అవసరం.</string>
+    <string name="enable">ప్రారంభించు</string>
+    <string name="hackathon_demo">హ్యాకథాన్ డెమో (4 స్థాయిలు)</string>
+    <string name="how_it_works">ఇది ఎలా పనిచేస్తుంది</string>
+    <string name="view_guide">యూజర్ గైడ్ చూడండి</string>
+
+    <!-- Guide Steps -->
+    <string name="guide_title">యాప్ గైడ్</string>
+    <string name="guide_step_1_title">1. రియల్-టైమ్ మానిటరింగ్</string>
+    <string name="guide_step_1_desc">గ్రామ్‌కవచ్ బ్యాక్‌గ్రౌండ్‌లో నడుస్తుంది మరియు తెలియని కాలర్‌లు లేదా రిమోట్ యాక్సెస్ యాప్‌ల వంటి అనుమానాస్పద కార్యకలాపాలను పర్యవేక్షిస్తుంది.</string>
+    <string name="guide_step_2_title">2. స్మార్ట్ రిస్క్ విశ్లేషణ</string>
+    <string name="guide_step_2_desc">సాధ్యమైన మోసాన్ని గుర్తించినప్పుడు, రిస్క్ స్కోర్ మరియు హెచ్చరిక ఎందుకు రూపొందించబడిందో వివరణాత్మక విశ్లేషణను చూస్తారు.</string>
+    <string name="guide_step_3_title">3. స్థానిక వాయిస్ హెచ్చరికలు</string>
+    <string name="guide_step_3_desc">ఒత్తిడితో కూడిన పరిస్థితులలో అప్రమత్తంగా ఉండటానికి మీ స్వంత భాషలో తక్షణ వాయిస్ హెచ్చరికలను పొందండి.</string>
+    <string name="guide_step_4_title">4. అత్యవసర రిపోర్టింగ్</string>
+    <string name="guide_step_4_desc">యాప్ నుండి నేరుగా 1930 కి కాల్ చేయడం ద్వారా మోసపూరిత ప్రయత్నాలను వెంటనే సైబర్ సెల్‌కు నివేదించండి.</string>
+    <string name="get_started">ప్రారంభించండి</string>
+    <string name="next">తదుపరి</string>
+    <string name="finish">ముగించు</string>
+
+    <string name="payment_safety_alert">చెల్లింపు భద్రతా హెచ్చరిక</string>
+    <string name="risk_score_label">రిస్క్ స్కోర్</string>
+    <string name="risk_level_label">రిస్క్ లెవల్</string>
+    <string name="level_safe">సురక్షితం</string>
+    <string name="level_caution">జాగ్రత్త</string>
+    <string name="level_moderate">మధ్యస్థ రిస్క్</string>
+    <string name="level_high">అధిక రిస్క్</string>
+    <string name="level_critical">తీవ్రమైన రిస్క్</string>
+    <string name="suspect_label">అనుమానితుడు</string>
+    <string name="verified_contact">ధృవీకరించబడిన కాంటాక్ట్</string>
+    <string name="risk_source">రిస్క్ మూలం</string>
+    <string name="detection_analysis">డిటెక్షన్ విశ్లేషణ</string>
+    <string name="factor_header">డిటెక్షన్ కారకం</string>
+    <string name="status_header">స్థితి</string>
+    <string name="pts_header">పాయింట్లు</string>
+    <string name="detected">గుర్తించబడింది</string>
+    <string name="clear">సురక్షితం</string>
+    <string name="why_alert">ఈ హెచ్చరిక ఎందుకు?</string>
+    <string name="recommended_action">సిఫార్సు చేసిన చర్య</string>
+    <string name="i_understand">నాకు అర్థమైంది</string>
+    <string name="share">షేర్ చేయండి</string>
+    <string name="report_1930">1930 నివేదిక</string>
+    <string name="play_voice_warning">వాయిస్ హెచ్చరికను ప్లే చేయండి</string>
+    <string name="voice_unavailable">వాయిస్ మార్గదర్శకత్వం అందుబాటులో లేదు.</string>
+    <string name="alert_footer">మీ UPI పిన్, OTP లేదా స్క్రీన్‌ని ఎప్పుడూ షేర్ చేయవద్దు. అనుమానం ఉంటే రద్దు చేయండి.</string>
+
+    <string name="alert_history">హెచ్చరిక చరిత్ర</string>
+    <string name="no_alerts">ఇంకా హెచ్చరికలేవీ నమోదు కాలేదు.</string>
+    <string name="history_empty_desc">సురక్షిత వినియోగ చరిత్ర ఇక్కడ కనిపిస్తుంది.</string>
+
+    <string name="settings">సెట్టింగ్‌లు</string>
+    <string name="voice_alerts">వాయిస్ భద్రతా హెచ్చరికలు</string>
+    <string name="voice_alerts_desc">అధిక రిస్క్ ఉన్న కాల్‌ల సమయంలో హెచ్చరికలు మాట్లాడండి</string>
+    <string name="app_language">యాప్ భాష</string>
+    <string name="about_gramkavach">గ్రామ్‌కవచ్ గురించి</string>
+    <string name="version">వెర్షన్ 0.3.0</string>
+    <string name="choose_language">భాషను ఎంచుకోండి</string>
+
+    <string name="about_desc">గ్రామ్‌కవచ్ అనేది గ్రామీణ మరియు మొదటిసారి డిజిటల్ చెల్లింపులు చేసే వినియోగదారులను UPI మోసాల నుండి రక్షించడానికి రూపొందించబడిన డిజిటల్ ఆర్థిక భద్రతా సహాయకుడు.</string>
+    <string name="tech_stack">సాంకేతిక వివరాలు:</string>
+    <string name="safer_india">సురక్షితమైన డిజిటల్ ఇండియా కోసం నిర్మించబడింది</string>
+
+    <string name="source_bank_scam">తెలియని కాలర్ + రిమోట్ యాక్సెస్ యాప్</string>
+    <string name="why_bank_scam">అనేక హై-రిస్క్ సూచికలు సాధ్యమైన మోసాన్ని సూచిస్తున్నాయి.</string>
+    <string name="action_bank_scam">కాల్‌ని వెంటనే ముగించండి, రిమోట్-యాక్సెస్ యాప్‌ని మూసివేయండి మరియు మీ OTP లేదా UPI పిన్‌ని ఎప్పుడూ షేర్ చేయవద్దు.</string>
+
+    <string name="source_collect">UPI కలెక్ట్ అభ్యర్థన</string>
+    <string name="why_collect">కలెక్ట్ అభ్యర్థన మిమ్మల్ని చెల్లింపును ప్రామాణీకరించమని అడుగుతుంది. డబ్బు పొందడానికి ఎప్పుడూ UPI పిన్ అవసరం లేదు.</string>
+    <string name="action_collect">అభ్యర్థనను ఆమోదించే ముందు పంపినవారిని ధృవీకరించండి. ఊహించని కలెక్ట్ అభ్యర్థనలను తిరస్కరించండి.</string>
+
+    <string name="source_phishing">SMS/WhatsApp లింక్</string>
+    <string name="why_phishing">వ్యక్తిగత లేదా బ్యాంకింగ్ సమాచారాన్ని దొంగిలించడానికి ప్రయత్నించే అనుమానాస్పద లింక్ గుర్తించబడింది.</string>
+    <string name="action_phishing">లింక్‌ను తెరవవద్దు లేదా ఎలాంటి సున్నితమైన సమాచారాన్ని నమోదు చేయవద్దు. ముందుగా పంపినవారిని ధృవీకరించండి.</string>
+
+    <string name="source_qr">బాహ్య QR కోడ్</string>
+    <string name="why_qr">స్కాన్ చేసిన QR కోడ్ చెల్లింపు అభ్యర్థనను ప్రారంభిస్తుంది. UPI పిన్‌ని నమోదు చేసే ముందు ఎల్లప్పుడూ గ్రహీత మరియు మొత్తాన్ని ధృవీకరించండి.</string>
+    <string name="action_qr">కొనసాగే ముందు మర్చంట్ మరియు చెల్లింపు వివరాలను నిర్ధారించండి.</string>
+
+    <!-- Signal Keys -->
+    <string name="signal_remote_access">స్క్రీన్-షేరింగ్ లేదా రిమోట్-యాక్సెస్ యాప్ యాక్టివ్‌గా ఉంది</string>
+    <string name="signal_accessibility">నమ్మదగని యాప్ యాక్సెసిబిલીటీ ఫీచర్‌లను నియంత్రించవచ్చు</string>
+    <string name="signal_unknown_call">తెలియని నంబర్ నుండి కాల్ యాక్టివ్‌గా ఉంది</string>
+    <string name="signal_collect">ఇది కలెక్ట్ అభ్యర్థన — డబ్బు పొందడానికి ఎప్పుడూ డబ్బు చెల్లించాల్సిన అవసరం లేదు</string>
+    <string name="signal_phishing">ఇటీవల ఒక అనుమానాస్పద లింక్ తెరవబడింది</string>
+    <string name="signal_qr">QR కోడ్‌ని స్కాన్ చేసే ముందు మర్చంట్ మరియు మొత్తాన్ని ధృవీకరించండి</string>
+
+    <!-- Transaction Type Keys -->
+    <string name="type_verified">ధృవీకరించబడిన చెల్లింపు</string>
+    <string name="type_phishing">ఫిషింగ్ ప్రయత్నం</string>
+    <string name="type_collect">UPI కలెక్ట్ అభ్యర్థన</string>
+    <string name="type_bank_scam">బ్యాంక్ స్కామ్ కాల్</string>
+    <string name="type_incoming_call">ఇన్‌కమింగ్ కాల్</string>
+
+    <!-- Factors -->
+    <string name="factor_remote">రిమోట్ యాక్సెస్ గుర్తింపు</string>
+    <string name="factor_accessibility">యాక్సెసిబిలిటీ దుర్బలత్వం</string>
+    <string name="factor_unknown_call">తెలియని మూలం నుండి కాల్</string>
+    <string name="factor_collect">కలెక్ట్ అభ్యర్థన గుర్తించబడింది</string>
+    <string name="factor_external_source">బాహ్య UPI మూలం</string>
+    <string name="factor_phishing">ఫిషింగ్ సూచికలు</string>
+    <string name="factor_phishing_url">అనుమానాస్పద URL విశ్లేషణ</string>
+    <string name="factor_sms_check">SMS అనుమతి తనిఖీ</string>
+    <string name="factor_blacklist">బ్లాక్లిస్ట్ చేయబడిన డొమైన్</string>
+    <string name="factor_qr_scanned">బాహ్య QR స్కాన్ చేయబడింది</string>
+    <string name="factor_merchant_trust">మర్చంట్ ట్రస్ట్ స్కోర్</string>
+    <string name="factor_amount_check">మొత్తం ధృవీకరణ</string>
+</resources>

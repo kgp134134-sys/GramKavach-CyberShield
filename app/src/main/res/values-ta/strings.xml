@@ -1,0 +1,112 @@
+<resources>
+    <string name="app_name">கிராம்கவச்</string>
+    <string name="tagline">உங்கள் கிராமப்புற பாதுகாப்பு கவசம்</string>
+    <string name="digital_safety_companion">டிஜிட்டல் பாதுகாப்பு துணை</string>
+    <string name="hero_description">UPI பின்னை உள்ளிடும் முன், தொகை மற்றும் பெறுநரைச் சரிபார்க்கவும். பணம் பெறுவதற்கு ஒருபோதும் பணம் செலுத்த வேண்டாம்.</string>
+
+    <string name="system_protected">சிஸ்டம் பாதுகாக்கப்பட்டது ✅</string>
+    <string name="setup_required">அமைப்பு தேவை ⚠️</string>
+    <string name="risk_detected">அபாயம் கண்டறியப்பட்டது</string>
+    <string name="monitoring_active">நிகழ்நேர கண்காணிப்பு செயல்பாட்டில் உள்ளது</string>
+    <string name="high_risk_badge">விழிப்புடன் இருங்கள் 🚨</string>
+    <string name="quick_actions">விரைவான நடவடிக்கைகள்</string>
+    <string name="history">வரலாறு</string>
+    <string name="alerts_count">%1$d எச்சரிக்கைகள்</string>
+    <string name="help_1930">1930 உதவி</string>
+    <string name="report_fraud">மோசடியைப் புகாரளி</string>
+    <string name="overlay_disabled">மேலடுக்கு முடக்கப்பட்டது</string>
+    <string name="overlay_required">நேரடி எச்சரிக்கைகளுக்குத் தேவை.</string>
+    <string name="enable">செயல்படுத்து</string>
+    <string name="hackathon_demo">ஹேக்கத்தான் டெமோ (4 நிலைகள்)</string>
+    <string name="how_it_works">இது எப்படி வேலை செய்கிறது</string>
+    <string name="view_guide">பயனர் வழிகாட்டியைப் பார்க்கவும்</string>
+
+    <!-- Guide Steps -->
+    <string name="guide_title">செயலி வழிகாட்டி</string>
+    <string name="guide_step_1_title">1. நிகழ்நேர கண்காணிப்பு</string>
+    <string name="guide_step_1_desc">கிராம்கவச் பின்னணியில் இயங்கி, தெரியாத அழைப்பாளர்கள் அல்லது ரிமோட் ஆக்சஸ் செயலிகள் போன்ற சந்தேகத்திற்கிடமான செயல்பாடுகளைக் கண்காணிக்கிறது.</string>
+    <string name="guide_step_2_title">2. ஸ்மார்ட் அபாயப் பகுப்பாய்வு</string>
+    <string name="guide_step_2_desc">ஒரு சாத்தியமான மோசடி கண்டறியப்படும்போது, அபாய மதிப்பெண் மற்றும் ஏன் அந்த எச்சரிக்கை உருவாக்கப்பட்டது என்பதற்கான விரிவான விளக்கத்தைப் பார்ப்பீர்கள்.</string>
+    <string name="guide_step_3_title">3. உள்ளூர் குரல் எச்சரிக்கைகள்</string>
+    <string name="guide_step_3_desc">நெருக்கடியான சூழ்நிலைகளில் விழிப்புடன் இருக்க உங்கள் சொந்த மொழியில் உடனடி குரல் எச்சரிக்கைகளைப் பெறுங்கள்.</string>
+    <string name="guide_step_4_title">4. அவசர காலப் புகாரளிப்பு</string>
+    <string name="guide_step_4_desc">செயலியிலிருந்து நேரடியாக 1930 என்ற எண்ணிற்கு அழைப்பதன் மூலம் மோசடி முயற்சிகளை உடனடியாக சைபர் செல்லிடம் புகாரளிக்கவும்.</string>
+    <string name="get_started">தொடங்குங்கள்</string>
+    <string name="next">அடுத்து</string>
+    <string name="finish">முடிக்கவும்</string>
+
+    <string name="payment_safety_alert">பணம் செலுத்துதல் பாதுகாப்பு எச்சரிக்கை</string>
+    <string name="risk_score_label">அபாய மதிப்பெண்</string>
+    <string name="risk_level_label">அபாய நிலை</string>
+    <string name="level_safe">பாதுகாப்பானது</string>
+    <string name="level_caution">எச்சரிக்கை</string>
+    <string name="level_moderate">மிதமான அபாயம்</string>
+    <string name="level_high">அதிக அபாயம்</string>
+    <string name="level_critical">மிக அதிக அபாயம்</string>
+    <string name="suspect_label">சந்தேகத்திற்குரியவர்</string>
+    <string name="verified_contact">சரிபார்க்கப்பட்ட தொடர்பு</string>
+    <string name="risk_source">அபாய ஆதாரம்</string>
+    <string name="detection_analysis">கண்டறிதல் பகுப்பாய்வு</string>
+    <string name="factor_header">கண்டறிதல் காரணி</string>
+    <string name="status_header">நிலை</string>
+    <string name="pts_header">புள்ளிகள்</string>
+    <string name="detected">கண்டறியப்பட்டது</string>
+    <string name="clear">பாதுகாப்பானது</string>
+    <string name="why_alert">ஏன் இந்த எச்சரிக்கை?</string>
+    <string name="recommended_action">பரிந்துரைக்கப்படும் நடவடிக்கை</string>
+    <string name="i_understand">எனக்கு புரிகிறது</string>
+    <string name="share">பகிர்</string>
+    <string name="report_1930">1930 புகார்</string>
+    <string name="play_voice_warning">குரல் எச்சரிக்கையை இயக்கு</string>
+    <string name="voice_unavailable">குரல் வழிகாட்டுதல் கிடைக்கவில்லை.</string>
+    <string name="alert_footer">உங்கள் UPI பின், OTP அல்லது திரையைப் பகிர வேண்டாம். சந்தேகம் இருந்தால் ரத்து செய்யவும்.</string>
+
+    <string name="alert_history">எச்சரிக்கை வரலாறு</string>
+    <string name="no_alerts">இன்னும் எச்சரிக்கைகள் எதுவும் பதிவு செய்யப்படவில்லை.</string>
+    <string name="history_empty_desc">பாதுகாப்பான பயன்பாட்டு வரலாறு இங்கே தோன்றும்.</string>
+
+    <string name="settings">அமைப்புகள்</string>
+    <string name="voice_alerts">குரல் பாதுகாப்பு எச்சரிக்கைகள்</string>
+    <string name="voice_alerts_desc">அதிக அபாயகரமான அழைப்புகளின் போது எச்சரிக்கைகளைப் பேசவும்</string>
+    <string name="app_language">செயலி மொழி</string>
+    <string name="about_gramkavach">கிராம்கவச் பற்றி</string>
+    <string name="version">பதிப்பு 0.3.0</string>
+    <string name="choose_language">மொழியைத் தேர்ந்தெடுக்கவும்</string>
+
+    <string name="about_desc">கிராம்கவச் என்பது கிராமப்புற மற்றும் முதல் முறை டிஜிட்டல் முறையில் பணம் செலுத்தும் பயனர்களை UPI மோசடியிலிருந்து பாதுகாக்க வடிவமைக்கப்பட்ட ஒரு டிஜிட்டல் நிதி பாதுகாப்பு உதவியாளர் ஆகும்.</string>
+    <string name="tech_stack">தொழில்நுட்ப விவரம்:</string>
+    <string name="safer_india">பாதுகாப்பான டிஜிட்டல் இந்தியாவிற்காக உருவாக்கப்பட்டது</string>
+
+    <string name="source_bank_scam">அறியப்படாத அழைப்பாளர் + ரிமோட் ஆக்சஸ் செயலி</string>
+    <string name="why_bank_scam">பல உயர் அபாய குறிகாட்டிகள் சாத்தியமான மோசடியைக் குறிக்கின்றன.</string>
+    <string name="action_bank_scam">அழைப்பை உடனடியாக துண்டிக்கவும், ரிமோட்-ஆக்சஸ் செயலியை மூடவும், உங்கள் OTP அல்லது UPI பின்னை ஒருபோதும் பகிர வேண்டாம்.</string>
+
+    <string name="source_collect">UPI கலெக்ட் கோரிக்கை</string>
+    <string name="why_collect">பணத்தைப் பெறுவதற்கு UPI பின்னை உள்ளிடத் தேவையில்லை. கலெக்ட் கோரிக்கை என்பது உங்களைப் பணம் செலுத்தச் சொல்வதாகும்.</string>
+    <string name="action_collect">கோரிக்கையை ஏற்கும் முன் அனுப்புநரைச் சரிபார்க்கவும். எதிர்பாராத கலெக்ட் கோரிக்கைகளை நிராகரிக்கவும்.</string>
+
+    <string name="source_phishing">SMS/WhatsApp இணைப்பு</string>
+    <string name="why_phishing">தனிப்பட்ட அல்லது வங்கித் தகவல்களைத் திருட முயற்சிக்கும் சந்தேகத்திற்குரிய இணைப்பு கண்டறியப்பட்டது.</string>
+    <string name="action_phishing">இணைப்பைத் திறக்க வேண்டாம் அல்லது எந்த ரகசியத் தகவலையும் உள்ளிட வேண்டாம். முதலில் அனுப்புநரைச் சரிபார்க்கவும்.</string>
+
+    <string name="source_qr">வெளிப்புற QR குறியீடு</string>
+    <string name="why_qr">ஸ்கேன் செய்யப்பட்ட QR குறியீடு ஒரு கட்டணக் கோரிக்கையைத் தொடங்குகிறது. UPI பின்னை உள்ளிடும் முன் எப்போதும் பெறுநர் மற்றும் தொகையைச் சரிபார்க்கவும்.</string>
+    <string name="action_qr">தொடர்வதற்கு முன் வணிகர் மற்றும் கட்டண விவரங்களை உறுதிப்படுத்தவும்.</string>
+
+    <!-- Signal Keys -->
+    <string name="signal_remote_access">திரை-பகிர்வு அல்லது ரிமோட்-ஆக்சஸ் செயலி செயல்பாட்டில் உள்ளது</string>
+    <string name="signal_accessibility">நம்பகமற்ற செயலி அணுகல்தன்மை அம்சங்களைக் கட்டுப்படுத்தலாம்</string>
+    <string name="signal_unknown_call">தெரியாத எண்ணிலிருந்து அழைப்பு செயல்பாட்டில் உள்ளது</string>
+    <string name="signal_collect">இது ஒரு கலெக்ட் கோரிக்கை — பணம் பெறுவதற்கு ஒருபோதும் பணம் செலுத்தத் தேவையில்லை</string>
+    <string name="signal_phishing">சமீபத்தில் ஒரு சந்தேகத்திற்குரிய இணைப்பு திறக்கப்பட்டது</string>
+    <string name="signal_qr">QR குறியீட்டை ஸ்கேன் செய்வதற்கு முன் வணிகர் மற்றும் தொகையைச் சரிபார்க்கவும்</string>
+
+    <!-- Transaction Type Keys -->
+    <string name="type_verified">சரிபார்க்கப்பட்ட கட்டணம்</string>
+    <string name="type_phishing">மோசடி முயற்சி</string>
+    <string name="type_collect">UPI கலெக்ட் கோரிக்கை</string>
+    <string name="type_bank_scam">வங்கி மோசடி அழைப்பு</string>
+    <string name="type_incoming_call">உள்வரும் அழைப்பு</string>
+
+    <!-- Factors -->
+</resources>
