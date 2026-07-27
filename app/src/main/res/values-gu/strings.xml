@@ -35,6 +35,26 @@
     <string name="next">આગળ</string>
     <string name="finish">પૂર્ણ</string>
 
+    <!-- Sanskriti Master -->
+    <string name="slogan_india">સુરક્ષિત ડિજિટલ ભારત 🇮🇳</string>
+    <string name="create_account_btn">નવું સુરક્ષા કવચ બનાવો</string>
+    <string name="login_btn">લોગિન કરો</string>
+    <string name="safety_manual_title">આ ભૂલ ન કરો (સુરક્ષા માર્ગદર્શિકા)</string>
+    <string name="profile_title">મારું પ્રોફાઇલ</string>
+    <string name="delete_account_btn">ખાતું કાઢી નાખો (ડેટા ડિલીટ કરો)</string>
+    <string name="delete_confirm_title">શું તમે ચોક્કસ છો?</string>
+    <string name="delete_confirm_desc">તમારો તમામ એલર્ટ ઇતિહાસ અને વિગતો હંમેશા માટે ભૂંસી નાખવામાં આવશે.</string>
+    <string name="joined_on">સદસ્ય બન્યા: %1$s</string>
+    <string name="total_protected">કુલ સુરક્ષા: %1$d એલર્ટ્સ</string>
+
+    <!-- Manual Tips -->
+    <string name="tip_1_title">UPI PIN ક્યારેય શેર ન કરો</string>
+    <string name="tip_1_desc">તમારો પિન ફક્ત પૈસા મોકલવા માટે છે, મેળવવા માટે નથી.</string>
+    <string name="tip_2_title">અજાણી લિંક્સ પર ક્લિક ન કરો</string>
+    <string name="tip_2_desc">SMS અથવા WhatsApp પર આવેલી શંકાસ્પદ લિંક્સથી બચો.</string>
+    <string name="tip_3_title">સ્ક્રીન શેરિંગ એપ્સથી દૂર રહો</string>
+    <string name="tip_3_desc">બેંક અધિકારીઓ ક્યારેય AnyDesk અથવા TeamViewer જેવી એપ્સ ઇન્સ્ટોલ કરવાનું કહેતા નથી.</string>
+
     <string name="payment_safety_alert">ચુકવણી સુરક્ષા ચેતવણી</string>
     <string name="risk_score_label">જોખમ સ્કોર</string>
     <string name="risk_level_label">જોખમ સ્તર</string>

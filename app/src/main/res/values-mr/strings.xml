@@ -35,6 +35,26 @@
     <string name="next">पुढील</string>
     <string name="finish">पूर्ण</string>
 
+    <!-- Sanskriti Master -->
+    <string name="slogan_india">सुरक्षित डिजिटल भारत 🇮🇳</string>
+    <string name="create_account_btn">नवीन सुरक्षा कवच तयार करा</string>
+    <string name="login_btn">लॉगिन करा</string>
+    <string name="safety_manual_title">या चुका टाळा (सुरक्षा मार्गदर्शिका)</string>
+    <string name="profile_title">माझे प्रोफाइल</string>
+    <string name="delete_account_btn">खाते हटवा (डेटा डिलीट करा)</string>
+    <string name="delete_confirm_title">आपण निश्चित आहात का?</string>
+    <string name="delete_confirm_desc">तुमचा सर्व अलर्ट इतिहास आणि माहिती कायमची पुसून टाकली जाईल.</string>
+    <string name="joined_on">सदस्य बनले: %1$s</string>
+    <string name="total_protected">एकूण सुरक्षा: %1$d अलर्ट</string>
+
+    <!-- Manual Tips -->
+    <string name="tip_1_title">UPI PIN कधीही शेअर करू नका</string>
+    <string name="tip_1_desc">तुमचा पिन फक्त पैसे पाठवण्यासाठी असतो, मिळवण्यासाठी नाही.</string>
+    <string name="tip_2_title">अनोळखी लिंक्सवर क्लिक करू नका</string>
+    <string name="tip_2_desc">SMS किंवा WhatsApp वर आलेल्या संशयास्पद लिंक्सपासून सावध राहा.</string>
+    <string name="tip_3_title">स्क्रीन शेअरिंग ॲप्सपासून दूर राहा</string>
+    <string name="tip_3_desc">बँक अधिकारी कधीही AnyDesk किंवा TeamViewer सारखी ॲप्स इन्स्टॉल करण्यास सांगत नाहीत.</string>
+
     <string name="payment_safety_alert">पेमेंट सुरक्षा चेतावणी</string>
     <string name="risk_score_label">जोखीम स्कोअर</string>
     <string name="risk_level_label">जोखीम पातळी</string>

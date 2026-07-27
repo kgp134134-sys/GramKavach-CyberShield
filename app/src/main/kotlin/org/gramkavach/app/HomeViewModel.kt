@@ -31,21 +31,23 @@ class HomeViewModel @Inject constructor(
 
     fun simulateSafe() = viewModelScope.launch {
         _isLoading.value = true
-        kotlinx.coroutines.delay(800)
+        kotlinx.coroutines.delay(2000)
         runCatching {
             val context = PaymentContext(
                 phoneNumber = "+91 99000 11000",
                 transactionType = "Verified Payment"
             )
             RiskSignalBus.publish(context)
-            engine(context)
+            val result = engine(context)
+            repository.saveAlert(AlertRecord(score = result.score, level = result.level, reasons = result.reasons, phoneNumber = result.phoneNumber, details = context.transactionType, createdAtEpochMs = result.assessedAtEpochMs))
+            result
         }.onSuccess { _assessment.value = it }
         _isLoading.value = false
     }
 
     fun simulatePhishing() = viewModelScope.launch {
         _isLoading.value = true
-        kotlinx.coroutines.delay(800)
+        kotlinx.coroutines.delay(2000)
         runCatching {
             val context = PaymentContext(
                 phoneNumber = "Unknown Sender",
@@ -62,7 +64,7 @@ class HomeViewModel @Inject constructor(
 
     fun simulateCollectRequest() = viewModelScope.launch {
         _isLoading.value = true
-        kotlinx.coroutines.delay(800)
+        kotlinx.coroutines.delay(2000)
         runCatching {
             val context = PaymentContext(
                 phoneNumber = "+91 80000 55555",
@@ -80,7 +82,7 @@ class HomeViewModel @Inject constructor(
 
     fun simulateBankScam() = viewModelScope.launch {
         _isLoading.value = true
-        kotlinx.coroutines.delay(800)
+        kotlinx.coroutines.delay(2000)
         runCatching {
             val context = PaymentContext(
                 phoneNumber = "+91 91111 00000",

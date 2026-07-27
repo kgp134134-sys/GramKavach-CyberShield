@@ -12,6 +12,8 @@ import org.gramkavach.domain.repository.RiskRepository
 
 @HiltViewModel class SettingsViewModel @Inject constructor(private val repository: RiskRepository) : ViewModel() {
     val settings = repository.observeSettings().stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), UserSettings())
+    fun updateUserSettings(newSettings: UserSettings) = viewModelScope.launch { repository.updateSettings(newSettings) }
+    fun resetUser() = viewModelScope.launch { repository.resetUser() }
     fun setLanguage(tag: String) = viewModelScope.launch { repository.updateSettings(settings.value.copy(languageTag = tag)) }
     fun setVoice(enabled: Boolean) = viewModelScope.launch { repository.updateSettings(settings.value.copy(voiceAlertsEnabled = enabled)) }
 }

@@ -9,4 +9,5 @@ interface RiskRepository {
     suspend fun saveAlert(alert: AlertRecord)
     fun observeSettings(): Flow<UserSettings>
     suspend fun updateSettings(settings: UserSettings)
+    suspend fun resetUser()
 }

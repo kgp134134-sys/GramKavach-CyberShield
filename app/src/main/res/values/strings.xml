@@ -36,9 +36,54 @@
     <string name="next">Next</string>
     <string name="finish">Finish</string>
 
+    <!-- Onboarding -->
+    <string name="welcome_title" translatable="false">Welcome to GramKavach</string>
+    <string name="onboarding_desc" translatable="false">Let\'s set up your safety shield. Your data stays on this device.</string>
+    <string name="name_label" translatable="false">What is your name?</string>
+    <string name="name_placeholder" translatable="false">Enter your name</string>
+    <string name="start_journey" translatable="false">Protect My Payments</string>
+    <string name="hello_user" translatable="false">Hello, %1$s</string>
+    <string name="skip" translatable="false">Skip</string>
+
+    <!-- Sanskriti Master -->
+    <string name="slogan_india" translatable="false">Surakshit Digital Bharat 🇮🇳</string>
+    <string name="create_account_btn" translatable="false">Create My Safety Shield</string>
+    <string name="login_btn" translatable="false">Login</string>
+    <string name="safety_manual_title" translatable="false">Safety Rules (Must Read)</string>
+    <string name="profile_title" translatable="false">My Profile</string>
+    <string name="delete_account_btn" translatable="false">Delete Account</string>
+    <string name="delete_confirm_title" translatable="false">Are you sure?</string>
+    <string name="delete_confirm_desc" translatable="false">All your alert history and profile data will be permanently deleted.</string>
+    <string name="joined_on" translatable="false">Member since: %1$s</string>
+    <string name="total_protected" translatable="false">Total Protected: %1$d Alerts</string>
+
+    <!-- Manual Tips -->
+    <string name="manual_donts_header" translatable="false">Don\'ts (ये भूल न करें)</string>
+    <string name="tip_dont_1" translatable="false">Kisi bhi SMS, WhatsApp ya Email par aaye anjaan link par click na karein.</string>
+    <string name="tip_dont_2" translatable="false">Lottery, Electricity Bill, SIM Block ya Bank Account Suspend jaise SMS par bharosa na karein.</string>
+    <string name="tip_dont_3" translatable="false">SMS ya WhatsApp se aayi APK/file download na karein.</string>
+    <string name="tip_dont_4" translatable="false">Anjaan call par AnyDesk, TeamViewer ya kisi bhi screen-sharing app ko download na karein.</string>
+    <string name="tip_dont_5" translatable="false">Paise LENE ke liye kabhi bhi UPI PIN mat daalein.</string>
+    <string name="tip_dont_6" translatable="false">Apna OTP, UPI PIN ya Password kisi ke saath share na karein.</string>
+
+    <string name="manual_dos_header" translatable="false">Do\'s (हमेसा याद रखें)</string>
+    <string name="tip_do_1" translatable="false">UPI PIN ka use sirf paise BHEJNE ya balance check karne ke liye karein.</string>
+    <string name="tip_do_2" translatable="false">QR Code scan karne se pehle vyakti ya dukaan ka naam verify karein.</string>
+    <string name="tip_do_3" translatable="false">Apps sirf official app store se hi download karein.</string>
+    <string name="tip_do_4" translatable="false">Fraud hone par turant 1930 Cyber Helpline par call karein.</string>
+
     <!-- Alert Screen -->
     <string name="payment_safety_alert">Payment Safety Alert</string>
     <string name="risk_score_label">Risk Score</string>
+    <string name="tap_hint" translatable="false">Tap to view detailed security score ⓘ</string>
+    <string name="analyzing_text" translatable="false">Analyzing Security Context...</string>
+    <string name="breakdown_title" translatable="false">Security Analysis Breakdown</string>
+    <string name="factor_sms_link" translatable="false">SMS &amp; Link Safety</string>
+    <string name="factor_remote_apps" translatable="false">Remote Access Check</string>
+    <string name="factor_upi_requests" translatable="false">UPI Request Integrity</string>
+    <string name="factor_permissions" translatable="false">Permission Safety Audit</string>
+    <string name="safe_status" translatable="false">Safe ✅</string>
+    <string name="risk_detected_status" translatable="false">Risk Detected 🚨</string>
     <string name="risk_level_label">Risk Level</string>
     <string name="level_safe">SAFE</string>
     <string name="level_caution">CAUTION</string>

@@ -11,8 +11,9 @@
 
 ## 📍 Table of Contents
 - [📥 Download & Demo](#-download--demo)
-- [📖 Overview](#-overview)
-- [🧩 Problem and Solution](#-problem-and-solution)
+- [🎯 Problem Statement](#-problem-statement)
+- [💡 Proposed AI/ML Solution](#-proposed-aiml-solution)
+- [🚀 Maverick Effect Alignment](#-maverick-effect-alignment)
 - [🚀 Features](#-features)
 - [🛠️ Tech Stack](#-tech-stack)
 - [📐 Architecture](#-architecture)
@@ -34,27 +35,38 @@
 > - This is expected for side-loaded demo applications.
 
 **Hackathon Highlights:**
-- **Full Localization**: Support for 7+ Indian languages (Hindi, Marathi, Gujarati, Bengali, Tamil, Telugu, English).
+- **Sanskriti UI**: Culturally resonant earthy theme (Saffron/Cream) with an animated rotating Rangoli pattern.
+- **Smart Onboarding**: Personalized "Create My Safety Shield" flow with data stored locally.
+- **Detailed Safety Rules**: High-impact "Do's and Don'ts" guide specifically for rural fraud scenarios.
 - **Explainable AI**: Dynamic "Detection Analysis" table explaining risk scores.
 - **Winner Dashboard**: Real-time pulsing risk gauge and safety status.
 
-## 📖 Overview
+## 🎯 Problem Statement
 
-GramKavach helps rural and first-time digital-payment users recognize fraud **before** they authorize a payment. It combines consented device-context signals with local rule and ML-ready scoring, then explains risk in the user’s language.
+Digital payment (UPI) adoption in Rural India has surged, but it has been accompanied by a massive rise in fraud cases (Fake SMS, Phishing links, Screen-sharing scams, and Lottery/Bill traps). Existing security solutions are largely **reactive** (alerting only after money is lost) and **English-centric**, leaving low-literacy users highly vulnerable.
 
-## 🧩 Problem and Solution
+## 💡 Proposed AI/ML Solution
 
-Fraudsters exploit fake QR codes, Collect Requests, phishing, remote-control apps, and social engineering. GramKavach turns relevant signals into a simple warning: stop, verify the recipient and amount, and never share a UPI PIN or OTP.
+GramKavach is a **100% On-Device, Pre-PIN Prevention System** that stops fraud **before** the transaction is authorized:
+- **On-Device Threat Intelligence**: Uses local pattern-matching and lightweight ML models to analyze fake SMS, APK download links, and phishing URLs in real-time.
+- **System Auto-Localization Engine**: Automatically adapts UI and Audio Warnings to the user's preferred language, removing onboarding friction for rural users.
+- **Interactive Risk Gauge**: Converts complex risk signals into simple visual (Red/Orange/Green) and audio-first warnings for illiterate or rural users.
+
+## 🚀 Maverick Effect Alignment
+
+GramKavach honors the "Maverick Effect" legacy through:
+- **Frugal & Scalable**: Operates with **zero server costs** and zero internet requirements for core detection (100% offline functionality).
+- **Societal Impact**: Builds critical digital trust within the rural financial ecosystem, empowering the next billion users.
+- **Mindful Innovation**: Transforms complex cyber threat detection into a simple, culturally resonant audio-visual experience.
 
 ## 🚀 Features
 
-- **100% Deep Localization**: The entire UI and dynamic alert data (reasons, history) automatically translate into 7+ Indian languages.
-- **On-Device Explainable AI**: Hybrid risk scoring that provides a "Detection Analysis" breakdown for every alert.
+- **Sanskriti Visual Identity**: A culturally conscious UI featuring a warm earthy palette and animated Rangoli patterns for a traditional Indian feel.
+- **On-Device Explainable AI**: Interactive risk scoring that provides a "Security Analysis Breakdown" for every check.
+- **Detailed Safety Rules**: A dedicated "Must Read" guide covering specific scams like fake electricity bills and PM Yojana frauds.
 - **Real-time Safety Overlay**: A pulsing floating badge that warns users during high-risk calls or payment requests.
-- **Bhashini Voice Alerts**: Localized voice commands powered by Bhashini AI (with Android TTS fallback).
-- **Winner Dashboard**: Dynamic risk gauge with 0-100 markers and hackathon-grade animations.
 - **Emergency Reporting**: Quick-dial shortcut to **1930 Cyber Cell** for immediate fraud reporting.
-- **Privacy First**: Permission-conscious monitoring; no transaction interception or PIN collection.
+- **Privacy First**: 100% local processing; no transaction interception or private data collection.
 
 ## 🛠️ Tech Stack
 
@@ -69,16 +81,26 @@ Fraudsters exploit fake QR codes, Collect Requests, phishing, remote-control app
 
 ## 📐 Architecture
 
-GramKavach uses a modular architecture where the `domain` layer remains pure Kotlin.
+GramKavach follows Clean Architecture principles with a modular UI. The `app` module is organized into specialized screen components.
 
 ```mermaid
-flowchart TB
-  app[app: Compose navigation and DI host] --> domain[domain: models, contracts, use cases]
-  data[data: Room and DataStore] --> domain
-  ai[ai: hybrid scorer and ONNX adapter] --> domain
-  monitoring[monitoring: consented signal facade] --> domain
-  alerts[alerts: notification/message policy] --> domain
-  bhashini[bhashini: regional voice adapter] --> domain
+flowchart TD
+    subgraph UI ["app: UI Layer"]
+        MA[MainActivity] --> Nav[Navigation Graph]
+        Nav --> Home[HomeScreen]
+        Nav --> Auth[AuthScreens]
+        Nav --> Risk[RiskAlertScreen]
+        Nav --> Settings[SettingsScreen]
+        Nav --> Info[InfoScreens]
+        Nav --> History[HistoryScreen]
+    end
+
+    UI --> Domain[domain: Models & UseCases]
+    Data[data: Room/DataStore] --> Domain
+    AI[ai: ONNX & Rules Scorer] --> Domain
+    Monitor[monitoring: Signal Facade] --> Domain
+    Voice[bhashini: Voice Adapter] --> Domain
+    Alerts[alerts: Notification Policy] --> Domain
 ```
 
 See [Architecture.md](docs/Architecture.md) and [Workflow.md](docs/Workflow.md) for more details.
@@ -124,9 +146,9 @@ Explore the GramKavach interface and dynamic safety alerts:
 | <img src="screenshots/red-warning.jpg" width="200"/> | <img src="screenshots/moderate-alert.jpg" width="200"/> | <img src="screenshots/alert-history1.jpg" width="200"/> |
 
 ### ⚙️ Settings & App Info
-| App Languages | Settings | About GramKavach |
+| My Profile | Settings | About GramKavach |
 | :--- | :--- | :--- |
-| <img src="screenshots/languages.jpg" width="200"/> | <img src="screenshots/settings.jpg" width="200"/> | <img src="screenshots/about-gramkavach.jpg" width="200"/> |
+| <img src="screenshots/about-gramkavach.jpg" width="200"/> | <img src="screenshots/settings.jpg" width="200"/> | <img src="screenshots/about-gramkavach.jpg" width="200"/> |
 
 ---
 

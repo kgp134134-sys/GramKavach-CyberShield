@@ -46,4 +46,8 @@ data class AlertRecord(
     val createdAtEpochMs: Long,
 )
 
-data class UserSettings(val languageTag: String = "en", val voiceAlertsEnabled: Boolean = true)
+data class UserSettings(
+    val languageTag: String = "en",
+    val voiceAlertsEnabled: Boolean = true,
+    val userName: String = ""
+)

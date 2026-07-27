@@ -16,4 +16,7 @@ interface AlertDao {
 
     @Query("DELETE FROM alerts WHERE id NOT IN (SELECT id FROM alerts ORDER BY createdAtEpochMs DESC LIMIT 100)")
     suspend fun cleanupOldAlerts()
+
+    @Query("DELETE FROM alerts")
+    suspend fun deleteAll()
 }

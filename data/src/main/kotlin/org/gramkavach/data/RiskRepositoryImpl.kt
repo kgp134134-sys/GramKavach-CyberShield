@@ -44,10 +44,22 @@ class RiskRepositoryImpl(private val alertDao: AlertDao, private val context: Co
         }
     }
     override fun observeSettings(): Flow<UserSettings> = context.settingsStore.data.map { preferences ->
-        UserSettings(preferences[LANGUAGE] ?: "en", preferences[VOICE] ?: true)
+        UserSettings(
+            languageTag = preferences[LANGUAGE] ?: "en",
+            voiceAlertsEnabled = preferences[VOICE] ?: true,
+            userName = preferences[USER_NAME] ?: ""
+        )
     }
     override suspend fun updateSettings(settings: UserSettings) {
-        context.settingsStore.edit { preferences -> preferences[LANGUAGE] = settings.languageTag; preferences[VOICE] = settings.voiceAlertsEnabled }
+        context.settingsStore.edit { preferences -> 
+            preferences[LANGUAGE] = settings.languageTag
+            preferences[VOICE] = settings.voiceAlertsEnabled
+            preferences[USER_NAME] = settings.userName
+        }
+    }
+    override suspend fun resetUser() {
+        context.settingsStore.edit { it.clear() }
+        alertDao.deleteAll()
     }
     private fun AlertEntity.toDomain() = AlertRecord(
         id = id,
@@ -58,5 +70,9 @@ class RiskRepositoryImpl(private val alertDao: AlertDao, private val context: Co
         details = details,
         createdAtEpochMs = createdAtEpochMs
     )
-    private companion object { val LANGUAGE = stringPreferencesKey("language_tag"); val VOICE = booleanPreferencesKey("voice_alerts") }
+    private companion object { 
+        val LANGUAGE = stringPreferencesKey("language_tag")
+        val VOICE = booleanPreferencesKey("voice_alerts")
+        val USER_NAME = stringPreferencesKey("user_name")
+    }
 }
