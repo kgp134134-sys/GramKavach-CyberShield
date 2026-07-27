@@ -28,6 +28,11 @@
 **Get the latest hackathon-ready build here:**
 [**Download GramKavach v0.3.0 APK**](https://github.com/kgp134134-sys/GramKavach456/releases/download/v0.3.0-stable/app-release.apk)
 
+> [!NOTE]
+> **Installation Tip**: Since this is a **hackathon demo prototype** and not yet published on the Play Store, Android may show a "Play Protect" or "Unknown Developer" warning.
+> - To install: Click **"More Details"** -> **"Install Anyway"**.
+> - This is expected for side-loaded demo applications.
+
 **Hackathon Highlights:**
 - **Full Localization**: Support for 7+ Indian languages (Hindi, Marathi, Gujarati, Bengali, Tamil, Telugu, English).
 - **Explainable AI**: Dynamic "Detection Analysis" table explaining risk scores.
