@@ -230,9 +230,10 @@ private fun RiskScoreSection(
             
             Text(
                 text = when {
+                    isLoading -> stringResource(R.string.analyzing_context)
                     score >= 60 -> stringResource(R.string.high_risk_badge)
-                    score > 0 -> "Risk Detected ⚠️"
-                    else -> "System Protected ✅"
+                    score > 0 -> stringResource(R.string.risk_detected_badge)
+                    else -> stringResource(R.string.system_protected_badge)
                 },
                 style = MaterialTheme.typography.titleLarge,
                 color = when {
@@ -272,7 +273,7 @@ private fun MonitoringStatusBadge() {
                 modifier = Modifier.size(18.dp)
             )
             Text(
-                "Real-time monitoring active",
+                stringResource(R.string.monitoring_active),
                 style = MaterialTheme.typography.labelLarge,
                 color = SafeGreen,
                 fontWeight = FontWeight.Bold
@@ -299,13 +300,13 @@ private fun ActionCardsSection(onOpen: (String) -> Unit) {
             Spacer(Modifier.width(16.dp))
             Column(Modifier.weight(1f)) {
                 Text(
-                    "Safety Rules (Must Read)",
+                    stringResource(R.string.safety_manual_title),
                     style = MaterialTheme.typography.titleMedium,
                     fontWeight = FontWeight.Bold,
                     color = Color(0xFF1B5E20)
                 )
                 Text(
-                    "Padhiye aur surakshit rahiye",
+                    stringResource(R.string.safety_manual_subtitle),
                     style = MaterialTheme.typography.bodyMedium,
                     color = Color.Black.copy(alpha = 0.7f)
                 )
@@ -331,13 +332,13 @@ private fun ActionCardsSection(onOpen: (String) -> Unit) {
             Spacer(Modifier.width(16.dp))
             Column(Modifier.weight(1f)) {
                 Text(
-                    "View User Guide",
+                    stringResource(R.string.view_guide),
                     style = MaterialTheme.typography.titleMedium,
                     fontWeight = FontWeight.Bold,
-                    color = Color.Black
+                    color = Color(0xFF7B1FA2)
                 )
                 Text(
-                    "GramKavach is a local-first digital financial",
+                    stringResource(R.string.about_desc),
                     style = MaterialTheme.typography.bodyMedium,
                     maxLines = 1,
                     color = Color.Black.copy(alpha = 0.7f)
@@ -363,8 +364,8 @@ private fun QuickActionsGrid(
             Column(Modifier.padding(16.dp)) {
                 Icon(Icons.Default.History, contentDescription = null, tint = Color(0xFFE65100), modifier = Modifier.size(28.dp))
                 Spacer(Modifier.height(12.dp))
-                Text("History", style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
-                Text("$alertCount alerts", style = MaterialTheme.typography.bodySmall)
+                Text(stringResource(R.string.history), style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
+                Text(stringResource(R.string.alerts_count, alertCount), style = MaterialTheme.typography.bodySmall)
             }
         }
         Card(
@@ -375,8 +376,8 @@ private fun QuickActionsGrid(
             Column(Modifier.padding(16.dp)) {
                 Icon(Icons.Default.Call, contentDescription = null, tint = Color(0xFFD32F2F), modifier = Modifier.size(28.dp))
                 Spacer(Modifier.height(12.dp))
-                Text("1930 Help", style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold, color = Color(0xFFD32F2F))
-                Text("Report Fraud", style = MaterialTheme.typography.bodySmall, color = Color.Black)
+                Text(stringResource(R.string.help_1930), style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold, color = Color(0xFFD32F2F))
+                Text(stringResource(R.string.report_fraud), style = MaterialTheme.typography.bodySmall, color = Color.Black)
             }
         }
     }
@@ -385,7 +386,7 @@ private fun QuickActionsGrid(
 @Composable
 private fun SimulationControls(isLoading: Boolean, viewModel: HomeViewModel) {
     Text(
-        "Hackathon Demo (4 Levels)",
+        stringResource(R.string.sim_controls_title),
         style = MaterialTheme.typography.titleMedium,
         modifier = Modifier.fillMaxWidth(),
         fontWeight = FontWeight.Bold
@@ -397,10 +398,10 @@ private fun SimulationControls(isLoading: Boolean, viewModel: HomeViewModel) {
         colors = CardDefaults.cardColors(containerColor = Color(0xFFEDE7F6))
     ) {
         Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
-            SimulationButton("1. Simulate Safe (Score 0)", SafeGreen, isLoading, viewModel::simulateSafe)
-            SimulationButton("2. Simulate Phishing (Score 25)", CautionAmber, isLoading, viewModel::simulatePhishing)
-            SimulationButton("3. Simulate UPI Collect (Score 50)", ModerateOrange, isLoading, viewModel::simulateCollectRequest)
-            SimulationButton("4. Simulate Bank Scam (Score 85)", HighRed, isLoading, viewModel::simulateBankScam)
+            SimulationButton(stringResource(R.string.sim_safe), SafeGreen, isLoading, viewModel::simulateSafe)
+            SimulationButton(stringResource(R.string.sim_phishing), CautionAmber, isLoading, viewModel::simulatePhishing)
+            SimulationButton(stringResource(R.string.sim_collect), ModerateOrange, isLoading, viewModel::simulateCollectRequest)
+            SimulationButton(stringResource(R.string.sim_bank_scam), HighRed, isLoading, viewModel::simulateBankScam)
         }
     }
 }
@@ -471,7 +472,7 @@ fun RiskGauge(score: Int, isScanning: Boolean, modifier: Modifier = Modifier) {
                 color = if (isScanning) Color.Gray else UiUtils.getRiskColor(score)
             )
             Text(
-                text = "Risk Score",
+                text = stringResource(R.string.risk_score_label),
                 style = MaterialTheme.typography.labelLarge,
                 fontWeight = FontWeight.Bold,
                 color = Color.Gray

@@ -73,9 +73,20 @@ private fun GramKavachApp() {
     }
 
     GramKavachTheme {
-        val userSettings by hiltViewModel<SettingsViewModel>().settings.collectAsState()
-        val scope = rememberCoroutineScope()
         val settingsViewModel = hiltViewModel<SettingsViewModel>()
+        val userSettings by settingsViewModel.settings.collectAsState()
+        val scope = rememberCoroutineScope()
+
+        // Sync system language on first start
+        LaunchedEffect(Unit) {
+            if (userSettings.userName.isEmpty()) {
+                val systemLanguage = java.util.Locale.getDefault().language
+                val supportedLanguages = listOf("hi", "mr", "bn", "gu", "ta", "te")
+                if (systemLanguage in supportedLanguages && systemLanguage != userSettings.languageTag) {
+                    settingsViewModel.setLanguage(systemLanguage)
+                }
+            }
+        }
 
         LaunchedEffect(userSettings.languageTag) {
             val appLocale: LocaleListCompat = LocaleListCompat.forLanguageTags(userSettings.languageTag)

@@ -5,8 +5,10 @@
     <string name="hero_description">UPI पिन डालने से पहले, राशि और प्राप्तकर्ता की जांच करें। पैसे प्राप्त करने के लिए कभी भुगतान न करें।</string>
 
     <string name="system_protected">सिस्टम सुरक्षित है</string>
+    <string name="system_protected_badge">सिस्टम सुरक्षित है ✅</string>
     <string name="setup_required">सेटअप आवश्यक है</string>
     <string name="risk_detected">खतरा पाया गया</string>
+    <string name="risk_detected_badge">खतरा पाया गया ⚠️</string>
     <string name="monitoring_active">रीयल-टाइम मॉनिटरिंग सक्रिय है</string>
     <string name="high_risk_badge">सतर्क रहें 🚨</string>
     <string name="quick_actions">त्वरित कार्रवाई</string>
@@ -48,7 +50,8 @@
     <string name="slogan_india">सुरक्षित डिजिटल भारत 🇮🇳</string>
     <string name="create_account_btn">नया सुरक्षा कवच बनाएँ</string>
     <string name="login_btn">लॉगिन करें</string>
-    <string name="safety_manual_title">ये भूल न करें (सुरक्षा गाइड)</string>
+    <string name="safety_manual_title">सुरक्षा नियम (जरूर पढ़ें)</string>
+    <string name="safety_manual_subtitle">पढ़िए और सुरक्षित रहिये</string>
     <string name="profile_title">मेरा प्रोफाइल</string>
     <string name="delete_account_btn">खाता मिटाएं (डेटा डिलीट करें)</string>
     <string name="delete_confirm_title">क्या आप निश्चित हैं?</string>
@@ -99,55 +102,23 @@
     <string name="voice_alerts_desc">उच्च जोखिम वाली कॉल के दौरान चेतावनी बोलें</string>
     <string name="app_language">ऐप की भाषा</string>
     <string name="about_gramkavach">ग्रामकवच के बारे में</string>
-    <string name="version">संस्करण 0.4.0</string>
+    <string name="version">संस्करण 0.4.5</string>
     <string name="choose_language">भाषा चुनें</string>
 
     <string name="about_desc">ग्रामकवच एक डिजिटल वित्तीय सुरक्षा सहायक है जो ग्रामीण और पहली बार डिजिटल भुगतान करने वाले उपयोगकर्ताओं को UPI धोखाधड़ी से बचाने के लिए बनाया गया है।</string>
     <string name="tech_stack">तकनीकी विवरण:</string>
     <string name="safer_india">सुरक्षित डिजिटल भारत के लिए निर्मित</string>
 
-    <string name="source_bank_scam">अज्ञात कॉलर + रिमोट एक्सेस ऐप</string>
-    <string name="why_bank_scam">कई उच्च-जोखिम वाले संकेत संभावित धोखाधड़ी का सुझाव देते हैं।</string>
-    <string name="action_bank_scam">कॉल तुरंत काट दें, रिमोट-एक्सेस ऐप बंद करें, और अपना OTP या UPI पिन कभी साझा न करें।</string>
+    <!-- Simulation Labels -->
+    <string name="sim_controls_title">हैकाथॉन सिमुलेशन नियंत्रण</string>
+    <string name="sim_safe">1. सुरक्षित सिमुलेट करें (स्कोर 0)</string>
+    <string name="sim_phishing">2. फ़िशिंग सिमुलेट करें (स्कोर 25)</string>
+    <string name="sim_collect">3. UPI कलेक्ट सिमुलेट करें (स्कोर 50)</string>
+    <string name="sim_bank_scam">4. बैंक स्कैम सिमुलेट करें (स्कोर 85)</string>
 
-    <string name="source_collect">UPI कलेक्ट रिक्वेस्ट</string>
-    <string name="why_collect">कलेक्ट रिक्वेस्ट आपसे भुगतान को अधिकृत करने के लिए कहती है। पैसे प्राप्त करने के लिए कभी UPI पिन की आवश्यकता नहीं होती है।</string>
-    <string name="action_collect">अनुरोध को स्वीकार करने से पहले प्रेषक की पुष्टि करें। अप्रत्याशित अनुरोधों को अस्वीकार करें।</string>
-
-    <string name="source_phishing">SMS/WhatsApp लिंक</string>
-    <string name="why_phishing">संदिग्ध या असत्यापित लिंक पाया गया जो व्यक्तिगत या बैंकिंग जानकारी चुराने का प्रयास कर सकता है।</string>
-    <string name="action_phishing">लिंक न खोलें या कोई संवेदनशील जानकारी दर्ज न करें। पहले प्रेषक की पुष्टि करें।</string>
-
-    <string name="source_qr">बाहरी QR कोड</string>
-    <string name="why_qr">स्कैन किया गया QR कोड भुगतान अनुरोध शुरू करता है। UPI पिन डालने से पहले हमेशा प्राप्तकर्ता और राशि की पुष्टि करें।</string>
-    <string name="action_qr">आगे बढ़ने से पहले मर्चेंट और भुगतान विवरण की पुष्टि करें।</string>
-
-    <!-- Signal Keys -->
-    <string name="signal_remote_access">एक स्क्रीन-शेयरिंग या रिमोट-एक्सेस ऐप सक्रिय है</string>
-    <string name="signal_accessibility">एक अविश्वसनीय ऐप एक्सेसिबिलिटी सुविधाओं को नियंत्रित कर सकता है</string>
-    <string name="signal_unknown_call">किसी अज्ञात नंबर से कॉल सक्रिय है</string>
-    <string name="signal_collect">यह एक कलेक्ट रिक्वेस्ट है — पैसे प्राप्त करने के लिए कभी भुगतान की आवश्यकता नहीं होती</string>
-    <string name="signal_phishing">हाल ही में एक संदिग्ध लिंक खोला गया था</string>
-    <string name="signal_qr">QR कोड स्कैन करने से पहले मर्चेंट और राशि की पुष्टि करें</string>
-
-    <!-- Transaction Type Keys -->
-    <string name="type_verified">सत्यापित भुगतान</string>
-    <string name="type_phishing">फ़िशिंग का प्रयास</string>
-    <string name="type_collect">UPI कलेक्ट रिक्वेस्ट</string>
-    <string name="type_bank_scam">बैंक स्कैम कॉल</string>
-    <string name="type_incoming_call">आने वाली कॉल</string>
-
-    <!-- Factors -->
-    <string name="factor_remote">रिमोट एक्सेस की पहचान</string>
-    <string name="factor_accessibility">एक्सेसिबिलिटी भेद्यता</string>
-    <string name="factor_unknown_call">अज्ञात स्रोत से कॉल</string>
-    <string name="factor_collect">कलेक्ट रिक्वेस्ट का पता चला</string>
-    <string name="factor_external_source">बाहरी UPI स्रोत</string>
-    <string name="factor_phishing">फ़िशिंग के संकेत</string>
-    <string name="factor_phishing_url">संदिग्ध URL विश्लेषण</string>
-    <string name="factor_sms_check">SMS अनुमति जांच</string>
-    <string name="factor_blacklist">ब्लैकलिस्टेड डोमेन</string>
-    <string name="factor_qr_scanned">बाहरी QR स्कैन किया गया</string>
-    <string name="factor_merchant_trust">मर्चेंट ट्रस्ट स्कोर</string>
-    <string name="factor_amount_check">राशि सत्यापन</string>
+    <string name="analyzing_context">जांच विश्लेषण चल रहा है…</string>
+    <string name="device_protected_desc">आपका डिवाइस पूरी तरह सुरक्षित है।</string>
+    <string name="risks_detected_desc">कुछ खतरे पाए गए। सतर्क रहें।</string>
+    <string name="gauge_min">0</string>
+    <string name="gauge_max">100</string>
 </resources>

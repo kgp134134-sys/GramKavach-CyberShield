@@ -6,10 +6,12 @@
 
     <!-- Dashboard -->
     <string name="system_protected">System Protected</string>
+    <string name="system_protected_badge">System Protected ✅</string>
     <string name="setup_required">Setup Required</string>
     <string name="risk_detected">Risk Detected</string>
+    <string name="risk_detected_badge">Risk Detected ⚠️</string>
     <string name="monitoring_active">Real-time monitoring active</string>
-    <string name="high_risk_badge">Risk detected : Stay Alert 🚨</string>
+    <string name="high_risk_badge">Stay Alert 🚨</string>
     <string name="quick_actions">Quick Actions</string>
     <string name="history">History</string>
     <string name="alerts_count">%1$d alerts</string>
@@ -37,53 +39,53 @@
     <string name="finish">Finish</string>
 
     <!-- Onboarding -->
-    <string name="welcome_title" translatable="false">Welcome to GramKavach</string>
-    <string name="onboarding_desc" translatable="false">Let\'s set up your safety shield. Your data stays on this device.</string>
-    <string name="name_label" translatable="false">What is your name?</string>
-    <string name="name_placeholder" translatable="false">Enter your name</string>
-    <string name="start_journey" translatable="false">Protect My Payments</string>
-    <string name="hello_user" translatable="false">Hello, %1$s</string>
-    <string name="skip" translatable="false">Skip</string>
+    <string name="welcome_title">Welcome to GramKavach</string>
+    <string name="onboarding_desc">Let\'s set up your safety shield. Your data stays on this device.</string>
+    <string name="name_label">What is your name?</string>
+    <string name="name_placeholder">Enter your name</string>
+    <string name="start_journey">Protect My Payments</string>
+    <string name="hello_user">Hello, %1$s</string>
+    <string name="skip">Skip</string>
 
     <!-- Sanskriti Master -->
-    <string name="slogan_india" translatable="false">Surakshit Digital Bharat 🇮🇳</string>
-    <string name="create_account_btn" translatable="false">Create My Safety Shield</string>
-    <string name="login_btn" translatable="false">Login</string>
-    <string name="safety_manual_title" translatable="false">Safety Rules (Must Read)</string>
-    <string name="profile_title" translatable="false">My Profile</string>
-    <string name="delete_account_btn" translatable="false">Delete Account</string>
-    <string name="delete_confirm_title" translatable="false">Are you sure?</string>
-    <string name="delete_confirm_desc" translatable="false">All your alert history and profile data will be permanently deleted.</string>
-    <string name="joined_on" translatable="false">Member since: %1$s</string>
-    <string name="total_protected" translatable="false">Total Protected: %1$d Alerts</string>
+    <string name="slogan_india">Surakshit Digital Bharat 🇮🇳</string>
+    <string name="create_account_btn">Create My Safety Shield</string>
+    <string name="login_btn">Login</string>
+    <string name="safety_manual_title">Safety Rules (Must Read)</string>
+    <string name="profile_title">My Profile</string>
+    <string name="delete_account_btn">Delete Account</string>
+    <string name="delete_confirm_title">Are you sure?</string>
+    <string name="delete_confirm_desc">All your alert history and profile data will be permanently deleted.</string>
+    <string name="joined_on">Member since: %1$s</string>
+    <string name="total_protected">Total Protected: %1$d Alerts</string>
 
     <!-- Manual Tips -->
-    <string name="manual_donts_header" translatable="false">Don\'ts (ये भूल न करें)</string>
-    <string name="tip_dont_1" translatable="false">Kisi bhi SMS, WhatsApp ya Email par aaye anjaan link par click na karein.</string>
-    <string name="tip_dont_2" translatable="false">Lottery, Electricity Bill, SIM Block ya Bank Account Suspend jaise SMS par bharosa na karein.</string>
-    <string name="tip_dont_3" translatable="false">SMS ya WhatsApp se aayi APK/file download na karein.</string>
-    <string name="tip_dont_4" translatable="false">Anjaan call par AnyDesk, TeamViewer ya kisi bhi screen-sharing app ko download na karein.</string>
-    <string name="tip_dont_5" translatable="false">Paise LENE ke liye kabhi bhi UPI PIN mat daalein.</string>
-    <string name="tip_dont_6" translatable="false">Apna OTP, UPI PIN ya Password kisi ke saath share na karein.</string>
+    <string name="manual_donts_header">Don\'ts (ये भूल न करें)</string>
+    <string name="tip_dont_1">Kisi bhi SMS, WhatsApp ya Email par aaye anjaan link par click na karein.</string>
+    <string name="tip_dont_2">Lottery, Electricity Bill, SIM Block ya Bank Account Suspend jaise SMS par bharosa na karein.</string>
+    <string name="tip_dont_3">SMS ya WhatsApp se aayi APK/file download na karein.</string>
+    <string name="tip_dont_4">Anjaan call par AnyDesk, TeamViewer ya kisi bhi screen-sharing app ko download na karein.</string>
+    <string name="tip_dont_5">Paise LENE ke liye kabhi bhi UPI PIN mat daalein.</string>
+    <string name="tip_dont_6">Apna OTP, UPI PIN ya Password kisi ke saath share na karein.</string>
 
-    <string name="manual_dos_header" translatable="false">Do\'s (हमेसा याद रखें)</string>
-    <string name="tip_do_1" translatable="false">UPI PIN ka use sirf paise BHEJNE ya balance check karne ke liye karein.</string>
-    <string name="tip_do_2" translatable="false">QR Code scan karne se pehle vyakti ya dukaan ka naam verify karein.</string>
-    <string name="tip_do_3" translatable="false">Apps sirf official app store se hi download karein.</string>
-    <string name="tip_do_4" translatable="false">Fraud hone par turant 1930 Cyber Helpline par call karein.</string>
+    <string name="manual_dos_header">Do\'s (हमेसा याद रखें)</string>
+    <string name="tip_do_1">UPI PIN ka use sirf paise BHEJNE ya balance check karne ke liye karein.</string>
+    <string name="tip_do_2">QR Code scan karne se pehle vyakti ya dukaan ka naam verify karein.</string>
+    <string name="tip_do_3">Apps sirf official app store se hi download karein.</string>
+    <string name="tip_do_4">Fraud hone par turant 1930 Cyber Helpline par call karein.</string>
 
     <!-- Alert Screen -->
     <string name="payment_safety_alert">Payment Safety Alert</string>
     <string name="risk_score_label">Risk Score</string>
-    <string name="tap_hint" translatable="false">Tap to view detailed security score ⓘ</string>
-    <string name="analyzing_text" translatable="false">Analyzing Security Context...</string>
-    <string name="breakdown_title" translatable="false">Security Analysis Breakdown</string>
-    <string name="factor_sms_link" translatable="false">SMS &amp; Link Safety</string>
-    <string name="factor_remote_apps" translatable="false">Remote Access Check</string>
-    <string name="factor_upi_requests" translatable="false">UPI Request Integrity</string>
-    <string name="factor_permissions" translatable="false">Permission Safety Audit</string>
-    <string name="safe_status" translatable="false">Safe ✅</string>
-    <string name="risk_detected_status" translatable="false">Risk Detected 🚨</string>
+    <string name="tap_hint">Tap to view detailed security score ⓘ</string>
+    <string name="analyzing_text">Analyzing Security Context...</string>
+    <string name="breakdown_title">Security Analysis Breakdown</string>
+    <string name="factor_sms_link">SMS &amp; Link Safety</string>
+    <string name="factor_remote_apps">Remote Access Check</string>
+    <string name="factor_upi_requests">UPI Request Integrity</string>
+    <string name="factor_permissions">Permission Safety Audit</string>
+    <string name="safe_status">Safe ✅</string>
+    <string name="risk_detected_status">Risk Detected 🚨</string>
     <string name="risk_level_label">Risk Level</string>
     <string name="level_safe">SAFE</string>
     <string name="level_caution">CAUTION</string>
@@ -119,7 +121,7 @@
     <string name="voice_alerts_desc">Speak warnings during high-risk calls</string>
     <string name="app_language">App Language</string>
     <string name="about_gramkavach">About GramKavach</string>
-    <string name="version">Version 0.4.0</string>
+    <string name="version">Version 0.4.5</string>
     <string name="choose_language">Choose Language</string>
 
     <!-- About -->
@@ -130,18 +132,18 @@
     <!-- Analysis Scenarios -->
     <string name="source_bank_scam">Unknown Caller + Remote Access App</string>
     <string name="why_bank_scam">Multiple high-risk indicators suggest a possible social engineering attempt.</string>
-    <string name="action_bank_scam">End the call immediately, close any remote-access app, and never share your OTP or UPI PIN.</string>
+    <string name="action_bank_scam">Call immediately, close remote app, never share OTP.</string>
 
     <string name="source_collect">UPI Collect Request</string>
     <string name="why_collect">A collect request asks you to authorize a payment. Receiving money never requires entering your UPI PIN.</string>
     <string name="action_collect">Verify the sender before approving the request. Reject unexpected collect requests.</string>
 
     <string name="source_phishing">SMS/WhatsApp Link</string>
-    <string name="why_phishing">Suspicious or unverified link detected that may attempt to steal personal or banking information.</string>
+    <string name="why_phishing">Suspicious link detected. Verify the sender first.</string>
     <string name="action_phishing">Do not open the link or enter any sensitive information. Verify the sender first.</string>
 
     <string name="source_qr">External QR Code</string>
-    <string name="why_qr">The scanned QR code initiates a payment request. Always verify the recipient and amount before entering your UPI PIN.</string>
+    <string name="why_qr">Scanned QR code initiates a payment request. Always verify recipient and amount.</string>
     <string name="action_qr">Confirm the merchant and payment details before proceeding.</string>
 
     <!-- Signal Keys -->
@@ -174,20 +176,20 @@
     <string name="factor_amount_check">Amount Verification</string>
 
     <!-- Simulation Labels -->
-    <string name="sim_controls_title" translatable="false">Hackathon Simulation Controls</string>
-    <string name="sim_safe" translatable="false">1. Simulate Safe (Score 0)</string>
-    <string name="sim_phishing" translatable="false">2. Simulate Phishing (Score 25)</string>
-    <string name="sim_collect" translatable="false">3. Simulate UPI Collect (Score 50)</string>
-    <string name="sim_bank_scam" translatable="false">4. Simulate Bank Scam (Score 85)</string>
+    <string name="sim_controls_title">Hackathon Simulation Controls</string>
+    <string name="sim_safe">1. Simulate Safe (Score 0)</string>
+    <string name="sim_phishing">2. Simulate Phishing (Score 25)</string>
+    <string name="sim_collect">3. Simulate UPI Collect (Score 50)</string>
+    <string name="sim_bank_scam">4. Simulate Bank Scam (Score 85)</string>
 
     <!-- Status Messages -->
-    <string name="analyzing_context" translatable="false">Analyzing context…</string>
-    <string name="risk_monitoring_active" translatable="false">Risk Monitoring Active</string>
-    <string name="safety_manual_subtitle" translatable="false">Padiye aur surakshit rahiye</string>
-    <string name="device_protected_desc" translatable="false">Your device is fully protected.</string>
-    <string name="risks_detected_desc" translatable="false">Some risks detected. Stay vigilant.</string>
+    <string name="analyzing_context">Analyzing context…</string>
+    <string name="risk_monitoring_active">Risk Monitoring Active</string>
+    <string name="safety_manual_subtitle">Padiye aur surakshit rahiye</string>
+    <string name="device_protected_desc">Your device is fully protected.</string>
+    <string name="risks_detected_desc">Some risks detected. Stay vigilant.</string>
 
     <!-- Gauge Labels -->
-    <string name="gauge_min" translatable="false">0</string>
-    <string name="gauge_max" translatable="false">100</string>
+    <string name="gauge_min">0</string>
+    <string name="gauge_max">100</string>
 </resources>
