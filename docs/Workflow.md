@@ -2,6 +2,7 @@
 
 The core "Pre-PIN" prevention loop ensures that high-risk transactions are flagged before the user authorizes them.
 
+```mermaid
 sequenceDiagram
     autonumber
     participant C as Context Monitor
@@ -23,6 +24,7 @@ sequenceDiagram
     else Safe System
         U->>U: ✅ System Protected badge
     end
+```
 
 ### Guiding Principles
 
