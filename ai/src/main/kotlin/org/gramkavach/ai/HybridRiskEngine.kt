@@ -5,12 +5,12 @@ import org.gramkavach.domain.model.RiskAssessment
 import org.gramkavach.domain.model.RiskLevel
 import org.gramkavach.domain.model.AnalysisData
 import org.gramkavach.domain.model.DetectionFactor
-import org.gramkavach.domain.usecase.AssessPaymentRiskUseCase
+import org.gramkavach.domain.usecase.RiskEngine
 import javax.inject.Inject
 
 /** Local-first rule layer. Replace the optional ML signal with a vetted ONNX model before release. */
-class HybridRiskEngine @Inject constructor() : AssessPaymentRiskUseCase {
-    override suspend fun invoke(context: PaymentContext): RiskAssessment {
+class HybridRiskEngine @Inject constructor() : RiskEngine {
+    override suspend fun assess(context: PaymentContext): RiskAssessment {
         val signals = buildList {
             if (context.remoteAccessActive) add("A screen-sharing or remote-access app is active")
             if (context.accessibilityRisk) add("An untrusted app may control accessibility features")

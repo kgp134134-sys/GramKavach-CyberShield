@@ -9,15 +9,12 @@ import javax.inject.Inject
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import org.gramkavach.core.logging.KavachLogger
-import org.gramkavach.domain.model.AlertRecord
-import org.gramkavach.domain.repository.RiskRepository
 import org.gramkavach.domain.usecase.AssessPaymentRiskUseCase
 import org.gramkavach.domain.usecase.RiskNotifier
 
 @AndroidEntryPoint
 class RiskMonitoringService : LifecycleService() {
     @Inject lateinit var engine: AssessPaymentRiskUseCase
-    @Inject lateinit var repository: RiskRepository
     @Inject lateinit var notifier: RiskNotifier
     private var collection: Job? = null
 
@@ -29,16 +26,6 @@ class RiskMonitoringService : LifecycleService() {
                 runCatching {
                     val risk = engine(context)
                     KavachLogger.d("Risk assessment completed: Score=${risk.score}")
-                    repository.saveAlert(
-                        AlertRecord(
-                            score = risk.score,
-                            level = risk.level,
-                            reasons = risk.reasons,
-                            phoneNumber = risk.phoneNumber,
-                            details = context.transactionType,
-                            createdAtEpochMs = risk.assessedAtEpochMs
-                        )
-                    )
                     
                     val isAppForeground = isAppInForeground()
                     // Never show overlay if app is in foreground

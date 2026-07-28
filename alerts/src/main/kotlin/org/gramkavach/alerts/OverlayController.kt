@@ -77,16 +77,17 @@ class OverlayController @Inject constructor(@ApplicationContext private val cont
 
         val background = GradientDrawable().apply {
             shape = GradientDrawable.RECTANGLE
-            cornerRadius = 100f // Pills shape
+            cornerRadius = 16f // Rounded rectangle shape (square-ish)
             setColor(color)
+            setStroke(4, 0x44000000) // Subtle dark border
         }
 
         val content = LinearLayout(context).apply {
             orientation = LinearLayout.HORIZONTAL
             gravity = Gravity.CENTER_VERTICAL
-            setPadding(32, 16, 48, 16)
+            setPadding(40, 20, 48, 20)
             setBackground(background)
-            alpha = 0.95f
+            elevation = 8f
         }
         
         val icon = ImageView(context).apply {

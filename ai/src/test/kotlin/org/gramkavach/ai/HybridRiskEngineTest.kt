@@ -8,11 +8,11 @@ import org.junit.Test
 
 class HybridRiskEngineTest {
     @Test fun `remote access and collect request are critical`() = runTest {
-        val result = HybridRiskEngine()(PaymentContext(remoteAccessActive = true, collectRequest = true))
+        val result = HybridRiskEngine().assess(PaymentContext(remoteAccessActive = true, collectRequest = true))
         assertEquals(RiskLevel.CRITICAL, result.level)
     }
     @Test fun `no signals returns safe assessment`() = runTest {
-        val result = HybridRiskEngine()(PaymentContext())
+        val result = HybridRiskEngine().assess(PaymentContext())
         assertEquals(RiskLevel.SAFE, result.level)
         assertEquals(0, result.score)
     }

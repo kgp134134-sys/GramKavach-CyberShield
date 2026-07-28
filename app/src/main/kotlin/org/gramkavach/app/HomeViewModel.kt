@@ -8,17 +8,14 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
-import org.gramkavach.ai.HybridRiskEngine
-import org.gramkavach.domain.model.AlertRecord
 import org.gramkavach.domain.model.PaymentContext
 import org.gramkavach.domain.model.RiskAssessment
-import org.gramkavach.domain.repository.RiskRepository
+import org.gramkavach.domain.usecase.AssessPaymentRiskUseCase
 import org.gramkavach.monitoring.RiskSignalBus
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(
-    private val engine: HybridRiskEngine,
-    private val repository: RiskRepository,
+    private val useCase: AssessPaymentRiskUseCase,
 ) : ViewModel() {
     private val _assessment = MutableStateFlow<RiskAssessment?>(null)
     val assessment: StateFlow<RiskAssessment?> = _assessment.asStateFlow()
@@ -38,9 +35,7 @@ class HomeViewModel @Inject constructor(
                 transactionType = "Verified Payment"
             )
             RiskSignalBus.publish(context)
-            val result = engine(context)
-            repository.saveAlert(AlertRecord(score = result.score, level = result.level, reasons = result.reasons, phoneNumber = result.phoneNumber, details = context.transactionType, createdAtEpochMs = result.assessedAtEpochMs))
-            result
+            useCase(context)
         }.onSuccess { _assessment.value = it }
         _isLoading.value = false
     }
@@ -55,9 +50,7 @@ class HomeViewModel @Inject constructor(
                 suspiciousLinkOpened = true // Score 25
             )
             RiskSignalBus.publish(context)
-            val result = engine(context)
-            repository.saveAlert(AlertRecord(score = result.score, level = result.level, reasons = result.reasons, phoneNumber = result.phoneNumber, details = context.transactionType, createdAtEpochMs = result.assessedAtEpochMs))
-            result
+            useCase(context)
         }.onSuccess { _assessment.value = it }
         _isLoading.value = false
     }
@@ -73,9 +66,7 @@ class HomeViewModel @Inject constructor(
                 unknownCallActive = true // Score 25 + 25 = 50
             )
             RiskSignalBus.publish(context)
-            val result = engine(context)
-            repository.saveAlert(AlertRecord(score = result.score, level = result.level, reasons = result.reasons, phoneNumber = result.phoneNumber, details = context.transactionType, createdAtEpochMs = result.assessedAtEpochMs))
-            result
+            useCase(context)
         }.onSuccess { _assessment.value = it }
         _isLoading.value = false
     }
@@ -91,9 +82,7 @@ class HomeViewModel @Inject constructor(
                 accessibilityRisk = true // Score 50 + 35 = 85
             )
             RiskSignalBus.publish(context)
-            val result = engine(context)
-            repository.saveAlert(AlertRecord(score = result.score, level = result.level, reasons = result.reasons, phoneNumber = result.phoneNumber, details = context.transactionType, createdAtEpochMs = result.assessedAtEpochMs))
-            result
+            useCase(context)
         }.onSuccess { _assessment.value = it }
         _isLoading.value = false
     }

@@ -1,50 +1,49 @@
-# Implementation Plan - Architecture Improvements for Risk Assessment
+# Implementation Plan - Architecture Alignment with README.md
 
-Refactor the `AssessPaymentRiskUseCase` and `HybridRiskEngine` to improve scalability, testability, and error handling. The current implementation is monolithic and uses hardcoded scoring logic, which makes it difficult to maintain and extend with new risk signals.
+Refactor the Risk Assessment workflow to strictly follow Clean Architecture as described in the project's [README.md](file:///C:/Project/gram kavacha/README.md). This involves moving orchestration logic from the `monitoring` layer into a concrete Use Case in the `domain` layer.
 
 ## User Review Required
 
 > [!IMPORTANT]
-> The return type of `AssessPaymentRiskUseCase` will change from `RiskAssessment` to `Result<RiskAssessment>`. This will require updates in the `:app` (ViewModels), `:alerts`, and `:monitoring` modules.
+> The current `AssessPaymentRiskUseCase` (interface) will be renamed to `RiskEngine` to better reflect its role as a service provider. A new concrete `AssessPaymentRiskUseCase` (class) will be created in the `domain` layer to handle the workflow.
 
 ## Proposed Changes
 
-### [domain] Core Abstractions
+### [domain] Core Abstractions & Use Case
 
 #### [MODIFY] [AssessPaymentRiskUseCase.kt](file:///C:/Project/gram kavacha/domain/src/main/kotlin/org/gramkavach/domain/usecase/AssessPaymentRiskUseCase.kt)
-- Update the interface to return `Result<RiskAssessment>`.
-
-#### [NEW] [RiskAnalyzer.kt](file:///C:/Project/gram kavacha/domain/src/main/kotlin/org/gramkavach/domain/usecase/RiskAnalyzer.kt)
-- Define `RiskAnalyzer` interface to allow modular risk detection (e.g., `AccessibilityRiskAnalyzer`, `RemoteAccessAnalyzer`).
+- Rename interface `AssessPaymentRiskUseCase` to `RiskEngine`.
+- Create a concrete class `AssessPaymentRiskUseCase` that orchestrates `RiskEngine` and `RiskRepository`.
 
 #### [MODIFY] [RiskModels.kt](file:///C:/Project/gram kavacha/domain/src/main/kotlin/org/gramkavach/domain/model/RiskModels.kt)
-- Remove `System.currentTimeMillis()` from `RiskAssessment` default constructor.
-- Introduce `RiskResult` sealed class or improve `RiskLevel` usage.
+- Ensure models are robust and independent of implementation details.
 
-### [ai] Implementation Refactoring
+### [ai] Implementation Layer
 
 #### [MODIFY] [HybridRiskEngine.kt](file:///C:/Project/gram kavacha/ai/src/main/kotlin/org/gramkavach/ai/HybridRiskEngine.kt)
-- Refactor to orchestrate multiple `RiskAnalyzer` implementations.
-- Implement the new `AssessPaymentRiskUseCase` signature.
+- Update to implement the renamed `RiskEngine` interface.
 
-#### [NEW] Analyzers in `:ai` module
-- Create specialized analyzers for different risk factors (Accessibility, Remote Access, UPI Context).
+### [monitoring] Infrastructure Layer
 
-### [app], [alerts], [monitoring] Integration
+#### [MODIFY] [RiskMonitoringService.kt](file:///C:/Project/gram kavacha/monitoring/src/main/kotlin/org/gramkavach/monitoring/RiskMonitoringService.kt)
+- Update to call the new concrete `AssessPaymentRiskUseCase`.
+- Remove manual `RiskRepository` saving logic, as it will be handled by the Use Case.
 
-#### [MODIFY] [HomeViewModel.kt](file:///C:/Project/gram kavacha/app/src/main/kotlin/org/gramkavach/app/HomeViewModel.kt)
-- Handle `Result<RiskAssessment>` from the use case.
+### [app] Dependency Injection & UI
+
+#### [MODIFY] [AiModule.kt](file:///C:/Project/gram kavacha/ai/src/main/kotlin/org/gramkavach/ai/di/AiModule.kt)
+- Update Hilt bindings for the renamed `RiskEngine`.
 
 #### [MODIFY] [OverlayController.kt](file:///C:/Project/gram kavacha/alerts/src/main/kotlin/org/gramkavach/alerts/OverlayController.kt)
-- Update to handle the new use case return type if it calls it directly, or update call sites.
+- Change the overlay shape from a pill (oval) to a rounded rectangle (`cornerRadius` reduced to 12f).
+- Ensure the background rectangle uses bold colors corresponding to the risk level.
 
 ## Verification Plan
 
 ### Automated Tests
-- Run existing `HybridRiskEngineTest`.
-- Add unit tests for new `RiskAnalyzer` implementations.
-- Verify `AssessPaymentRiskUseCase` mocking in tests.
+- Run `HybridRiskEngineTest`.
+- Create a new `AssessPaymentRiskUseCaseTest` in `:domain` to verify the orchestration logic (saving to repo, etc.).
 
 ### Manual Verification
-- Deploy the app and trigger different risk scenarios (e.g., enable a simulated remote access flag).
-- Verify that alerts still show up correctly with the new architecture.
+- Deploy the app and verify that risk assessments are still performed and saved to the history log.
+- Ensure the floating overlay still appears when a risk is detected outside the app.

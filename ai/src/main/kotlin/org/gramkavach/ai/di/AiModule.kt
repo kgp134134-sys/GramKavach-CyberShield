@@ -5,7 +5,7 @@ import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import org.gramkavach.ai.HybridRiskEngine
-import org.gramkavach.domain.usecase.AssessPaymentRiskUseCase
+import org.gramkavach.domain.usecase.RiskEngine
 import javax.inject.Singleton
 
 @Module
@@ -13,5 +13,5 @@ import javax.inject.Singleton
 abstract class AiModule {
     @Binds
     @Singleton
-    abstract fun bindAssessPaymentRiskUseCase(impl: HybridRiskEngine): AssessPaymentRiskUseCase
+    abstract fun bindRiskEngine(impl: HybridRiskEngine): RiskEngine
 }
