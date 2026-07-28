@@ -1,11 +1,32 @@
 # 🛡️ GramKavach
 
+```text
+ ██████╗ ██████╗  █████╗ ███╗   ███╗██╗  ██╗ █████╗ ██╗   ██╗ █████╗  ██████╗██╗  ██╗
+██╔════╝ ██╔══██╗██╔══██╗████╗ ████║██║ ██╔╝██╔══██╗██║   ██║██╔══██╗██╔════╝██║  ██║
+██║  ███╗██████╔╝███████║██╔████╔██║█████╔╝ ███████║██║   ██║███████║██║     ███████║
+██║   ██║██╔══██╗██╔══██║██║╚██╔╝██║██╔═██╗ ██╔══██║╚██╗ ██╔╝██╔══██║██║     ██╔══██║
+╚██████╔╝██║  ██║██║  ██║██║ ╚═╝ ██║██║  ██╗██║  ██║ ╚████╔╝ ██║  ██║╚██████╗██║  ██║
+ ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝  ╚═══╝  ╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝
+                                                                                    
+          AI-POWERED PRE-PIN FRAUD PREVENTION SYSTEM FOR RURAL INDIA
+```
+
 [![Kotlin](https://img.shields.io/badge/Kotlin-2.1.0-blue.svg?style=flat&logo=kotlin)](https://kotlinlang.org)
 [![Android](https://img.shields.io/badge/Android-API%2026%2B-green.svg?style=flat&logo=android)](https://developer.android.com)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Version](https://img.shields.io/badge/Version-0.4.0-orange.svg)](https://github.com/kgp134134-sys/GramKavach456/releases)
+[![Version](https://img.shields.io/badge/Version-0.4.5-orange.svg)](https://github.com/kgp134134-sys/GramKavach456/releases)
 
-> **AI-powered digital financial safety assistant for preventing UPI fraud.**
+> **"Building critical digital trust for the next billion users."**
+
+---
+
+## ⚡ System Pulse: Live Status
+| Component | Status | Integrity | Pulse |
+| :--- | :--- | :--- | :--- |
+| **AI CORE** | `● ACTIVE` | `100% (ONNX)` | `[||||||||||||||||]` |
+| **VOICE ENGINE** | `● READY` | `BHASHINI/TTS` | `[||||||||░░░░░░░░]` |
+| **RISK MONITOR** | `● SCANNING` | `LOCAL-ONLY` | `[||||||||||||||░░]` |
+| **THREAT DATABASE** | `● SYNCED` | `ROOM/SQL` | `[||||||||||||||||]` |
 
 ---
 
@@ -59,140 +80,101 @@ GramKavach honors the "Maverick Effect" legacy through:
 - **Societal Impact**: Builds critical digital trust within the rural financial ecosystem, empowering the next billion users.
 - **Mindful Innovation**: Transforms complex cyber threat detection into a simple, culturally resonant audio-visual experience.
 
-## 🚀 Features
+## 🚀 Elite Capabilities
 
-- **Sanskriti Visual Identity**: A culturally conscious UI featuring a warm earthy palette and animated Rangoli patterns for a traditional Indian feel.
-- **On-Device Explainable AI**: Interactive risk scoring that provides a "Security Analysis Breakdown" for every check.
-- **Detailed Safety Rules**: A dedicated "Must Read" guide covering specific scams like fake electricity bills and PM Yojana frauds.
-- **Real-time Safety Overlay**: A pulsing floating badge that warns users during high-risk calls or payment requests.
-- **Emergency Reporting**: Quick-dial shortcut to **1930 Cyber Cell** for immediate fraud reporting.
-- **Privacy First**: 100% local processing; no transaction interception or private data collection.
+- **🌀 Sanskriti Visual Identity**: A culturally conscious UI featuring a warm earthy palette and animated Rangoli patterns for an intuitive, trust-building experience.
+- **🧠 On-Device Explainable AI**: Interactive risk scoring that provides a "Security Analysis Breakdown" for every check, powered by local ONNX models.
+- **📜 Smart Safety Rules**: A dedicated "Must Read" guide covering specific scams like fake electricity bills and PM Yojana frauds.
+- **🚨 Dynamic Risk Overlays**: A pulsing floating badge that warns users during high-risk calls or payment requests without blocking the payment app.
+- **🗣️ Bhashini Voice Alerts**: Real-time voice guidance in local languages, ensuring protection for low-literacy users in rural clusters.
+- **🛡️ Privacy-First Protocol**: 100% local processing; no transaction interception or private data collection. **Your data never leaves your device.**
 
-## 🛠️ Tech Stack
+## 🛠️ Technical Fabric
 
-- **Language**: Kotlin 2.1.0
-- **UI**: Jetpack Compose (Material 3)
-- **Architecture**: MVVM / Clean Architecture
-- **DI**: Hilt 2.57
-- **Database**: Room (with destructive migration fallback)
-- **Data**: DataStore, Coroutines, Flow
-- **AI**: ONNX Runtime Mobile
-- **Voice**: Bhashini AI Pipeline / Android TTS
+| Layer | Technology | Role |
+| :--- | :--- | :--- |
+| **Language** | `Kotlin 2.1.0` | Type-safe, high-performance logic |
+| **UI Framework** | `Jetpack Compose` | Declarative, accessible "Sanskriti" UI |
+| **AI Runtime** | `ONNX Runtime Mobile` | Low-latency, offline ML inference |
+| **Persistence** | `Room + DataStore` | Secure, local-first history & settings |
+| **Voice Synthesis** | `Bhashini + TTS` | Cultural & linguistic bridge |
+| **Dependency Injection** | `Hilt (Dagger)` | Modular, testable component fabric |
 
-## 📐 Architecture
+## 📐 Architecture: The Safety Stack
 
-GramKavach follows a strict **Clean Architecture** pattern. Below is the detailed structural overview of the system components and their interactions:
+GramKavach is engineered with a **3D-Layered Clean Architecture**. This ensures that the core security logic is isolated from external frameworks, allowing for rapid evolution of AI models and voice engines.
 
 ```mermaid
 flowchart TD
-    subgraph RiskAssessment ["Risk assessment"]
+    %% 3D STACK LAYERS
+    subgraph L3 ["📱 LAYER 3: PRESENTATION (Sanskriti UI)"]
         direction TB
-        AIB(["AI bindings<br/>Hilt module<br/>[AiModule.kt]"])
-        HRE{{"Hybrid risk engine<br/>RiskEngine implementation"}}
-        OMA(["ONNX model adapter<br/>optional inference<br/>[OnnxRiskModel.kt]"])
+        UI(["Dashboard & Screens<br/>[HomeScreen.kt]"])
+        VM(["ViewModels<br/>[HomeViewModel.kt]"])
+        SC(["State Holders<br/>(Compose Flow)"])
         
-        AIB -- binds --> HRE
-        HRE -. optional inference .-> OMA
+        UI <--> SC
+        SC <--> VM
     end
 
-    subgraph SystemMonitoring ["System monitoring"]
+    subgraph L2 ["🛡️ LAYER 2: DOMAIN (The Safety Core)"]
         direction TB
-        MI(["Monitoring integration<br/>Android manifest"])
-        RMS(["Risk monitoring services<br/>Android services"])
-        RSB(["Risk signal bus<br/>shared signal boundary<br/>[RiskSignalBus.kt]"])
+        UC(["Use Cases<br/>(Business Logic)"])
         
-        MI -- declares --> RMS
-        RMS -- publishes context --> RSB
+        subgraph Contracts ["📜 Protocol Contracts"]
+            direction LR
+            RE(["RiskEngine"])
+            VA(["VoiceAssistant"])
+            RN(["RiskNotifier"])
+            RR(["RiskRepository"])
+        end
+        
+        UC -->|Orchestrates| Contracts
     end
 
-    subgraph AppPresentation ["App & presentation"]
-        direction TB
-        AAE(["Application & activity<br/>Android entry points"])
-        HHS(["Home & history state<br/>Compose view models<br/>[HomeViewModel.kt]"])
-        HSC(["Home screen<br/>Compose screen<br/>[HomeScreen.kt]"])
-        
-        AAE -- hosts --> HHS
-        HHS -- renders state --> HSC
+    subgraph L1 ["⚙️ LAYER 1: INFRASTRUCTURE (The Foundation)"]
+        direction LR
+        subgraph AI_Mod [":ai"]
+            AI_Imp(["Hybrid Scorer<br/>(ONNX + Rules)"])
+        end
+        subgraph Voice_Mod [":bhashini"]
+            V_Imp(["Bhashini API<br/>+ Offline TTS"])
+        end
+        subgraph Monitor_Mod [":monitoring"]
+            M_Imp(["Real-time<br/>Signal Bus"])
+        end
+        subgraph Data_Mod [":data"]
+            D_Imp(["Encrypted DB<br/>& DataStore"])
+        end
     end
 
-    subgraph DomainContracts ["Domain contracts"]
-        direction TB
-        APR(["Assess payment risk<br/>domain use case"])
-        REC(["Risk engine contract<br/>domain interface<br/>[RiskEngine.kt]"])
-        RM(["Risk models<br/>domain models<br/>[RiskModels.kt]"])
-        
-        APR -- delegates scoring --> REC
-        APR -- produces result --> RM
-    end
+    %% Vertical "Energy Flow" Connections
+    VM ==>|Triggers| UC
+    
+    %% Implementation Inversion
+    AI_Imp -.->|Fulfills| RE
+    V_Imp -.->|Fulfills| VA
+    M_Imp -.->|Publishes to| RR
+    D_Imp -.->|Fulfills| RR
+    
+    %% Styling: Elite 3D Palette
+    classDef layer3 fill:#FFF9F0,stroke:#E65100,stroke-width:4px,color:#E65100
+    classDef layer2 fill:#FFFDE7,stroke:#A04000,stroke-width:3px,color:#A04000
+    classDef layer1 fill:#F1F8E9,stroke:#2E7D32,stroke-width:2px,color:#2E7D32
+    classDef subMod fill:#FFFFFF,stroke:#CCCCCC,stroke-dasharray: 5 5
 
-    subgraph ResponseHistory ["Response & history"]
-        direction TB
-        RN(["Risk notifier<br/>alert implementation"])
-        FSW(["Full-screen warning<br/>Android activity"])
-        BTS(["Bhashini text to speech<br/>voice implementation"])
-        OW(["Overlay warnings<br/>warning surface"])
-        
-        RR(["Risk repository<br/>domain repository<br/>implementation"])
-        AD(["Alert DAO<br/>Room DAO<br/>[AlertDao.kt]"])
-        AHB[("Alert history database<br/>Room database")]
-        
-        RN -- launches --> FSW
-        RN -- speaks warning --> BTS
-        RN -- shows overlay --> OW
-        
-        RR -- stores history --> AD
-        AD -- queries --> AHB
-    end
-
-    %% Cross-layer connections
-    HRE -- implements --> REC
-    RSB -- submits signals --> APR
-    HHS -- requests assessment --> APR
-    RM -- high-risk result --> RN
-    RM -- records event --> RR
-    HHS -- reads history --> RR
-
-    %% Styling
-    classDef risk fill:#FFEBEE,stroke:#EF5350,stroke-width:2px,color:#B71C1C
-    classDef monitor fill:#E8F5E9,stroke:#66BB6A,stroke-width:2px,color:#1B5E20
-    classDef app fill:#E3F2FD,stroke:#42A5F5,stroke-width:2px,color:#0D47A1
-    classDef domain fill:#FFF3E0,stroke:#FFA726,stroke-width:2px,color:#E65100
-    classDef history fill:#F3E5F5,stroke:#AB47BC,stroke-width:2px,color:#4A148C
-
-    class AIB,HRE,OMA risk
-    class MI,RMS,RSB monitor
-    class AAE,HHS,HSC app
-    class APR,REC,RM domain
-    class RN,FSW,BTS,OW,RR,AD,AHB history
+    class L3 layer3
+    class L2 layer2
+    class L1 layer1
+    class AI_Mod,Voice_Mod,Monitor_Mod,Data_Mod subMod
 ```
 
-### 🚨 Pre-PIN Prevention Workflow
+### 🚨 The Pre-PIN Prevention Loop
 
-How GramKavach stops fraud before money leaves the account:
-
-```mermaid
-sequenceDiagram
-    autonumber
-    participant S as System (Monitoring)
-    participant UC as Use Case (Domain)
-    participant AI as AI Engine (Infra)
-    participant V as Voice Assistant (Bhashini)
-    participant UI as User Interface (Sanskriti)
-
-    S->>UC: 📡 High-Risk Signal Detected
-    UC->>AI: 🧠 Request Hybrid Assessment
-    AI-->>UC: 📊 Risk Score: 85 (Critical)
-    
-    par Real-time Alerting
-        UC->>UI: 🚨 Show "Critical" Overlay
-        UC->>V: 🗣️ Trigger "Voice Warning" (Hindi)
-    end
-
-    UI->>UI: 🌀 Pulse Rangoli (Red State)
-    V-->>UI: "Stop! This looks like a fraud..."
-    
-    Note over UI,V: Pre-PIN Prevention complete. Money is safe.
-```
+1. **SIGNAL**: `:monitoring` detects a suspicious background call or remote access app.
+2. **EVALUATE**: `:domain` use case requests a hybrid score from the `:ai` engine.
+3. **NOTIFY**: If score > 60, `:alerts` shows a critical overlay while `:bhashini` speaks the warning.
+4. **SECURE**: User rejects the UPI request. **Money saved before the PIN was ever entered.**
 
 See [Architecture.md](docs/Architecture.md) and [Workflow.md](docs/Workflow.md) for more details.
 
