@@ -16,10 +16,10 @@
 ## ⚡ System Pulse: Live Status
 | Component | Status | Integrity | Pulse |
 | :--- | :--- | :--- | :--- |
-| **AI CORE** | `● ACTIVE` | `100% (ONNX)` | **[||||||||||||||||]** |
-| **VOICE ENGINE** | `● READY` | `BHASHINI/TTS` | **[||||||||░░░░░░░░]** |
-| **RISK MONITOR** | `● SCANNING` | `LOCAL-ONLY` | **[||||||||||||||░░]** |
-| **THREAT DATABASE** | `● SYNCED` | `ROOM/SQL` | **[||||||||||||||||]** |
+| **AI CORE** | `● ACTIVE` | `100% (ONNX)` | `████████████████` |
+| **VOICE ENGINE** | `● READY` | `BHASHINI/TTS` | `████████░░░░░░░░` |
+| **RISK MONITOR** | `● SCANNING` | `LOCAL-ONLY` | `██████████████░░` |
+| **THREAT DATABASE** | `● SYNCED` | `ROOM/SQL` | `████████████████` |
 
 ---
 
