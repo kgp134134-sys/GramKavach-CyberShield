@@ -4,13 +4,17 @@
   <img src="docs/images/rainbow_banner.svg" width="850" alt="GramKavach Rainbow Banner">
 </p>
 
-<p align="center">
-  <a href="https://kotlinlang.org"><img src="https://img.shields.io/badge/Kotlin-2.1.0-blue.svg?style=flat&logo=kotlin" alt="Kotlin"></a>
-  <a href="https://developer.android.com"><img src="https://img.shields.io/badge/Android-API%2026%2B-green.svg?style=flat&logo=android" alt="Android"></a>
-  <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License"></a>
-  <a href="https://github.com/kgp134134-sys/GramKavach-CyberShield/releases"><img src="https://img.shields.io/badge/Version-0.4.5-orange.svg" alt="Version"></a>
-  <a href="https://www.maverickeffectchallenge.com"><img src="https://img.shields.io/badge/Hackathon-Maverick_AI_Effect_Challenge-purple.svg" alt="Hackathon"></a>
-</p>
+<div align="center">
+  <table style="border: none; border-collapse: collapse; background: transparent;">
+    <tr style="border: none; background: transparent;">
+      <td style="border: none; padding: 2px;"><a href="https://kotlinlang.org"><img src="https://img.shields.io/badge/Kotlin-2.1.0-blue.svg?style=flat&logo=kotlin" alt="Kotlin"></a></td>
+      <td style="border: none; padding: 2px;"><a href="https://developer.android.com"><img src="https://img.shields.io/badge/Android-API%2026%2B-green.svg?style=flat&logo=android" alt="Android"></a></td>
+      <td style="border: none; padding: 2px;"><a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License"></a></td>
+      <td style="border: none; padding: 2px;"><a href="https://github.com/kgp134134-sys/GramKavach-CyberShield/releases"><img src="https://img.shields.io/badge/Version-0.4.5-orange.svg" alt="Version"></a></td>
+      <td style="border: none; padding: 2px;"><a href="https://www.maverickeffectchallenge.com"><img src="https://img.shields.io/badge/Hackathon-Maverick_AI_Effect_Challenge-purple.svg" alt="Hackathon"></a></td>
+    </tr>
+  </table>
+</div>
 
 > **"Think Before You Tap. AI Already Did."**
 
