@@ -85,39 +85,47 @@ GramKavach follows a strict **Domain-Centric Architecture**, where the `domain` 
 
 ```mermaid
 graph TD
-    subgraph Outer ["Infrastructure & Presentation Layer (Outer Ring)"]
+    subgraph Presentation ["Presentation Layer (UI/UX)"]
         direction LR
-        UI["app: Jetpack Compose UI & Hilt"]
-        Signal["monitoring: Service Facade"]
-        Voice["bhashini: Voice Adapter"]
-        AI["ai: ONNX ML Scorer"]
-        DB["data: Room DB & DataStore"]
+        UI["app: Compose Screens"]
+        VM["app: ViewModels"]
     end
 
-    subgraph Core ["Application Core (Domain Center)"]
-        direction TB
+    subgraph Application ["Application Layer (Use Cases)"]
+        direction LR
         UC["domain: Use Cases"]
-        Intf["domain: Contracts & Interfaces"]
-        Model["domain: Models & Entities"]
+        Intf["domain: Interfaces"]
     end
 
-    %% Clean Top-to-Bottom Flow
-    UI -->|Triggers| UC
-    Signal -->|Feeds Events| UC
-    
-    UC -->|Uses| Intf
-    UC -->|Operates On| Model
+    subgraph Domain ["Domain Layer (Business Rules)"]
+        direction LR
+        Model["domain: Domain Models"]
+        Rules["domain: Logic Entities"]
+    end
 
-    Voice -->|Implements| Intf
-    AI -->|Implements| Intf
-    DB -->|Implements| Intf
+    subgraph Infrastructure ["Infrastructure Layer (Technical Details)"]
+        direction LR
+        DB["data: Room/Store"]
+        AI["ai: ML Scorer"]
+        Voice["bhashini: Audio"]
+        Signal["monitoring: Service"]
+    end
 
-    %% Styling
-    classDef outer fill:#E1F5FE,stroke:#0288D1,stroke-width:2px,color:#000
-    classDef core fill:#FFF9C4,stroke:#FBC02D,stroke-width:2px,color:#000
+    %% Flow: Outer to Inner
+    Presentation --> Application
+    Infrastructure -- Implements --> Application
+    Application --> Domain
 
-    class UI,Signal,Voice,AI,DB outer
-    class UC,Intf,Model core
+    %% Styling based on provided example
+    classDef presentation fill:#D5E8D4,stroke:#82B366,stroke-width:2px,color:#000
+    classDef application fill:#F8CECC,stroke:#B85450,stroke-width:2px,color:#000
+    classDef domain fill:#FFF2CC,stroke:#D6B656,stroke-width:2px,color:#000
+    classDef infra fill:#DAE8FE,stroke:#6C8EBF,stroke-width:2px,color:#000
+
+    class UI,VM presentation
+    class UC,Intf application
+    class Model,Rules domain
+    class DB,AI,Voice,Signal infra
 ```
 
 See [Architecture.md](docs/Architecture.md) and [Workflow.md](docs/Workflow.md) for more details.
