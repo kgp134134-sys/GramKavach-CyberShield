@@ -84,48 +84,46 @@ GramKavach honors the "Maverick Effect" legacy through:
 GramKavach follows a strict **Domain-Centric Architecture**, where the `domain` module sits at the absolute center, encapsulating core risk evaluation logic without depending on any external Android frameworks or libraries.
 
 ```mermaid
-graph TD
-    %% SUBGRAPH BUILDINGS FOR EXACT REFERENCE IMAGE MATCH
+flowchart TD
+    subgraph External ["🌐 External Implementation Layer"]
+        direction LR
+        subgraph UI ["📱 Presentation Project"]
+            direction TB
+            MA(["MainActivity"])
+            VM(["ViewModels"])
+            Screens(["Compose Screens"])
+        end
+
+        subgraph Infra ["⚙️ Infrastructure Project"]
+            direction TB
+            DB(["Room Database"])
+            AI(["ONNX AI Scorer"])
+            Voice(["Bhashini Voice"])
+            Monitor(["Risk Service"])
+        end
+    end
+
+    subgraph Core ["🛡️ Application Core (Domain Center)"]
+        direction TB
+        UC(["Use Cases"])
+        Intf(["Contracts / Interfaces"])
+        Model(["Domain Entities"])
+    end
+
+    %% Flow with meaningful labels
+    UI ==>|Triggers| UC
+    Infra -.->|Implements| Intf
+    UC -->|Uses| Intf
+    UC -->|Operates| Model
+
+    %% Styling for Premium Look
+    classDef ui fill:#E3F2FD,stroke:#0D47A1,stroke-width:2px,color:#0D47A1
+    classDef infra fill:#E8F5E9,stroke:#1B5E20,stroke-width:2px,color:#1B5E20
+    classDef domain fill:#FFF8E1,stroke:#FF6F00,stroke-width:2px,color:#FF6F00
     
-    subgraph UI_Proj ["App Project (UI Layer)"]
-        direction TB
-        Ctrl["app: MainActivity"]
-        VM["app: ViewModels"]
-        Views["app: Jetpack Compose Screens"]
-    end
-
-    subgraph Infra_Proj ["Infrastructure Project"]
-        direction TB
-        DB_Cache["data: Room DB & DataStore"]
-        AI_ONNX["ai: ONNX ML Scorer"]
-        Voice["bhashini: Audio TTS Adapter"]
-        SMS["monitoring: Signal Service"]
-    end
-
-    subgraph Core_Proj ["Application Core Project (Domain)"]
-        direction TB
-        Intf["Interfaces & Contracts"]
-        UC["Use Cases"]
-        Models["Domain Models & Entities"]
-        Rules["Risk Scorer Rules"]
-    end
-
-    %% CONNECTIONS (Dashed & Solid like reference image)
-    UI_Proj --> Core_Proj
-    Infra_Proj -.->|Implements| Core_Proj
-
-    %% EXACT COLOR COMBO MATCHING REFERENCE IMAGE
-    %% Blue for UI App Project
-    classDef uiBox fill:#2196F3,stroke:#1976D2,stroke-width:2px,color:#FFFFFF
-    class Ctrl,VM,Views uiBox
-
-    %% Green for Infrastructure Project
-    classDef infraBox fill:#4CAF50,stroke:#388E3C,stroke-width:2px,color:#FFFFFF
-    class DB_Cache,AI_ONNX,Voice,SMS infraBox
-
-    %% Orange / Red for Application Core Project
-    classDef coreBox fill:#FF5722,stroke:#E64A19,stroke-width:2px,color:#FFFFFF
-    class Intf,UC,Models,Rules coreBox
+    class MA,VM,Screens ui
+    class DB,AI,Voice,Monitor infra
+    class UC,Intf,Model domain
 ```
 
 See [Architecture.md](docs/Architecture.md) and [Workflow.md](docs/Workflow.md) for more details.
