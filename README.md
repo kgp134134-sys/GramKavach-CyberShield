@@ -7,7 +7,7 @@
 [![Kotlin](https://img.shields.io/badge/Kotlin-2.1.0-blue.svg?style=flat&logo=kotlin)](https://kotlinlang.org)
 [![Android](https://img.shields.io/badge/Android-API%2026%2B-green.svg?style=flat&logo=android)](https://developer.android.com)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Version](https://img.shields.io/badge/Version-0.4.5-orange.svg)](https://github.com/kgp134134-sys/GramKavach456/releases)
+[![Version](https://img.shields.io/badge/Version-0.4.5-orange.svg)](https://github.com/kgp134134-sys/GramKavach-CyberShield/releases)
 [![Hackathon: Maverick AI](https://img.shields.io/badge/Hackathon-Maverick_AI_Effect_Challenge-purple.svg)](https://www.maverickeffectchallenge.com)
 
 > **"Think Before You Tap. AI Already Did."**
@@ -75,7 +75,7 @@ GramKavach embodies the three core pillars of the **Maverick Effect** legacy:
 ## 📥 Download & Demo
 
 **Get the latest hackathon-ready build here:**
-[**Download GramKavach v0.4.5 APK**](https://github.com/kgp134134-sys/GramKavach456/releases/tag/v0.4.5)
+[**Download GramKavach v0.4.5 APK**](https://github.com/kgp134134-sys/GramKavach-CyberShield/releases/tag/v0.4.5)
 
 > [!NOTE]
 > **Installation Tip**: Since this is a **hackathon demo prototype** and not yet published on the Play Store, Android may show a "Play Protect" or "Unknown Developer" warning.
