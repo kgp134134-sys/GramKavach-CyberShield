@@ -8,8 +8,15 @@
 [![Android](https://img.shields.io/badge/Android-API%2026%2B-green.svg?style=flat&logo=android)](https://developer.android.com)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Version](https://img.shields.io/badge/Version-0.4.5-orange.svg)](https://github.com/kgp134134-sys/GramKavach456/releases)
+[![Hackathon: Maverick AI](https://img.shields.io/badge/Hackathon-Maverick_AI_Effect_Challenge-purple.svg)](https://www.maverickeffectchallenge.com)
 
 > **"Think Before You Tap. AI Already Did."**
+
+---
+
+## 🏆 Maverick AI Effect Challenge Participation
+
+GramKavach is proudly participating in the **Maverick AI Effect Challenge (2026)**. This project is a tribute to the "Maverick" spirit—solving complex Indian problems through technical excellence, frugal innovation, and societal impact.
 
 ---
 
@@ -37,6 +44,16 @@ GramKavach continuously evaluates multiple risk signals on the device and alerts
 - **Familiar UI:** Simple, culturally intuitive interface designed for ease of use.
 - **Privacy-First:** AI inference runs locally on the device whenever possible, minimizing data sharing.
 - **Offline-Ready:** Core protection features remain available even with limited or no internet connectivity.
+
+---
+
+## 🚀 Maverick Effect Alignment
+
+GramKavach embodies the three core pillars of the **Maverick Effect** legacy:
+
+1.  **Mindful Innovation**: Instead of reactive security, we've built a **100% On-Device, Pre-PIN Prevention System**. By combining local pattern-matching with lightweight ONNX models, we stop fraud *before* the money leaves the account.
+2.  **Frugal & Scalable**: Our system operates with **zero server costs** and zero internet requirements for core detection. This ensures that even users in the most remote "Gram" (villages) are protected without needing a data plan.
+3.  **Societal Impact**: We are building critical digital trust within Bharat's financial ecosystem. By providing **Bhashini-powered regional voice alerts**, we ensure that low-literacy users are no longer left vulnerable to sophisticated social engineering.
 
 ---
 
@@ -302,9 +319,13 @@ GitHub: https://github.com/kgp134134-sys
 
 ## 🙏 Acknowledgments
 
-This project was built from my own idea, concept, planning, and hard work. AI tools helped with code generation, debugging, improvements, and documentation.
+This project has been deeply inspired by the innovation-led spirit championed by the **Maverick AI Effect Challenge**. We would like to express our gratitude to:
 
-> 🤖 AI assisted during development. The idea, concept and project design are original.
+-   **Gujarat Technological University (GTU)** for providing the platform to solve real-world problems.
+-   **Dewang Mehta Foundation Trust (DMFT)** for fostering the spirit of Indian IT innovation.
+-   **Mr. Harish Mehta** (Author of *The Maverick Effect*) for the vision that technically superior solutions can be built by those who dare to think differently.
+
+> 🤖 AI assisted during development. The idea, concept and project design are original and aligned with the "Safety Bharat" vision.
 
 ## 📄 License
 
