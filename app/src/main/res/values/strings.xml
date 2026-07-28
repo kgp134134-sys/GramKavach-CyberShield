@@ -172,4 +172,22 @@
     <string name="factor_qr_scanned">External QR Scanned</string>
     <string name="factor_merchant_trust">Merchant Trust Score</string>
     <string name="factor_amount_check">Amount Verification</string>
+
+    <!-- Simulation Labels -->
+    <string name="sim_controls_title" translatable="false">Hackathon Simulation Controls</string>
+    <string name="sim_safe" translatable="false">1. Simulate Safe (Score 0)</string>
+    <string name="sim_phishing" translatable="false">2. Simulate Phishing (Score 25)</string>
+    <string name="sim_collect" translatable="false">3. Simulate UPI Collect (Score 50)</string>
+    <string name="sim_bank_scam" translatable="false">4. Simulate Bank Scam (Score 85)</string>
+
+    <!-- Status Messages -->
+    <string name="analyzing_context" translatable="false">Analyzing context…</string>
+    <string name="risk_monitoring_active" translatable="false">Risk Monitoring Active</string>
+    <string name="safety_manual_subtitle" translatable="false">Padiye aur surakshit rahiye</string>
+    <string name="device_protected_desc" translatable="false">Your device is fully protected.</string>
+    <string name="risks_detected_desc" translatable="false">Some risks detected. Stay vigilant.</string>
+
+    <!-- Gauge Labels -->
+    <string name="gauge_min" translatable="false">0</string>
+    <string name="gauge_max" translatable="false">100</string>
 </resources>

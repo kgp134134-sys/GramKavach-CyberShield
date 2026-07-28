@@ -92,8 +92,9 @@ GramKavach follows a **Domain-Centric Dependency Inverted Architecture** (Clean 
 ```mermaid
 flowchart TD
     subgraph UI ["app: UI Layer (Hilt Host)"]
-        MA[MainActivity] --> Nav[Navigation Graph]
-        Nav --> Screens[UI Screens]
+        MA[MainActivity]
+        Nav[Navigation Graph]
+        Screens[UI Screens]
     end
 
     subgraph Domain ["domain: Business Logic (Center)"]
@@ -101,14 +102,39 @@ flowchart TD
         Model[Models]
         RepoIntf[Repository Interfaces]
         NotifIntf[Notifier Interfaces]
+        ScorerIntf[ModelScorer Interface]
     end
 
+    subgraph Infrastructure ["Implementation Layers"]
+        Data[data: Room/DataStore]
+        AI[ai: ONNX Scorer]
+        Alerts[alerts: Overlay/Notify]
+        Monitor[monitoring: Service]
+    end
+
+    %% Flow and Inversion
     UI --> Domain
-    Data[data: Room/DataStore] -- implements --> RepoIntf
-    AI[ai: ONNX Scorer] -- implements --> UC
-    Alerts[alerts: Overlay/Notify] -- implements --> NotifIntf
-    Monitor[monitoring: Service] -- uses --> UC
+    UI ..> Data
+    UI ..> AI
+    UI ..> Alerts
+    UI ..> Monitor
+
+    UC --> ScorerIntf
+    
+    Data -- implements --> RepoIntf
+    AI -- implements --> ScorerIntf
+    Alerts -- implements --> NotifIntf
+    Monitor -- uses --> UC
     Monitor -- uses --> NotifIntf
+
+    %% Styling
+    classDef ui fill:#E1F5FE,stroke:#01579B,stroke-width:2px,color:#000
+    classDef domain fill:#FFF9C4,stroke:#FBC02D,stroke-width:2px,color:#000
+    classDef infra fill:#E8F5E9,stroke:#2E7D32,stroke-width:2px,color:#000
+
+    class MA,Nav,Screens ui
+    class UC,Model,RepoIntf,NotifIntf,ScorerIntf domain
+    class Data,AI,Alerts,Monitor infra
 ```
 
 See [Architecture.md](docs/Architecture.md) and [Workflow.md](docs/Workflow.md) for more details.
