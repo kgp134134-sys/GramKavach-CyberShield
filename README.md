@@ -86,34 +86,38 @@ GramKavach follows a strict **Domain-Centric Architecture**, where the `domain` 
 ```mermaid
 graph TD
     subgraph Outer ["Infrastructure & Presentation Layer (Outer Ring)"]
+        direction LR
         UI["app: Jetpack Compose UI & Hilt"]
-        DB["data: Room DB & DataStore"]
-        AI["ai: ONNX ML Scorer"]
-        Voice["bhashini: Voice Adapter"]
         Signal["monitoring: Service Facade"]
+        Voice["bhashini: Voice Adapter"]
+        AI["ai: ONNX ML Scorer"]
+        DB["data: Room DB & DataStore"]
     end
 
     subgraph Core ["Application Core (Domain Center)"]
+        direction TB
         UC["domain: Use Cases"]
-        Model["domain: Models & Entities"]
         Intf["domain: Contracts & Interfaces"]
+        Model["domain: Models & Entities"]
     end
 
-    %% Dependency Direction (Always Inward)
-    UI --> UC
-    DB -- Implements --> Intf
-    AI -- Implements --> Intf
-    Voice -- Implements --> Intf
-    Signal --> UC
+    %% Clean Top-to-Bottom Flow
+    UI -->|Triggers| UC
+    Signal -->|Feeds Events| UC
     
-    UC --> Model
-    UC --> Intf
+    UC -->|Uses| Intf
+    UC -->|Operates On| Model
 
-    classDef outer fill:#E1F5FE,stroke:#0288D1,stroke-width:2px;
-    classDef core fill:#FFF9C4,stroke:#FBC02D,stroke-width:2px;
-    
-    class UI,DB,AI,Voice,Signal outer;
-    class UC,Model,Intf core;
+    Voice -->|Implements| Intf
+    AI -->|Implements| Intf
+    DB -->|Implements| Intf
+
+    %% Styling
+    classDef outer fill:#E1F5FE,stroke:#0288D1,stroke-width:2px,color:#000
+    classDef core fill:#FFF9C4,stroke:#FBC02D,stroke-width:2px,color:#000
+
+    class UI,Signal,Voice,AI,DB outer
+    class UC,Intf,Model core
 ```
 
 See [Architecture.md](docs/Architecture.md) and [Workflow.md](docs/Workflow.md) for more details.
