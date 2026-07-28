@@ -14,8 +14,7 @@ import javax.inject.Inject
 class AssessPaymentRiskUseCase @Inject constructor(
     private val engine: RiskEngine,
     private val repository: RiskRepository,
-    private val notifier: RiskNotifier,
-    private val voice: VoiceAssistant
+    private val notifier: RiskNotifier
 ) {
     suspend operator fun invoke(context: PaymentContext): RiskAssessment {
         val risk = engine.assess(context)
@@ -35,13 +34,6 @@ class AssessPaymentRiskUseCase @Inject constructor(
         // Trigger UI notification
         notifier.show(risk)
 
-        // Trigger voice alert for high-risk scenarios
-        if (risk.score >= 15) {
-            val language = "hi" // Fallback or get from repository settings
-            val warningText = risk.reasons.firstOrNull() ?: "Potential fraud detected"
-            voice.speak(warningText, language)
-        }
-        
         return risk
     }
 }

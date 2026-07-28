@@ -75,7 +75,7 @@ class ResilientVoiceAlertSpeaker(
         localTts = AndroidTextToSpeech(context)
     }
 
-    override suspend fun speak(text: String, languageTag: String) {
+    override suspend fun speak(text: String, languageTag: String): Result<Unit> {
         val normalizedTag = when(languageTag.lowercase()) {
             "en" -> "en-IN"
             "hi" -> "hi-IN"
@@ -86,7 +86,7 @@ class ResilientVoiceAlertSpeaker(
             "gu" -> "gu-IN"
             else -> languageTag
         }
-        remote.speak(text, normalizedTag).recoverCatching { 
+        return remote.speak(text, normalizedTag).recoverCatching { 
             (localTts ?: AndroidTextToSpeech(context)).speak(text, normalizedTag).getOrThrow() 
         }
     }

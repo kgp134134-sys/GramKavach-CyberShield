@@ -1,0 +1,41 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="32dp"
+    android:height="32dp"
+    android:viewportWidth="100"
+    android:viewportHeight="100">
+
+    <!-- Outer Shield Border -->
+    <path
+        android:fillColor="#78909C"
+        android:pathData="M50,5 L15,20 L15,50 C15,75 50,95 50,95 C50,95 85,75 85,50 L85,20 L50,5 Z" />
+
+    <!-- Inner Shield (Right Highlight) -->
+    <path
+        android:fillColor="#B0BEC5"
+        android:pathData="M50,12 L22,25 L22,50 C22,70 50,87 50,87 L50,12 Z" />
+
+    <!-- Inner Shield (Left Shadow) -->
+    <path
+        android:fillColor="#CFD8DC"
+        android:pathData="M50,12 L78,25 L78,50 C78,70 50,87 50,87 L50,12 Z" />
+
+    <!-- Center Line for 3D effect -->
+    <path
+        android:fillColor="#90A4AE"
+        android:pathData="M49.5,12 H50.5 V87 H49.5 Z" />
+
+    <!-- Rivets (Little dots on the border) -->
+    <path android:fillColor="#ECEFF1" android:pathData="M50,8 A2,2 0,1 1,50,12 A2,2 0,1 1,50,8 Z" />
+    <path android:fillColor="#ECEFF1" android:pathData="M32,15 A2,2 0,1 1,32,19 A2,2 0,1 1,32,15 Z" />
+    <path android:fillColor="#ECEFF1" android:pathData="M68,15 A2,2 0,1 1,68,19 A2,2 0,1 1,68,15 Z" />
+    <path android:fillColor="#ECEFF1" android:pathData="M20,25 A2,2 0,1 1,20,29 A2,2 0,1 1,20,25 Z" />
+    <path android:fillColor="#ECEFF1" android:pathData="M80,25 A2,2 0,1 1,80,29 A2,2 0,1 1,80,25 Z" />
+    <path android:fillColor="#ECEFF1" android:pathData="M17,40 A2,2 0,1 1,17,44 A2,2 0,1 1,17,40 Z" />
+    <path android:fillColor="#ECEFF1" android:pathData="M83,40 A2,2 0,1 1,83,44 A2,2 0,1 1,83,40 Z" />
+    <path android:fillColor="#ECEFF1" android:pathData="M20,55 A2,2 0,1 1,20,59 A2,2 0,1 1,20,55 Z" />
+    <path android:fillColor="#ECEFF1" android:pathData="M80,55 A2,2 0,1 1,80,59 A2,2 0,1 1,80,55 Z" />
+    <path android:fillColor="#ECEFF1" android:pathData="M35,78 A2,2 0,1 1,35,82 A2,2 0,1 1,35,78 Z" />
+    <path android:fillColor="#ECEFF1" android:pathData="M65,78 A2,2 0,1 1,65,82 A2,2 0,1 1,65,78 Z" />
+    <path android:fillColor="#ECEFF1" android:pathData="M50,90 A2,2 0,1 1,50,94 A2,2 0,1 1,50,90 Z" />
+
+</vector>

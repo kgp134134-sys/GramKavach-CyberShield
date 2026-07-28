@@ -6,7 +6,7 @@ package org.gramkavach.domain.usecase
  */
 interface VoiceAssistant {
     /** Speak the given [text] in the specified [languageTag] (e.g., "en", "hi"). */
-    suspend fun speak(text: String, languageTag: String)
+    suspend fun speak(text: String, languageTag: String): Result<Unit>
     
     /** Stop any ongoing speech. */
     fun stop()

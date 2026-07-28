@@ -9,7 +9,7 @@
     <string name="setup_required">Setup Required</string>
     <string name="risk_detected">Risk Detected</string>
     <string name="monitoring_active">Real-time monitoring active</string>
-    <string name="high_risk_badge">Stay Alert 🚨</string>
+    <string name="high_risk_badge">Risk detected : Stay Alert 🚨</string>
     <string name="quick_actions">Quick Actions</string>
     <string name="history">History</string>
     <string name="alerts_count">%1$d alerts</string>

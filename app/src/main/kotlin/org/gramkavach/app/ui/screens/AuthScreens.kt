@@ -57,40 +57,86 @@ fun AuthLanding(onCreate: () -> Unit) {
 fun Onboarding(title: String, onComplete: (String) -> Unit) {
     var name by rememberSaveable { mutableStateOf("") }
 
-    Box(Modifier.fillMaxSize().background(CreamWarm).padding(24.dp)) {
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(CreamWarm)
+            .statusBarsPadding()
+            .navigationBarsPadding()
+            .imePadding()
+            .padding(horizontal = 24.dp)
+    ) {
+        Spacer(Modifier.weight(1f))
+
         Column(
-            modifier = Modifier.align(Alignment.Center),
+            modifier = Modifier.fillMaxWidth(),
             horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.spacedBy(24.dp)
+            verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
-            Text(title, style = MaterialTheme.typography.headlineMedium, fontWeight = FontWeight.Bold, color = SaffronDeep, textAlign = TextAlign.Center)
-            Text(stringResource(R.string.onboarding_desc), style = MaterialTheme.typography.bodyLarge, textAlign = TextAlign.Center, color = MaterialTheme.colorScheme.onSurfaceVariant)
-            
+            Text(
+                title,
+                style = MaterialTheme.typography.headlineLarge,
+                fontWeight = FontWeight.Black,
+                color = SaffronDeep,
+                textAlign = TextAlign.Center,
+                fontSize = 24.sp
+            )
+
+            Text(
+                stringResource(R.string.onboarding_desc),
+                style = MaterialTheme.typography.bodyLarge,
+                textAlign = TextAlign.Center,
+                color = Color.Gray,
+                lineHeight = 22.sp
+            )
+
+            Spacer(Modifier.height(8.dp))
+
             OutlinedTextField(
                 value = name,
                 onValueChange = { name = it },
-                label = { Text(stringResource(R.string.name_label), fontSize = 16.sp) },
-                placeholder = { Text(stringResource(R.string.name_placeholder)) },
+                placeholder = {
+                    Text(
+                        stringResource(R.string.name_label),
+                        color = Color.Gray,
+                        fontSize = 18.sp
+                    )
+                },
                 modifier = Modifier.fillMaxWidth(),
                 singleLine = true,
-                textStyle = TextStyle(fontSize = 22.sp, fontWeight = FontWeight.Medium),
+                textStyle = TextStyle(fontSize = 20.sp, fontWeight = FontWeight.Bold),
                 shape = MaterialTheme.shapes.large,
-                colors = OutlinedTextFieldDefaults.colors(focusedBorderColor = SaffronDeep, focusedLabelColor = SaffronDeep)
+                colors = OutlinedTextFieldDefaults.colors(
+                    focusedBorderColor = SaffronDeep,
+                    unfocusedBorderColor = Color.Gray,
+                    cursorColor = SaffronDeep
+                )
             )
         }
+
+        Spacer(Modifier.weight(1f))
 
         val isReady = name.isNotBlank()
         Button(
             onClick = { if (isReady) onComplete(name) },
             enabled = isReady,
-            modifier = Modifier.align(Alignment.BottomCenter).fillMaxWidth().height(60.dp).padding(bottom = 8.dp),
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(60.dp),
             shape = MaterialTheme.shapes.large,
             colors = ButtonDefaults.buttonColors(
                 containerColor = SaffronDeep,
-                disabledContainerColor = Color.Gray.copy(alpha = 0.3f)
+                disabledContainerColor = Color(0xFFE0E0E0),
+                disabledContentColor = Color.Gray
             )
         ) {
-            Text(stringResource(R.string.start_journey), fontWeight = FontWeight.Bold, fontSize = 18.sp)
+            Text(
+                stringResource(R.string.start_journey),
+                fontWeight = FontWeight.Bold,
+                fontSize = 18.sp
+            )
         }
+        
+        Spacer(Modifier.height(32.dp)) // Extra safety space at the bottom
     }
 }

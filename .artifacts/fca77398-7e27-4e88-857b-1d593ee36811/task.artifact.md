@@ -1,9 +1,6 @@
-# Task: Add Project Overview Section
+# Task: Auto-transition to System Language
 
-- [x] **📖 README.md Update**
-    - [x] Insert "📖 Overview" section with Elite styling
-    - [x] Detail the Mission, Pre-PIN Advantage, and Inclusivity
-- [ ] **Verification**
-    - [ ] Visual check in Markdown preview
-- [ ] **🚀 Deploy**
-    - [ ] Push changes to GitHub
+- [x] **⚙️ Data Layer Implementation**
+    - [x] Update `RiskRepositoryImpl.kt` to detect system locale as default
+- [x] **Verification**
+    - [x] Confirm app picks up device language on fresh start

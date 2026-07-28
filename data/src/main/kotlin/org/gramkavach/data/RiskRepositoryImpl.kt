@@ -44,8 +44,12 @@ class RiskRepositoryImpl(private val alertDao: AlertDao, private val context: Co
         }
     }
     override fun observeSettings(): Flow<UserSettings> = context.settingsStore.data.map { preferences ->
+        val systemLanguage = java.util.Locale.getDefault().language
+        val supportedLanguages = listOf("hi", "mr", "bn", "gu", "ta", "te")
+        val defaultLanguage = if (systemLanguage in supportedLanguages) systemLanguage else "en"
+        
         UserSettings(
-            languageTag = preferences[LANGUAGE] ?: "en",
+            languageTag = preferences[LANGUAGE] ?: defaultLanguage,
             voiceAlertsEnabled = preferences[VOICE] ?: true,
             userName = preferences[USER_NAME] ?: ""
         )

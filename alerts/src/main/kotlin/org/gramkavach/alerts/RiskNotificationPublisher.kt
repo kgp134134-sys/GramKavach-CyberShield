@@ -23,8 +23,24 @@ class RiskNotificationPublisher @Inject constructor(@ApplicationContext private 
     fun show(risk: RiskAssessment) {
         if ((Build.VERSION.SDK_INT >= 33) && (ContextCompat.checkSelfPermission(context, android.Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED)) return
         createChannel()
-        val intent = Intent(context, FullScreenWarningActivity::class.java).putExtra(FullScreenWarningActivity.EXTRA_SCORE, risk.score).putStringArrayListExtra(FullScreenWarningActivity.EXTRA_REASONS, ArrayList(risk.reasons))
-        val pending = PendingIntent.getActivity(context, risk.assessedAtEpochMs.toInt(), intent, PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)
+        
+        val intent = if (risk.score > 0) {
+            // High-risk or moderate risk: Show the red warning screen
+            Intent(context, FullScreenWarningActivity::class.java)
+                .putExtra(FullScreenWarningActivity.EXTRA_SCORE, risk.score)
+                .putStringArrayListExtra(FullScreenWarningActivity.EXTRA_REASONS, ArrayList(risk.reasons))
+        } else {
+            // Score 0 (Safe): Just open the app dashboard
+            context.packageManager.getLaunchIntentForPackage(context.packageName)
+        }
+        
+        val pending = PendingIntent.getActivity(
+            context, 
+            risk.assessedAtEpochMs.toInt(), 
+            intent!!, 
+            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
+        )
+        
         val icon = if (risk.score >= 15) android.R.drawable.stat_sys_warning else android.R.drawable.ic_dialog_info
         val title = if (risk.score >= 15) context.getString(R.string.payment_safety_alert) else context.getString(R.string.system_protected)
         val message = if (risk.score >= 15) context.getString(R.string.risk_score_label) + " ${risk.score}/100" else context.getString(R.string.monitoring_active)

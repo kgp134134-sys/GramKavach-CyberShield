@@ -1,27 +1,26 @@
-# Walkthrough - Rainbow ASCII SVG Banner Implementation
+# Walkthrough - Auto System Language Support
 
-I have implemented the **Rainbow Gradient SVG Banner** for your GitHub repository. This combines the powerful "Massive Block" ASCII style with a vibrant, professional color scheme.
+I have enabled automatic regional language detection in GramKavach. This ensures that the app greets the user in their preferred tongue right from the start.
 
-## Visual Enhancements
+## Features Added
 
-### 🌈 Rainbow SVG Banner
-- **Format**: Converted the block-style ASCII art into an SVG image.
-- **Color Effect**: Applied a linear horizontal gradient from **Saffron/Orange** to **Violet/Purple**, covering the entire spectrum.
-- **Robustness**: Since it is an SVG, it will never break or glitch due to font settings or screen sizes. It will remain perfectly aligned and sharp on both high-resolution monitors and mobile screens.
-- **Center Alignment**: Used a `<p align="center">` tag in the `README.md` to ensure the banner is perfectly balanced at the top of the page.
+### 🌍 Smart Locale Detection
+- **Native Experience**: The app now checks the device's system language during the first launch.
+- **Supported Mapping**: If the device is set to **Hindi (hi)**, **Marathi (mr)**, **Bengali (bn)**, **Gujarati (gu)**, **Tamil (ta)**, or **Telugu (te)**, GramKavach will automatically switch all UI and Voice components to that language.
+- **Intelligent Fallback**: If the system language is not one of the supported regional languages, it gracefully defaults to **English**, ensuring the app remains usable for everyone.
 
 ## Verification Results
 
-- **Rendering**: Verified that the SVG renders correctly in the Markdown preview.
-- **Gradient Flow**: Confirmed the colors transition smoothly across the "GRAMKAVACH" text.
-- **Link Integrity**: The banner is stored in `docs/images/rainbow_banner.svg`, following standard documentation project structure.
+### ⚙️ Logic Check (:data)
+- Updated `RiskRepositoryImpl.kt` to dynamically calculate the `defaultLanguage` using `java.util.Locale.getDefault().language`.
+- Verified that existing user choices (manual language selection in settings) still take priority over the system default, respecting user intent.
 
 > [!TIP]
-> This new banner gives your repository an immediate "Premium Product" feel that matches the innovative nature of GramKavach.
+> To test this, change your phone's system language to **Hindi** and reset GramKavach. You'll see the magic happen!
 
 ---
 
 ### Final Check
-- [x] Rainbow SVG created
-- [x] README updated with image reference
-- [x] Colors verified for attractiveness
+- [x] Auto-detection logic implemented
+- [x] Fallback safety ensured
+- [x] Settings persistence maintained

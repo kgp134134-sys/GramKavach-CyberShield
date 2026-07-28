@@ -9,9 +9,9 @@ import org.gramkavach.domain.usecase.RiskEngine
 import javax.inject.Inject
 
 /** Local-first rule layer. Replace the optional ML signal with a vetted ONNX model before release. */
-class HybridRiskEngine @Inject constructor(
+class HybridRiskEngine @Inject constructor() : RiskEngine {
+    // ONNX Model calculation placeholder
     private val onnxModel: OnnxRiskModel? = null
-) : RiskEngine {
     override suspend fun assess(context: PaymentContext): RiskAssessment {
         val signals = buildList {
             if (context.remoteAccessActive) add("A screen-sharing or remote-access app is active")

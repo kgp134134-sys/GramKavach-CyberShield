@@ -27,22 +27,18 @@ class HomeViewModel @Inject constructor(
     val isLoading: StateFlow<Boolean> = _isLoading.asStateFlow()
 
     fun simulateSafe() = viewModelScope.launch {
-        _isLoading.value = true
-        kotlinx.coroutines.delay(2000)
         runCatching {
             val context = PaymentContext(
                 phoneNumber = "+91 99000 11000",
                 transactionType = "Verified Payment"
             )
             RiskSignalBus.publish(context)
-            useCase(context)
-        }.onSuccess { _assessment.value = it }
-        _isLoading.value = false
+            val result = useCase(context)
+            _assessment.value = result
+        }
     }
 
     fun simulatePhishing() = viewModelScope.launch {
-        _isLoading.value = true
-        kotlinx.coroutines.delay(2000)
         runCatching {
             val context = PaymentContext(
                 phoneNumber = "Unknown Sender",
@@ -50,14 +46,12 @@ class HomeViewModel @Inject constructor(
                 suspiciousLinkOpened = true // Score 25
             )
             RiskSignalBus.publish(context)
-            useCase(context)
-        }.onSuccess { _assessment.value = it }
-        _isLoading.value = false
+            val result = useCase(context)
+            _assessment.value = result
+        }
     }
 
     fun simulateCollectRequest() = viewModelScope.launch {
-        _isLoading.value = true
-        kotlinx.coroutines.delay(2000)
         runCatching {
             val context = PaymentContext(
                 phoneNumber = "+91 80000 55555",
@@ -66,14 +60,12 @@ class HomeViewModel @Inject constructor(
                 unknownCallActive = true // Score 25 + 25 = 50
             )
             RiskSignalBus.publish(context)
-            useCase(context)
-        }.onSuccess { _assessment.value = it }
-        _isLoading.value = false
+            val result = useCase(context)
+            _assessment.value = result
+        }
     }
 
     fun simulateBankScam() = viewModelScope.launch {
-        _isLoading.value = true
-        kotlinx.coroutines.delay(2000)
         runCatching {
             val context = PaymentContext(
                 phoneNumber = "+91 91111 00000",
@@ -82,9 +74,9 @@ class HomeViewModel @Inject constructor(
                 accessibilityRisk = true // Score 50 + 35 = 85
             )
             RiskSignalBus.publish(context)
-            useCase(context)
-        }.onSuccess { _assessment.value = it }
-        _isLoading.value = false
+            val result = useCase(context)
+            _assessment.value = result
+        }
     }
 
     fun consumeAssessment() { _assessment.value = null }
