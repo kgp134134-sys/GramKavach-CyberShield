@@ -1,8 +1,0 @@
-- [ ] Update `README.md` flowchart (Square shapes + Colors)
-- [ ] Update `docs/Architecture.md` flowchart (Square shapes + Colors)
-- [ ] Refactor `AssessPaymentRiskUseCase` to concrete class in `:domain`
-- [ ] Rename existing interface to `RiskEngine`
-- [ ] Update `HybridRiskEngine` in `:ai` to implement `RiskEngine`
-- [ ] Update `RiskMonitoringService` in `:monitoring` to use new Use Case
-- [ ] Update Hilt bindings in `AiModule`
-- [ ] Verify build and tests
