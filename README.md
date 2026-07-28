@@ -262,6 +262,11 @@ Explore the GramKavach interface and dynamic safety alerts:
 | :--- | :--- | :--- |
 | <img src="screenshots/safe-status-dashboard.jpg" width="200"/> | <img src="screenshots/caution-dashboard.jpg" width="200"/> | <img src="screenshots/critical-dashboard.jpg" width="200"/> |
 
+### 🚀 Onboarding Flow
+| Landing | Name Input | Welcome |
+| :--- | :--- | :--- |
+| <img src="screenshots/auth-landing.jpg" width="200"/> | <img src="screenshots/onboarding-input.jpg" width="200"/> | <img src="screenshots/onboarding-completed.jpg" width="200"/> |
+
 ### 🚨 Real-time Alerts
 | Warning Overlay | Moderate Alert | History Log |
 | :--- | :--- | :--- |
