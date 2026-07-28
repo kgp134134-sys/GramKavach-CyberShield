@@ -22,6 +22,8 @@ import java.util.concurrent.TimeUnit
 import java.util.Locale
 import kotlin.coroutines.resume
 
+import org.gramkavach.domain.usecase.VoiceAssistant
+
 /** Bhashini pipeline-inference client. It deliberately receives credentials at construction time. */
 class BhashiniTextToSpeech(
     private val context: Context,
@@ -65,7 +67,7 @@ class BhashiniTextToSpeech(
 class ResilientVoiceAlertSpeaker(
     private val context: Context,
     private val remote: BhashiniTextToSpeech,
-) {
+) : VoiceAssistant {
     private var localTts: AndroidTextToSpeech? = null
 
     init {
@@ -73,7 +75,7 @@ class ResilientVoiceAlertSpeaker(
         localTts = AndroidTextToSpeech(context)
     }
 
-    suspend fun speak(text: String, languageTag: String): Result<Unit> {
+    override suspend fun speak(text: String, languageTag: String) {
         val normalizedTag = when(languageTag.lowercase()) {
             "en" -> "en-IN"
             "hi" -> "hi-IN"
@@ -84,9 +86,13 @@ class ResilientVoiceAlertSpeaker(
             "gu" -> "gu-IN"
             else -> languageTag
         }
-        return remote.speak(text, normalizedTag).recoverCatching { 
+        remote.speak(text, normalizedTag).recoverCatching { 
             (localTts ?: AndroidTextToSpeech(context)).speak(text, normalizedTag).getOrThrow() 
         }
+    }
+
+    override fun stop() {
+        localTts?.stop()
     }
 }
 
@@ -132,6 +138,10 @@ private class AndroidTextToSpeech(context: Context) {
                 }
             }
         }
+    }
+
+    fun stop() {
+        engine?.stop()
     }
 }
 

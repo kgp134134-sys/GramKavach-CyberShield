@@ -13,12 +13,14 @@ import javax.inject.Inject
  */
 class AssessPaymentRiskUseCase @Inject constructor(
     private val engine: RiskEngine,
-    private val repository: RiskRepository
+    private val repository: RiskRepository,
+    private val notifier: RiskNotifier,
+    private val voice: VoiceAssistant
 ) {
     suspend operator fun invoke(context: PaymentContext): RiskAssessment {
         val risk = engine.assess(context)
         
-        // Orchestrate saving to history as part of the domain workflow
+        // Orchestrate saving to history
         repository.saveAlert(
             AlertRecord(
                 score = risk.score,
@@ -29,6 +31,16 @@ class AssessPaymentRiskUseCase @Inject constructor(
                 createdAtEpochMs = risk.assessedAtEpochMs
             )
         )
+
+        // Trigger UI notification
+        notifier.show(risk)
+
+        // Trigger voice alert for high-risk scenarios
+        if (risk.score >= 15) {
+            val language = "hi" // Fallback or get from repository settings
+            val warningText = risk.reasons.firstOrNull() ?: "Potential fraud detected"
+            voice.speak(warningText, language)
+        }
         
         return risk
     }

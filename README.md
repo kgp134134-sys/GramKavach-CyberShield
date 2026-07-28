@@ -81,49 +81,58 @@ GramKavach honors the "Maverick Effect" legacy through:
 
 ## 📐 Architecture
 
-GramKavach follows a strict **Domain-Centric Architecture**, where the `domain` module sits at the absolute center, encapsulating core risk evaluation logic without depending on any external Android frameworks or libraries.
+GramKavach follows a strict **Clean Architecture** pattern with a **Domain-Centric** core. The `:domain` module contains the absolute source of truth (Use Cases and Interfaces) and has zero dependencies on any implementation details.
 
 ```mermaid
 flowchart TD
-    subgraph External ["🌐 External Implementation Layer"]
-        direction LR
-        subgraph UI ["📱 Presentation Project"]
-            direction TB
-            MA(["MainActivity"])
-            VM(["ViewModels"])
-            Screens(["Compose Screens"])
-        end
-
-        subgraph Infra ["⚙️ Infrastructure Project"]
-            direction TB
-            DB(["Room Database"])
-            AI(["ONNX AI Scorer"])
-            Voice(["Bhashini Voice"])
-            Monitor(["Risk Service"])
-        end
+    subgraph UI ["📱 Presentation Layer (:app)"]
+        direction TB
+        MA(["MainActivity"])
+        Nav(["Navigation Graph"])
+        Screens(["UI Screens / ViewModels"])
     end
 
-    subgraph Core ["🛡️ Application Core (Domain Center)"]
+    subgraph Core ["🛡️ Domain Layer (:domain)"]
         direction TB
         UC(["Use Cases"])
-        Intf(["Contracts / Interfaces"])
-        Model(["Domain Entities"])
+        
+        subgraph Intf ["Contracts (Interfaces)"]
+            direction LR
+            ScIntf(["RiskEngine"])
+            NtIntf(["RiskNotifier / VoiceAssistant"])
+            RpIntf(["RiskRepository"])
+        end
+        
+        UC -->|Uses| Intf
     end
 
-    %% Flow with meaningful labels
-    UI ==>|Triggers| UC
-    Infra -.->|Implements| Intf
-    UC -->|Uses| Intf
-    UC -->|Operates| Model
+    subgraph Implementation ["⚙️ Implementation Layers"]
+        direction LR
+        Mon([":monitoring (Service)"])
+        Alrt([":alerts (Overlay/Notify)"])
+        AI_mod([":ai (ONNX/Hybrid)"])
+        Data_mod([":data (Room/DS)"])
+        Voice_mod([":bhashini (Voice)"])
+    end
 
-    %% Styling for Premium Look
-    classDef ui fill:#E3F2FD,stroke:#0D47A1,stroke-width:2px,color:#0D47A1
-    classDef infra fill:#E8F5E9,stroke:#1B5E20,stroke-width:2px,color:#1B5E20
-    classDef domain fill:#FFEBEE,stroke:#C62828,stroke-width:2px,color:#C62828
+    %% Dependency Flow (Clean Architecture Rules)
+    UI ==>|Triggers| UC
     
-    class MA,VM,Screens ui
-    class DB,AI,Voice,Monitor infra
-    class UC,Intf,Model domain
+    %% Implementation Layer implements Domain Contracts
+    Mon -.->|Implements| RpIntf
+    Alrt -.->|Implements| NtIntf
+    AI_mod -.->|Implements| ScIntf
+    Data_mod -.->|Implements| RpIntf
+    Voice_mod -.->|Implements| NtIntf
+
+    %% Styling: Sanskriti Palette
+    classDef ui fill:#E3F2FD,stroke:#0D47A1,stroke-width:2px,color:#0D47A1
+    classDef domain fill:#FFF9C4,stroke:#FBC02D,stroke-width:2px,color:#FBC02D
+    classDef infra fill:#E8F5E9,stroke:#1B5E20,stroke-width:2px,color:#1B5E20
+    
+    class MA,Nav,Screens ui
+    class UC,ScIntf,NtIntf,RpIntf domain
+    class Mon,Alrt,AI_mod,Data_mod,Voice_mod infra
 ```
 
 See [Architecture.md](docs/Architecture.md) and [Workflow.md](docs/Workflow.md) for more details.

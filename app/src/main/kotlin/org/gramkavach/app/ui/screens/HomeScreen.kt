@@ -16,9 +16,13 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.geometry.Size
+import androidx.compose.ui.geometry.center
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.drawscope.Stroke
+import androidx.compose.ui.graphics.drawscope.rotate
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -83,80 +87,124 @@ fun Home(
         }
     }
 
-    Scaffold(
-        topBar = {
-            HomeTopBar(userName = userName, onSettingsClick = { onOpen("settings") })
-        }
-    ) { padding ->
-        val latestScore = alerts.firstOrNull()?.score ?: 0
-        Column(
-            modifier = Modifier
-                .padding(padding)
-                .fillMaxSize()
-                .verticalScroll(rememberScrollState())
-                .padding(16.dp),
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.spacedBy(16.dp)
-        ) {
-            RiskScoreSection(
-                score = latestScore,
-                isLoading = isLoading,
-                hasOverlayPermission = hasOverlayPermission,
-                onCardClick = { if (!isLoading) showBreakdown = true }
-            )
+    Box(modifier = Modifier.fillMaxSize()) {
+        RangoliBackground()
+        
+        Scaffold(
+            topBar = {
+                HomeTopBar(userName = userName, onSettingsClick = { onOpen("settings") })
+            },
+            containerColor = Color.Transparent
+        ) { padding ->
+            val latestScore = alerts.firstOrNull()?.score ?: 0
+            Column(
+                modifier = Modifier
+                    .padding(padding)
+                    .fillMaxSize()
+                    .verticalScroll(rememberScrollState())
+                    .padding(16.dp),
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.spacedBy(16.dp)
+            ) {
+                RiskScoreSection(
+                    score = latestScore,
+                    isLoading = isLoading,
+                    hasOverlayPermission = hasOverlayPermission,
+                    onCardClick = { if (!isLoading) showBreakdown = true }
+                )
 
-            MonitoringStatusBadge(
-                score = latestScore,
-                hasOverlayPermission = hasOverlayPermission
-            )
+                MonitoringStatusBadge(
+                    score = latestScore,
+                    hasOverlayPermission = hasOverlayPermission
+                )
 
-            Text(
-                stringResource(R.string.how_it_works),
-                style = MaterialTheme.typography.titleMedium,
-                modifier = Modifier.fillMaxWidth()
-            )
+                Text(
+                    stringResource(R.string.how_it_works),
+                    style = MaterialTheme.typography.titleMedium,
+                    modifier = Modifier.fillMaxWidth(),
+                    fontWeight = FontWeight.Bold,
+                    color = EarthTerracotta
+                )
 
-            ActionCardsSection(onOpen = onOpen)
+                ActionCardsSection(onOpen = onOpen)
 
-            Text(
-                stringResource(R.string.quick_actions),
-                style = MaterialTheme.typography.titleMedium,
-                modifier = Modifier.fillMaxWidth()
-            )
+                Text(
+                    stringResource(R.string.quick_actions),
+                    style = MaterialTheme.typography.titleMedium,
+                    modifier = Modifier.fillMaxWidth(),
+                    fontWeight = FontWeight.Bold,
+                    color = EarthTerracotta
+                )
 
-            QuickActionsGrid(
-                alertCount = alerts.size,
-                onHistoryClick = { onOpen("history") },
-                onReportClick = {
-                    context.startActivity(Intent(Intent.ACTION_DIAL, "tel:1930".toUri()))
-                }
-            )
+                QuickActionsGrid(
+                    alertCount = alerts.size,
+                    onHistoryClick = { onOpen("history") },
+                    onReportClick = {
+                        context.startActivity(Intent(Intent.ACTION_DIAL, "tel:1930".toUri()))
+                    }
+                )
 
-            PermissionWarning(
-                hasOverlayPermission = hasOverlayPermission,
-                onEnableClick = {
-                    context.startActivity(
-                        Intent(
-                            AndroidSettings.ACTION_MANAGE_OVERLAY_PERMISSION,
-                            "package:${context.packageName}".toUri()
+                PermissionWarning(
+                    hasOverlayPermission = hasOverlayPermission,
+                    onEnableClick = {
+                        context.startActivity(
+                            Intent(
+                                AndroidSettings.ACTION_MANAGE_OVERLAY_PERMISSION,
+                                "package:${context.packageName}".toUri()
+                            )
                         )
+                    }
+                )
+
+                SimulationControls(
+                    isLoading = isLoading,
+                    viewModel = viewModel
+                )
+
+                error?.let {
+                    Text(
+                        it,
+                        color = MaterialTheme.colorScheme.error,
+                        style = MaterialTheme.typography.bodySmall
                     )
                 }
-            )
-
-            SimulationControls(
-                isLoading = isLoading,
-                viewModel = viewModel
-            )
-
-            error?.let {
-                Text(
-                    it,
-                    color = MaterialTheme.colorScheme.error,
-                    style = MaterialTheme.typography.bodySmall
-                )
+                Spacer(Modifier.height(24.dp))
             }
-            Spacer(Modifier.height(24.dp))
+        }
+    }
+}
+
+@Composable
+fun RangoliBackground() {
+    val infiniteTransition = rememberInfiniteTransition(label = "RangoliRotation")
+    val rotation by infiniteTransition.animateFloat(
+        initialValue = 0f,
+        targetValue = 360f,
+        animationSpec = infiniteRepeatable(
+            animation = tween(60000, easing = LinearEasing)
+        ),
+        label = "Rotation"
+    )
+
+    Canvas(modifier = Modifier.fillMaxSize()) {
+        val centerPoint = size.center
+        rotate(rotation, pivot = centerPoint) {
+            val patternColor = SaffronDeep.copy(alpha = 0.03f)
+            val strokeWidth = 1.dp.toPx()
+            
+            for (i in 0 until 8) {
+                rotate(i * 45f) {
+                    drawArc(
+                        color = patternColor,
+                        startAngle = -20f,
+                        sweepAngle = 40f,
+                        useCenter = true,
+                        topLeft = Offset(centerPoint.x - 300.dp.toPx(), centerPoint.y - 300.dp.toPx()),
+                        size = Size(600.dp.toPx(), 600.dp.toPx()),
+                        style = Stroke(width = strokeWidth)
+                    )
+                }
+            }
         }
     }
 }
@@ -176,15 +224,16 @@ private fun HomeTopBar(userName: String, onSettingsClick: () -> Unit) {
                 Text(
                     stringResource(R.string.hello_user, userName),
                     style = MaterialTheme.typography.labelSmall,
-                    color = MaterialTheme.colorScheme.outline
+                    color = EarthTerracotta.copy(alpha = 0.7f)
                 )
             }
         },
         actions = {
             IconButton(onClick = onSettingsClick) {
-                Icon(Icons.Default.Settings, contentDescription = stringResource(R.string.settings))
+                Icon(Icons.Default.Settings, contentDescription = stringResource(R.string.settings), tint = EarthTerracotta)
             }
-        }
+        },
+        colors = TopAppBarDefaults.centerAlignedTopAppBarColors(containerColor = Color.Transparent)
     )
 }
 
@@ -201,8 +250,8 @@ private fun RiskScoreSection(
             .fillMaxWidth()
             .clickable(enabled = !isLoading) { onCardClick() },
         shape = MaterialTheme.shapes.extraLarge,
-        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
-        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
+        colors = CardDefaults.cardColors(containerColor = Color.White.copy(alpha = 0.9f)),
+        elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
     ) {
         Column(
             modifier = Modifier
@@ -276,8 +325,8 @@ private fun ActionCardsSection(onOpen: (String) -> Unit) {
             .fillMaxWidth()
             .clickable { onOpen("manual") },
         shape = MaterialTheme.shapes.large,
-        colors = CardDefaults.cardColors(containerColor = LeafGreen.copy(alpha = 0.1f)),
-        border = androidx.compose.foundation.BorderStroke(1.dp, LeafGreen.copy(alpha = 0.3f))
+        colors = CardDefaults.cardColors(containerColor = LeafGreen.copy(alpha = 0.08f)),
+        border = androidx.compose.foundation.BorderStroke(1.dp, LeafGreen.copy(alpha = 0.2f))
     ) {
         Row(
             Modifier.padding(16.dp),
@@ -314,20 +363,22 @@ private fun ActionCardsSection(onOpen: (String) -> Unit) {
             .clickable { onOpen("guide") },
         shape = MaterialTheme.shapes.large,
         colors = CardDefaults.cardColors(
-            containerColor = MaterialTheme.colorScheme.secondaryContainer.copy(alpha = 0.5f)
-        )
+            containerColor = SaffronDeep.copy(alpha = 0.05f)
+        ),
+        border = androidx.compose.foundation.BorderStroke(1.dp, SaffronDeep.copy(alpha = 0.1f))
     ) {
         Row(
             Modifier.padding(16.dp),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.spacedBy(16.dp)
         ) {
-            Icon(Icons.Default.PlayCircle, contentDescription = null, tint = MaterialTheme.colorScheme.secondary)
+            Icon(Icons.Default.PlayCircle, contentDescription = null, tint = SaffronDeep)
             Column(Modifier.weight(1f)) {
                 Text(
                     stringResource(R.string.view_guide),
                     style = MaterialTheme.typography.titleSmall,
-                    fontWeight = FontWeight.Bold
+                    fontWeight = FontWeight.Bold,
+                    color = SaffronDeep
                 )
                 Text(
                     stringResource(R.string.about_desc),
@@ -338,7 +389,8 @@ private fun ActionCardsSection(onOpen: (String) -> Unit) {
             Icon(
                 Icons.AutoMirrored.Filled.ArrowForwardIos,
                 contentDescription = null,
-                modifier = Modifier.size(16.dp)
+                modifier = Modifier.size(16.dp),
+                tint = SaffronDeep
             )
         }
     }
@@ -355,11 +407,13 @@ private fun QuickActionsGrid(
             modifier = Modifier
                 .weight(1f)
                 .clickable { onHistoryClick() },
-            shape = MaterialTheme.shapes.large
+            shape = MaterialTheme.shapes.large,
+            colors = CardDefaults.cardColors(containerColor = CreamWarm.copy(alpha = 0.5f)),
+            border = androidx.compose.foundation.BorderStroke(1.dp, EarthTerracotta.copy(alpha = 0.1f))
         ) {
             Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
-                Icon(Icons.Default.History, contentDescription = null, tint = MaterialTheme.colorScheme.primary)
-                Text(stringResource(R.string.history), style = MaterialTheme.typography.titleSmall)
+                Icon(Icons.Default.History, contentDescription = null, tint = EarthTerracotta)
+                Text(stringResource(R.string.history), style = MaterialTheme.typography.titleSmall, color = EarthTerracotta)
                 Text(
                     stringResource(R.string.alerts_count, alertCount),
                     style = MaterialTheme.typography.bodySmall
@@ -371,14 +425,15 @@ private fun QuickActionsGrid(
                 .weight(1f)
                 .clickable { onReportClick() },
             shape = MaterialTheme.shapes.large,
-            colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.errorContainer)
+            colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.errorContainer.copy(alpha = 0.8f))
         ) {
             Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
                 Icon(Icons.Default.Call, contentDescription = null, tint = MaterialTheme.colorScheme.error)
                 Text(
                     stringResource(R.string.help_1930),
                     style = MaterialTheme.typography.titleSmall,
-                    color = MaterialTheme.colorScheme.error
+                    color = MaterialTheme.colorScheme.error,
+                    fontWeight = FontWeight.Bold
                 )
                 Text(stringResource(R.string.report_fraud), style = MaterialTheme.typography.bodySmall)
             }
@@ -391,20 +446,22 @@ private fun PermissionWarning(hasOverlayPermission: Boolean, onEnableClick: () -
     AnimatedVisibility(visible = !hasOverlayPermission) {
         Card(
             modifier = Modifier.fillMaxWidth(),
-            colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.errorContainer),
-            shape = MaterialTheme.shapes.large
+            colors = CardDefaults.cardColors(containerColor = HighRed.copy(alpha = 0.05f)),
+            shape = MaterialTheme.shapes.large,
+            border = androidx.compose.foundation.BorderStroke(1.dp, HighRed.copy(alpha = 0.2f))
         ) {
             Row(
                 Modifier.padding(16.dp),
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.spacedBy(12.dp)
             ) {
-                Icon(Icons.Default.Info, contentDescription = null, tint = MaterialTheme.colorScheme.error)
+                Icon(Icons.Default.Info, contentDescription = null, tint = HighRed)
                 Column(Modifier.weight(1f)) {
                     Text(
                         stringResource(R.string.overlay_disabled),
                         style = MaterialTheme.typography.titleSmall,
-                        fontWeight = FontWeight.Bold
+                        fontWeight = FontWeight.Bold,
+                        color = HighRed
                     )
                     Text(
                         stringResource(R.string.overlay_required),
@@ -413,7 +470,7 @@ private fun PermissionWarning(hasOverlayPermission: Boolean, onEnableClick: () -
                 }
                 Button(
                     onClick = onEnableClick,
-                    colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.error)
+                    colors = ButtonDefaults.buttonColors(containerColor = HighRed)
                 ) {
                     Text(stringResource(R.string.enable))
                 }
@@ -427,14 +484,17 @@ private fun SimulationControls(isLoading: Boolean, viewModel: HomeViewModel) {
     Text(
         stringResource(R.string.sim_controls_title),
         style = MaterialTheme.typography.titleMedium,
-        modifier = Modifier.fillMaxWidth()
+        modifier = Modifier.fillMaxWidth(),
+        fontWeight = FontWeight.Bold,
+        color = EarthTerracotta
     )
     Card(
         modifier = Modifier.fillMaxWidth(),
         shape = MaterialTheme.shapes.large,
+        colors = CardDefaults.cardColors(containerColor = Color.White.copy(alpha = 0.6f)),
         border = androidx.compose.foundation.BorderStroke(
             1.dp,
-            MaterialTheme.colorScheme.outline.copy(alpha = 0.2f)
+            EarthTerracotta.copy(alpha = 0.1f)
         )
     ) {
         Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {

@@ -9,7 +9,9 @@ import org.gramkavach.domain.usecase.RiskEngine
 import javax.inject.Inject
 
 /** Local-first rule layer. Replace the optional ML signal with a vetted ONNX model before release. */
-class HybridRiskEngine @Inject constructor() : RiskEngine {
+class HybridRiskEngine @Inject constructor(
+    private val onnxModel: OnnxRiskModel? = null
+) : RiskEngine {
     override suspend fun assess(context: PaymentContext): RiskAssessment {
         val signals = buildList {
             if (context.remoteAccessActive) add("A screen-sharing or remote-access app is active")
@@ -19,14 +21,32 @@ class HybridRiskEngine @Inject constructor() : RiskEngine {
             if (context.suspiciousLinkOpened) add("A suspicious link was opened recently")
             if (context.qrPayment) add("Verify the merchant and amount before scanning a QR code")
         }
-        var score = 0
-        score += if (context.remoteAccessActive) 50 else 0
-        score += if (context.accessibilityRisk) 35 else 0
-        score += if (context.unknownCallActive) 25 else 0
-        score += if (context.collectRequest) 25 else 0
-        score += if (context.suspiciousLinkOpened) 25 else 0
-        score += if (context.amountPaise >= 50_000_00) 10 else 0
-        score = score.coerceAtMost(100)
+        
+        // Rule-based score calculation
+        var ruleScore = 0
+        ruleScore += if (context.remoteAccessActive) 50 else 0
+        ruleScore += if (context.accessibilityRisk) 35 else 0
+        ruleScore += if (context.unknownCallActive) 25 else 0
+        ruleScore += if (context.collectRequest) 25 else 0
+        ruleScore += if (context.suspiciousLinkOpened) 25 else 0
+        ruleScore += if (context.amountPaise >= 50_000_00) 10 else 0
+        
+        // ONNX Model calculation (if available)
+        val onnxScore = onnxModel?.runCatching {
+            val features = floatArrayOf(
+                if (context.remoteAccessActive) 1.0f else 0.0f,
+                if (context.accessibilityRisk) 1.0f else 0.0f,
+                if (context.unknownCallActive) 1.0f else 0.0f,
+                if (context.collectRequest) 1.0f else 0.0f,
+                if (context.suspiciousLinkOpened) 1.0f else 0.0f,
+                (context.amountPaise.toFloat() / 1_00_000_00).coerceAtMost(1.0f) // Normalized amount
+            )
+            (probability(features) * 100).toInt()
+        }?.getOrDefault(0) ?: 0
+
+        // Hybrid score: highest of both
+        val score = maxOf(ruleScore, onnxScore).coerceAtMost(100)
+        
         val level = when {
             score >= 80 -> RiskLevel.CRITICAL
             score >= 60 -> RiskLevel.HIGH
