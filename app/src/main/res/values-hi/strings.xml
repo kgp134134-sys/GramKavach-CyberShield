@@ -102,7 +102,7 @@
     <string name="voice_alerts_desc">उच्च जोखिम वाली कॉल के दौरान चेतावनी बोलें</string>
     <string name="app_language">ऐप की भाषा</string>
     <string name="about_gramkavach">ग्रामकवच के बारे में</string>
-    <string name="version">संस्करण 0.4.5</string>
+    <string name="version">संस्करण 0.4.5 (सत्यापित)</string>
     <string name="choose_language">भाषा चुनें</string>
 
     <string name="about_desc">ग्रामकवच एक डिजिटल वित्तीय सुरक्षा सहायक है जो ग्रामीण और पहली बार डिजिटल भुगतान करने वाले उपयोगकर्ताओं को UPI धोखाधड़ी से बचाने के लिए बनाया गया है।</string>

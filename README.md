@@ -75,7 +75,7 @@ GramKavach embodies the three core pillars of the **Maverick Effect** legacy:
 ## 📥 Download & Demo
 
 **Get the latest hackathon-ready build here:**
-[**Download GramKavach v0.4.5 APK**](https://github.com/kgp134134-sys/GramKavach-CyberShield/releases/tag/v0.4.5)
+[**Download GramKavach v0.4.5 (Verified APK)**](https://github.com/kgp134134-sys/GramKavach-CyberShield/releases/tag/v0.4.5)
 
 > [!NOTE]
 > **Installation Tip**: Since this is a **hackathon demo prototype** and not yet published on the Play Store, Android may show a "Play Protect" or "Unknown Developer" warning.
