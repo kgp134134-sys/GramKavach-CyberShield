@@ -190,12 +190,33 @@ flowchart TD
     class RN,FSW,BTS,OW,RR,AD,AHB history
 ```
 
-### 🚨 The Pre-PIN Prevention Loop
+### 🚨 Pre-PIN Prevention Workflow
 
-1. **SIGNAL**: `:monitoring` detects a suspicious background call or remote access app.
-2. **EVALUATE**: `:domain` use case requests a hybrid score from the `:ai` engine.
-3. **NOTIFY**: If score > 60, `:alerts` shows a critical overlay while `:bhashini` speaks the warning.
-4. **SECURE**: User rejects the UPI request. **Money saved before the PIN was ever entered.**
+How GramKavach stops fraud before money leaves the account:
+
+```mermaid
+sequenceDiagram
+    autonumber
+    participant S as System (Monitoring)
+    participant UC as Use Case (Domain)
+    participant AI as AI Engine (Infra)
+    participant V as Voice Assistant (Bhashini)
+    participant UI as User Interface (Sanskriti)
+
+    S->>UC: 📡 High-Risk Signal Detected
+    UC->>AI: 🧠 Request Hybrid Assessment
+    AI-->>UC: 📊 Risk Score: 85 (Critical)
+    
+    par Real-time Alerting
+        UC->>UI: 🚨 Show "Critical" Overlay
+        UC->>V: 🗣️ Trigger "Voice Warning" (Hindi)
+    end
+
+    UI->>UI: 🌀 Pulse Rangoli (Red State)
+    V-->>UI: "Stop! This looks like a fraud..."
+    
+    Note over UI,V: Pre-PIN Prevention complete. Money is safe.
+```
 
 See [Architecture.md](docs/Architecture.md) and [Workflow.md](docs/Workflow.md) for more details.
 
