@@ -103,73 +103,91 @@ GramKavach honors the "Maverick Effect" legacy through:
 | **Voice Synthesis** | `Bhashini + TTS` | Cultural & linguistic bridge |
 | **Dependency Injection** | `Hilt (Dagger)` | Modular, testable component fabric |
 
-## 📐 Architecture: The Safety Stack
+## 📐 Architecture
 
-GramKavach is engineered with a **3D-Layered Clean Architecture**. This ensures that the core security logic is isolated from external frameworks, allowing for rapid evolution of AI models and voice engines.
+GramKavach follows a strict **Clean Architecture** pattern. Below is the detailed structural overview of the system components and their interactions:
 
 ```mermaid
 flowchart TD
-    %% 3D STACK LAYERS
-    subgraph L3 ["📱 LAYER 3: PRESENTATION (Sanskriti UI)"]
+    subgraph RiskAssessment ["Risk assessment"]
         direction TB
-        UI(["Dashboard & Screens<br/>[HomeScreen.kt]"])
-        VM(["ViewModels<br/>[HomeViewModel.kt]"])
-        SC(["State Holders<br/>(Compose Flow)"])
+        AIB(["AI bindings<br/>Hilt module<br/>[AiModule.kt]"])
+        HRE{{"Hybrid risk engine<br/>RiskEngine implementation"}}
+        OMA(["ONNX model adapter<br/>optional inference<br/>[OnnxRiskModel.kt]"])
         
-        UI <--> SC
-        SC <--> VM
+        AIB -- binds --> HRE
+        HRE -. optional inference .-> OMA
     end
 
-    subgraph L2 ["🛡️ LAYER 2: DOMAIN (The Safety Core)"]
+    subgraph SystemMonitoring ["System monitoring"]
         direction TB
-        UC(["Use Cases<br/>(Business Logic)"])
+        MI(["Monitoring integration<br/>Android manifest"])
+        RMS(["Risk monitoring services<br/>Android services"])
+        RSB(["Risk signal bus<br/>shared signal boundary<br/>[RiskSignalBus.kt]"])
         
-        subgraph Contracts ["📜 Protocol Contracts"]
-            direction LR
-            RE(["RiskEngine"])
-            VA(["VoiceAssistant"])
-            RN(["RiskNotifier"])
-            RR(["RiskRepository"])
-        end
-        
-        UC -->|Orchestrates| Contracts
+        MI -- declares --> RMS
+        RMS -- publishes context --> RSB
     end
 
-    subgraph L1 ["⚙️ LAYER 1: INFRASTRUCTURE (The Foundation)"]
-        direction LR
-        subgraph AI_Mod [":ai"]
-            AI_Imp(["Hybrid Scorer<br/>(ONNX + Rules)"])
-        end
-        subgraph Voice_Mod [":bhashini"]
-            V_Imp(["Bhashini API<br/>+ Offline TTS"])
-        end
-        subgraph Monitor_Mod [":monitoring"]
-            M_Imp(["Real-time<br/>Signal Bus"])
-        end
-        subgraph Data_Mod [":data"]
-            D_Imp(["Encrypted DB<br/>& DataStore"])
-        end
+    subgraph AppPresentation ["App & presentation"]
+        direction TB
+        AAE(["Application & activity<br/>Android entry points"])
+        HHS(["Home & history state<br/>Compose view models<br/>[HomeViewModel.kt]"])
+        HSC(["Home screen<br/>Compose screen<br/>[HomeScreen.kt]"])
+        
+        AAE -- hosts --> HHS
+        HHS -- renders state --> HSC
     end
 
-    %% Vertical "Energy Flow" Connections
-    VM ==>|Triggers| UC
-    
-    %% Implementation Inversion
-    AI_Imp -.->|Fulfills| RE
-    V_Imp -.->|Fulfills| VA
-    M_Imp -.->|Publishes to| RR
-    D_Imp -.->|Fulfills| RR
-    
-    %% Styling: Elite 3D Palette
-    classDef layer3 fill:#FFF9F0,stroke:#E65100,stroke-width:4px,color:#E65100
-    classDef layer2 fill:#FFFDE7,stroke:#A04000,stroke-width:3px,color:#A04000
-    classDef layer1 fill:#F1F8E9,stroke:#2E7D32,stroke-width:2px,color:#2E7D32
-    classDef subMod fill:#FFFFFF,stroke:#CCCCCC,stroke-dasharray: 5 5
+    subgraph DomainContracts ["Domain contracts"]
+        direction TB
+        APR(["Assess payment risk<br/>domain use case"])
+        REC(["Risk engine contract<br/>domain interface<br/>[RiskEngine.kt]"])
+        RM(["Risk models<br/>domain models<br/>[RiskModels.kt]"])
+        
+        APR -- delegates scoring --> REC
+        APR -- produces result --> RM
+    end
 
-    class L3 layer3
-    class L2 layer2
-    class L1 layer1
-    class AI_Mod,Voice_Mod,Monitor_Mod,Data_Mod subMod
+    subgraph ResponseHistory ["Response & history"]
+        direction TB
+        RN(["Risk notifier<br/>alert implementation"])
+        FSW(["Full-screen warning<br/>Android activity"])
+        BTS(["Bhashini text to speech<br/>voice implementation"])
+        OW(["Overlay warnings<br/>warning surface"])
+        
+        RR(["Risk repository<br/>domain repository<br/>implementation"])
+        AD(["Alert DAO<br/>Room DAO<br/>[AlertDao.kt]"])
+        AHB[("Alert history database<br/>Room database")]
+        
+        RN -- launches --> FSW
+        RN -- speaks warning --> BTS
+        RN -- shows overlay --> OW
+        
+        RR -- stores history --> AD
+        AD -- queries --> AHB
+    end
+
+    %% Cross-layer connections
+    HRE -- implements --> REC
+    RSB -- submits signals --> APR
+    HHS -- requests assessment --> APR
+    RM -- high-risk result --> RN
+    RM -- records event --> RR
+    HHS -- reads history --> RR
+
+    %% Styling
+    classDef risk fill:#FFEBEE,stroke:#EF5350,stroke-width:2px,color:#B71C1C
+    classDef monitor fill:#E8F5E9,stroke:#66BB6A,stroke-width:2px,color:#1B5E20
+    classDef app fill:#E3F2FD,stroke:#42A5F5,stroke-width:2px,color:#0D47A1
+    classDef domain fill:#FFF3E0,stroke:#FFA726,stroke-width:2px,color:#E65100
+    classDef history fill:#F3E5F5,stroke:#AB47BC,stroke-width:2px,color:#4A148C
+
+    class AIB,HRE,OMA risk
+    class MI,RMS,RSB monitor
+    class AAE,HHS,HSC app
+    class APR,REC,RM domain
+    class RN,FSW,BTS,OW,RR,AD,AHB history
 ```
 
 ### 🚨 The Pre-PIN Prevention Loop
