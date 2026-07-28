@@ -1,17 +1,13 @@
-# Task: Detailed Clean Architecture & Sanskriti UI Implementation
+# Task: Replicate Visual Architecture Diagram
 
-- [x] **🛡️ Core (Domain)**
-    - [x] Create `VoiceAssistant` interface in `:domain`
-    - [x] Refine `RiskEngine` interface in `:domain`
-    - [x] Update `AssessPaymentRiskUseCase` to orchestrate voice alerts
-- [x] **⚙️ Infrastructure**
-    - [x] Refine `HybridRiskEngine` in `:ai` (ONNX integration)
-    - [x] Implement `VoiceAssistant` in `BhashiniTextToSpeech` (`:bhashini`)
-    - [x] Ensure `RiskRepositoryImpl` (`:data`) is optimized
-- [x] **📱 Presentation**
-    - [x] Polish `GramKavachTheme` with Sanskriti palette
-    - [x] Update `HomeScreen` with Rangoli background & pulsing gauge
-    - [x] Connect `HomeViewModel` to updated Use Cases
+- [x] **📐 README.md Update**
+    - [x] Implement "Risk Assessment" subgraph (Red)
+    - [x] Implement "System Monitoring" subgraph (Green)
+    - [x] Implement "App & Presentation" subgraph (Blue)
+    - [x] Implement "Domain Contracts" subgraph (Orange)
+    - [x] Implement "Response & History" subgraph (Purple)
+    - [x] Verify all connections and labels match the image exactly
+- [x] **📐 docs/Architecture.md Update**
+    - [x] Update with the same "High-Detail" diagram
 - [x] **Verification**
-    - [x] Verify Domain purity (no Android imports)
-    - [x] Build and verify UI styling
+    - [x] Final visual check against the provided image

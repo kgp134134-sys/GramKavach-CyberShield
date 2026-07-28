@@ -81,58 +81,117 @@ GramKavach honors the "Maverick Effect" legacy through:
 
 ## 📐 Architecture
 
-GramKavach follows a strict **Clean Architecture** pattern with a **Domain-Centric** core. The `:domain` module contains the absolute source of truth (Use Cases and Interfaces) and has zero dependencies on any implementation details.
+GramKavach follows a strict **Clean Architecture** pattern. Below is the detailed structural overview of the system components and their interactions:
 
 ```mermaid
 flowchart TD
-    subgraph UI ["📱 Presentation Layer (:app)"]
+    subgraph RiskAssessment ["Risk assessment"]
         direction TB
-        MA(["MainActivity"])
-        Nav(["Navigation Graph"])
-        Screens(["UI Screens / ViewModels"])
+        AIB(["AI bindings<br/>Hilt module<br/>[AiModule.kt]"])
+        HRE{{"Hybrid risk engine<br/>RiskEngine implementation"}}
+        OMA(["ONNX model adapter<br/>optional inference<br/>[OnnxRiskModel.kt]"])
+        
+        AIB -- binds --> HRE
+        HRE -. optional inference .-> OMA
     end
 
-    subgraph Core ["🛡️ Domain Layer (:domain)"]
+    subgraph SystemMonitoring ["System monitoring"]
         direction TB
-        UC(["Use Cases"])
+        MI(["Monitoring integration<br/>Android manifest"])
+        RMS(["Risk monitoring services<br/>Android services"])
+        RSB(["Risk signal bus<br/>shared signal boundary<br/>[RiskSignalBus.kt]"])
         
-        subgraph Intf ["Contracts (Interfaces)"]
-            direction LR
-            ScIntf(["RiskEngine"])
-            NtIntf(["RiskNotifier / VoiceAssistant"])
-            RpIntf(["RiskRepository"])
-        end
-        
-        UC -->|Uses| Intf
+        MI -- declares --> RMS
+        RMS -- publishes context --> RSB
     end
 
-    subgraph Implementation ["⚙️ Implementation Layers"]
-        direction LR
-        Mon([":monitoring (Service)"])
-        Alrt([":alerts (Overlay/Notify)"])
-        AI_mod([":ai (ONNX/Hybrid)"])
-        Data_mod([":data (Room/DS)"])
-        Voice_mod([":bhashini (Voice)"])
+    subgraph AppPresentation ["App & presentation"]
+        direction TB
+        AAE(["Application & activity<br/>Android entry points"])
+        HHS(["Home & history state<br/>Compose view models<br/>[HomeViewModel.kt]"])
+        HSC(["Home screen<br/>Compose screen<br/>[HomeScreen.kt]"])
+        
+        AAE -- hosts --> HHS
+        HHS -- renders state --> HSC
     end
 
-    %% Dependency Flow (Clean Architecture Rules)
-    UI ==>|Triggers| UC
-    
-    %% Implementation Layer implements Domain Contracts
-    Mon -.->|Implements| RpIntf
-    Alrt -.->|Implements| NtIntf
-    AI_mod -.->|Implements| ScIntf
-    Data_mod -.->|Implements| RpIntf
-    Voice_mod -.->|Implements| NtIntf
+    subgraph DomainContracts ["Domain contracts"]
+        direction TB
+        APR(["Assess payment risk<br/>domain use case"])
+        REC(["Risk engine contract<br/>domain interface<br/>[RiskEngine.kt]"])
+        RM(["Risk models<br/>domain models<br/>[RiskModels.kt]"])
+        
+        APR -- delegates scoring --> REC
+        APR -- produces result --> RM
+    end
 
-    %% Styling: Sanskriti Palette
-    classDef ui fill:#E3F2FD,stroke:#0D47A1,stroke-width:2px,color:#0D47A1
-    classDef domain fill:#FFF9C4,stroke:#FBC02D,stroke-width:2px,color:#FBC02D
-    classDef infra fill:#E8F5E9,stroke:#1B5E20,stroke-width:2px,color:#1B5E20
+    subgraph ResponseHistory ["Response & history"]
+        direction TB
+        RN(["Risk notifier<br/>alert implementation"])
+        FSW(["Full-screen warning<br/>Android activity"])
+        BTS(["Bhashini text to speech<br/>voice implementation"])
+        OW(["Overlay warnings<br/>warning surface"])
+        
+        RR(["Risk repository<br/>domain repository<br/>implementation"])
+        AD(["Alert DAO<br/>Room DAO<br/>[AlertDao.kt]"])
+        AHB[("Alert history database<br/>Room database")]
+        
+        RN -- launches --> FSW
+        RN -- speaks warning --> BTS
+        RN -- shows overlay --> OW
+        
+        RR -- stores history --> AD
+        AD -- queries --> AHB
+    end
+
+    %% Cross-layer connections
+    HRE -- implements --> REC
+    RSB -- submits signals --> APR
+    HHS -- requests assessment --> APR
+    RM -- high-risk result --> RN
+    RM -- records event --> RR
+    HHS -- reads history --> RR
+
+    %% Styling
+    classDef risk fill:#FFEBEE,stroke:#EF5350,stroke-width:2px,color:#B71C1C
+    classDef monitor fill:#E8F5E9,stroke:#66BB6A,stroke-width:2px,color:#1B5E20
+    classDef app fill:#E3F2FD,stroke:#42A5F5,stroke-width:2px,color:#0D47A1
+    classDef domain fill:#FFF3E0,stroke:#FFA726,stroke-width:2px,color:#E65100
+    classDef history fill:#F3E5F5,stroke:#AB47BC,stroke-width:2px,color:#4A148C
+
+    class AIB,HRE,OMA risk
+    class MI,RMS,RSB monitor
+    class AAE,HHS,HSC app
+    class APR,REC,RM domain
+    class RN,FSW,BTS,OW,RR,AD,AHB history
+```
+
+### 🚨 Pre-PIN Prevention Workflow
+
+How GramKavach stops fraud before money leaves the account:
+
+```mermaid
+sequenceDiagram
+    autonumber
+    participant S as System (Monitoring)
+    participant UC as Use Case (Domain)
+    participant AI as AI Engine (Infra)
+    participant V as Voice Assistant (Bhashini)
+    participant UI as User Interface (Sanskriti)
+
+    S->>UC: 📡 High-Risk Signal Detected
+    UC->>AI: 🧠 Request Hybrid Assessment
+    AI-->>UC: 📊 Risk Score: 85 (Critical)
     
-    class MA,Nav,Screens ui
-    class UC,ScIntf,NtIntf,RpIntf domain
-    class Mon,Alrt,AI_mod,Data_mod,Voice_mod infra
+    par Real-time Alerting
+        UC->>UI: 🚨 Show "Critical" Overlay
+        UC->>V: 🗣️ Trigger "Voice Warning" (Hindi)
+    end
+
+    UI->>UI: 🌀 Pulse Rangoli (Red State)
+    V-->>UI: "Stop! This looks like a fraud..."
+    
+    Note over UI,V: Pre-PIN Prevention complete. Money is safe.
 ```
 
 See [Architecture.md](docs/Architecture.md) and [Workflow.md](docs/Workflow.md) for more details.

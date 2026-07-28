@@ -1,40 +1,88 @@
 # Architecture
 
-GramKavach uses a strict Dependency Inversion direction that keeps UI and device-specific code outside the business model.
+GramKavach is built on a modular, domain-centric architecture that ensures scalability, testability, and a clear separation of concerns.
 
 ```mermaid
-flowchart TB
-  app[app: Compose navigation and DI host]
-  domain[domain: models, contracts, use cases]
-  data[data: Room and DataStore]
-  ai[ai: hybrid scorer and ONNX adapter]
-  monitoring[monitoring: consented signal facade]
-  alerts[alerts: notification/message policy]
-  bhashini[bhashini: regional voice adapter]
+flowchart TD
+    subgraph RiskAssessment ["Risk assessment"]
+        direction TB
+        AIB(["AI bindings<br/>Hilt module<br/>[AiModule.kt]"])
+        HRE{{"Hybrid risk engine<br/>RiskEngine implementation"}}
+        OMA(["ONNX model adapter<br/>optional inference<br/>[OnnxRiskModel.kt]"])
+        
+        AIB -- binds --> HRE
+        HRE -. optional inference .-> OMA
+    end
 
-  app --> domain
-  data -.-> domain
-  ai -.-> domain
-  monitoring -.-> domain
-  alerts -.-> domain
-  bhashini -.-> domain
+    subgraph SystemMonitoring ["System monitoring"]
+        direction TB
+        MI(["Monitoring integration<br/>Android manifest"])
+        RMS(["Risk monitoring services<br/>Android services"])
+        RSB(["Risk signal bus<br/>shared signal boundary<br/>[RiskSignalBus.kt]"])
+        
+        MI -- declares --> RMS
+        RMS -- publishes context --> RSB
+    end
 
-  %% Styling: Sanskriti Palette
-  style app fill:#E1F5FE,stroke:#01579B,stroke-width:2px
-  style domain fill:#FFF9C4,stroke:#FBC02D,stroke-width:2px
-  style data fill:#E8F5E9,stroke:#2E7D32,stroke-width:2px
-  style ai fill:#E8F5E9,stroke:#2E7D32,stroke-width:2px
-  style monitoring fill:#E8F5E9,stroke:#2E7D32,stroke-width:2px
-  style alerts fill:#E8F5E9,stroke:#2E7D32,stroke-width:2px
-  style bhashini fill:#E8F5E9,stroke:#2E7D32,stroke-width:2px
+    subgraph AppPresentation ["App & presentation"]
+        direction TB
+        AAE(["Application & activity<br/>Android entry points"])
+        HHS(["Home & history state<br/>Compose view models<br/>[HomeViewModel.kt]"])
+        HSC(["Home screen<br/>Compose screen<br/>[HomeScreen.kt]"])
+        
+        AAE -- hosts --> HHS
+        HHS -- renders state --> HSC
+    end
+
+    subgraph DomainContracts ["Domain contracts"]
+        direction TB
+        APR(["Assess payment risk<br/>domain use case"])
+        REC(["Risk engine contract<br/>domain interface<br/>[RiskEngine.kt]"])
+        RM(["Risk models<br/>domain models<br/>[RiskModels.kt]"])
+        
+        APR -- delegates scoring --> REC
+        APR -- produces result --> RM
+    end
+
+    subgraph ResponseHistory ["Response & history"]
+        direction TB
+        RN(["Risk notifier<br/>alert implementation"])
+        FSW(["Full-screen warning<br/>Android activity"])
+        BTS(["Bhashini text to speech<br/>voice implementation"])
+        OW(["Overlay warnings<br/>warning surface"])
+        
+        RR(["Risk repository<br/>domain repository<br/>implementation"])
+        AD(["Alert DAO<br/>Room DAO<br/>[AlertDao.kt]"])
+        AHB[("Alert history database<br/>Room database")]
+        
+        RN -- launches --> FSW
+        RN -- speaks warning --> BTS
+        RN -- shows overlay --> OW
+        
+        RR -- stores history --> AD
+        AD -- queries --> AHB
+    end
+
+    %% Cross-layer connections
+    HRE -- implements --> REC
+    RSB -- submits signals --> APR
+    HHS -- requests assessment --> APR
+    RM -- high-risk result --> RN
+    RM -- records event --> RR
+    HHS -- reads history --> RR
+
+    %% Styling
+    classDef risk fill:#FFEBEE,stroke:#EF5350,stroke-width:2px,color:#B71C1C
+    classDef monitor fill:#E8F5E9,stroke:#66BB6A,stroke-width:2px,color:#1B5E20
+    classDef app fill:#E3F2FD,stroke:#42A5F5,stroke-width:2px,color:#0D47A1
+    classDef domain fill:#FFF3E0,stroke:#FFA726,stroke-width:2px,color:#E65100
+    classDef history fill:#F3E5F5,stroke:#AB47BC,stroke-width:2px,color:#4A148C
+
+    class AIB,HRE,OMA risk
+    class MI,RMS,RSB monitor
+    class AAE,HHS,HSC app
+    class APR,REC,RM domain
+    class RN,FSW,BTS,OW,RR,AD,AHB history
 ```
-
-- `domain` is pure Kotlin business logic. It defines **Contracts** (Interfaces) that implementation layers must fulfill.
-- `data` owns device persistence and implements `RiskRepository` contracts.
-- `ai` is local-first, implementing the `RiskEngine` contract.
-- `bhashini` implements the `VoiceAssistant` contract for regional alerts.
-- `alerts` implements the `RiskNotifier` contract for UI overlays.
-- `monitoring` is event-driven; it monitors system signals and publishes them to the `domain`.
-- `app` owns screen composition and navigation, calling Use Cases in `domain`.
 
 Sensitive information is not uploaded by this starter. Production telemetry must be opt-in, minimized, encrypted, and governed by a reviewed retention policy.

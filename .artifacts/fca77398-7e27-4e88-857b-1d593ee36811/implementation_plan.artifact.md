@@ -1,65 +1,26 @@
-# Implementation Plan - Detailed Clean Architecture & Sanskriti UI
+# Implementation Plan - Replicating Visual Architecture Diagram
 
-This plan provides a comprehensive implementation of the Clean Architecture layers for GramKavach, ensuring strict separation of concerns and a high-quality "Sanskriti" UI experience.
-
-## User Review Required
-
-> [!IMPORTANT]
-> - **Domain Purity**: All core logic will be in the `:domain` module using only Kotlin (no Android/Room/Compose).
-> - **Infrastructure Decoupling**: We will use Dependency Inversion for AI (ONNX), Voice (Bhashini), and Monitoring.
-> - **Sanskriti UI**: The UI will strictly follow the Saffron/Cream/Terracotta palette for a premium, culturally resonant feel.
+This plan aims to update the Mermaid diagrams in the project to exactly match the visual structure and color scheme provided in the user's generated image.
 
 ## Proposed Changes
 
-### 🛡️ Core (Domain) - `:domain`
-Pure Kotlin implementation.
+### Documentation
 
-#### [NEW] [VoiceAssistant.kt](file:///C:/Project/gram%20kavacha/domain/src/main/kotlin/org/gramkavach/domain/usecase/VoiceAssistant.kt)
-- `interface VoiceAssistant`: Methods for `speak(text: String, language: String)` and `stop()`.
+#### [MODIFY] [README.md](file:///C:/Project/gram%20kavacha/README.md)
+- Replace the current architecture diagram with a new one that follows the layout of the provided image.
+- Use specific colors for subgraphs:
+    - **Risk Assessment**: Red (`#FFEBEE` fill, `#EF5350` stroke)
+    - **System Monitoring**: Green (`#E8F5E9` fill, `#66BB6A` stroke)
+    - **App & Presentation**: Light Blue (`#E3F2FD` fill, `#42A5F5` stroke)
+    - **Domain Contracts**: Orange (`#FFF3E0` fill, `#FFA726` stroke)
+    - **Response & History**: Light Purple (`#F3E5F5` fill, `#AB47BC` stroke)
+- Include file names in brackets (e.g., `[AiModule.kt]`) as seen in the image.
 
-#### [MODIFY] [RiskEngine.kt](file:///C:/Project/gram%20kavacha/domain/src/main/kotlin/org/gramkavach/domain/usecase/RiskEngine.kt)
-- Clean up the `interface RiskEngine` to be the single source of risk scoring.
-
-#### [MODIFY] [AssessPaymentRiskUseCase.kt](file:///C:/Project/gram%20kavacha/domain/src/main/kotlin/org/gramkavach/domain/usecase/AssessPaymentRiskUseCase.kt)
-- Add logic to trigger `VoiceAssistant` alerts if risk exceeds a threshold.
-
----
-
-### ⚙️ Infrastructure - `:ai`, `:data`, `:bhashini`
-Implementation of domain interfaces using Android/Library tools.
-
-#### [MODIFY] [HybridRiskEngine.kt](file:///C:/Project/gram%20kavacha/ai/src/main/kotlin/org/gramkavach/ai/HybridRiskEngine.kt)
-- Implement `RiskEngine`.
-- Integrate `OnnxRiskModel` for data-driven scoring + existing rules for robust fallback.
-
-#### [MODIFY] [BhashiniTextToSpeech.kt](file:///C:/Project/gram%20kavacha/bhashini/src/main/kotlin/org/gramkavach/bhashini/BhashiniTextToSpeech.kt)
-- Implement `VoiceAssistant`.
-- Handle API key authentication and fallback to Android TTS if offline.
-
----
-
-### 📱 Presentation - `:app`
-Jetpack Compose + Sanskriti Theme.
-
-#### [MODIFY] [Theme.kt](file:///C:/Project/gram%20kavacha/app/src/main/kotlin/org/gramkavach/app/ui/theme/Theme.kt)
-- Refine `GramKavachTheme` to ensure consistency across all screens.
-
-#### [MODIFY] [HomeScreen.kt](file:///C:/Project/gram%20kavacha/app/src/main/kotlin/org/gramkavach/app/ui/screens/HomeScreen.kt)
-- Implement a "Safety Dashboard" with a pulsing risk gauge.
-- Use the **SaffronDeep** for primary actions and **CreamWarm** for backgrounds.
-- Add an animated **Rangoli Pattern** background for the Sanskriti feel.
-
-#### [MODIFY] [HomeViewModel.kt](file:///C:/Project/gram%20kavacha/app/src/main/kotlin/org/gramkavach/app/ui/viewmodels/HomeViewModel.kt)
-- State management for the risk assessment flow.
-- Direct invocation of `AssessPaymentRiskUseCase`.
+#### [MODIFY] [Architecture.md](file:///C:/Project/gram%20kavacha/docs/Architecture.md)
+- Update the diagram here as well to maintain consistency with the new visual standard.
 
 ## Verification Plan
 
-### Automated Tests
-- `gradlew :domain:test`: Verify use case logic.
-- `gradlew :ai:test`: Verify hybrid scoring logic.
-
 ### Manual Verification
-- **UI Check**: Verify the Saffron/Cream color combo looks premium on physical devices.
-- **Voice Check**: Trigger a High Risk alert and confirm the Bhashini voice guidance starts.
-- **Architecture Check**: Verify no `:domain` file imports `android.*` or `androidx.compose.*`.
+- Render the updated Mermaid diagrams in Android Studio's Markdown preview.
+- Compare the rendered output with the provided image to ensure "same to same" accuracy in terms of grouping, labels, and flow directions.
