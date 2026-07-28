@@ -85,47 +85,45 @@ GramKavach follows a strict **Domain-Centric Architecture**, where the `domain` 
 
 ```mermaid
 graph TD
-    subgraph Presentation ["Presentation Layer (UI/UX)"]
-        direction LR
-        UI["app: Compose Screens"]
+    subgraph UI_Proj ["App Project (UI Layer)"]
+        direction TB
+        Ctrl["app: MainActivity"]
         VM["app: ViewModels"]
+        Views["app: Jetpack Compose Screens"]
     end
 
-    subgraph Application ["Application Layer (Use Cases)"]
-        direction LR
+    subgraph Infra_Proj ["Infrastructure Project"]
+        direction TB
+        DB_Cache["data: Room DB & DataStore"]
+        AI_ONNX["ai: ONNX ML Scorer"]
+        Voice["bhashini: Audio TTS Adapter"]
+        SMS["monitoring: Signal Service"]
+    end
+
+    subgraph Core_Proj ["Application Core Project (Domain Center)"]
+        direction TB
+        Intf["domain: Interfaces & Contracts"]
         UC["domain: Use Cases"]
-        Intf["domain: Interfaces"]
+        Models["domain: Domain Models"]
+        Rules["domain: Risk Entities"]
     end
 
-    subgraph Domain ["Domain Layer (Business Rules)"]
-        direction LR
-        Model["domain: Domain Models"]
-        Rules["domain: Logic Entities"]
-    end
+    %% Dependency Connections (Solid for Run-time, Dashed for Compile-time Impl)
+    UI_Proj --> Core_Proj
+    Infra_Proj -.->|Implements| Core_Proj
 
-    subgraph Infrastructure ["Infrastructure Layer (Technical Details)"]
-        direction LR
-        DB["data: Room/Store"]
-        AI["ai: ML Scorer"]
-        Voice["bhashini: Audio"]
-        Signal["monitoring: Service"]
-    end
+    %% Color Styles matching the reference image exactly
+    %% BLUE: UI/Presentation
+    classDef uiBox fill:#2196F3,stroke:#1976D2,stroke-width:2px,color:#FFFFFF
+    class Ctrl,VM,Views uiBox
 
-    %% Flow: Outer to Inner
-    Presentation --> Application
-    Infrastructure -- Implements --> Application
-    Application --> Domain
+    %% GREEN: Infrastructure
+    classDef infraBox fill:#4CAF50,stroke:#388E3C,stroke-width:2px,color:#FFFFFF
+    class DB_Cache,AI_ONNX,Voice,SMS infraBox
 
-    %% Styling based on provided example
-    classDef presentation fill:#D5E8D4,stroke:#82B366,stroke-width:2px,color:#000
-    classDef application fill:#F8CECC,stroke:#B85450,stroke-width:2px,color:#000
-    classDef domain fill:#FFF2CC,stroke:#D6B656,stroke-width:2px,color:#000
-    classDef infra fill:#DAE8FE,stroke:#6C8EBF,stroke-width:2px,color:#000
-
-    class UI,VM presentation
-    class UC,Intf application
-    class Model,Rules domain
-    class DB,AI,Voice,Signal infra
+    %% RED/ORANGE: Core Logic
+    classDef coreBox fill:#FF5722,stroke:#E64A19,stroke-width:2px,color:#FFFFFF
+    class Intf,UC,Models,Rules coreBox
 ```
 
 See [Architecture.md](docs/Architecture.md) and [Workflow.md](docs/Workflow.md) for more details.
