@@ -15,15 +15,15 @@ sequenceDiagram
     E->>E: 🧠 Rules + ONNX ML score
     E->>U: 📊 Score, level, analysis
     
-    alt High risk (Score >= 60)
+    alt High Risk
         par Visual & Audio Alert
             U->>U: 🚨 Show Critical Overlay
             U->>V: 🗣️ Play Regional Voice Warning
         end
         E->>S: 💾 Store local alert history
-    else Moderate risk (Score 15-59)
+    else Moderate Risk
         U->>U: ⚠️ Warn user; show safety tips
-    else Safe (Score < 15)
+    else Safe
         U->>U: ✅ System Protected badge
     end
 ```
