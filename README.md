@@ -9,7 +9,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Version](https://img.shields.io/badge/Version-0.4.5-orange.svg)](https://github.com/kgp134134-sys/GramKavach456/releases)
 
-> **"Building critical digital trust for the next billion users."**
+> **"Think Before You Tap. AI Already Did."**
 
 ---
 
@@ -22,21 +22,21 @@
 | **THREAT DATABASE** | `● SYNCED` | `ROOM/SQL` | `████████████████` |
 
 ---
-
 ## 📖 Overview
 
-**GramKavach** is a mission-driven digital security layer designed to protect the next billion users in Rural India from the rising epidemic of UPI fraud. Unlike traditional security apps that alert you *after* a loss, GramKavach operates on a **Zero-Trust, Pre-PIN Prevention** philosophy.
+GramKavach is an AI-powered Android application designed to proactively protect users from digital payment and cyber fraud. Unlike traditional security solutions that react after financial loss, GramKavach focuses on identifying potential threats before users authorize risky actions. It analyzes signals such as suspicious links, fraudulent QR codes, fake payment requests, scam calls, and screen-sharing risks, then provides timely voice and visual warnings to help users make safer decisions.
 
-### 🛡️ The Mission
-To build a culturally resonant, technically superior safety shield for Bharat's digital economy, ensuring that technology becomes an enabler, not a vulnerability.
+### 🛡️ Mission
+To make digital payments safer and more accessible by providing privacy-first, AI-powered fraud prevention that is simple, multilingual, and effective for users across India.
 
-### ⚡ The "Pre-PIN" Advantage
-The core innovation lies in the **Simultaneous Signal Interception**. By analyzing background risks (Remote Access Apps, Suspicious Call States, and Phishing URLs) in real-time, GramKavach triggers high-impact **Voice & Visual Alerts** *before* the user authorizes a transaction.
+### ⚡ Pre-PIN Protection
+GramKavach continuously evaluates multiple risk signals on the device and alerts users before they proceed with potentially fraudulent actions. This proactive approach helps reduce the likelihood of financial loss.
 
-### 🌀 Designed for Inclusivity
-- **Voice-First**: Regional language alerts via Bhashini ensure accessibility for low-literacy users.
-- **Sanskriti UI**: A visual language rooted in Indian culture to build immediate trust and familiarity.
-- **100% Offline**: Zero-data-leakage architecture where all AI inference happens locally.
+### 🌏 Designed for Everyone
+- **Voice-First Experience:** Multilingual voice guidance powered by Bhashini.
+- **Familiar UI:** Simple, culturally intuitive interface designed for ease of use.
+- **Privacy-First:** AI inference runs locally on the device whenever possible, minimizing data sharing.
+- **Offline-Ready:** Core protection features remain available even with limited or no internet connectivity.
 
 ---
 
