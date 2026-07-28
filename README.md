@@ -4,11 +4,13 @@
   <img src="docs/images/rainbow_banner.svg" width="850" alt="GramKavach Rainbow Banner">
 </p>
 
-[![Kotlin](https://img.shields.io/badge/Kotlin-2.1.0-blue.svg?style=flat&logo=kotlin)](https://kotlinlang.org)
-[![Android](https://img.shields.io/badge/Android-API%2026%2B-green.svg?style=flat&logo=android)](https://developer.android.com)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Version](https://img.shields.io/badge/Version-0.4.5-orange.svg)](https://github.com/kgp134134-sys/GramKavach-CyberShield/releases)
-[![Hackathon: Maverick AI](https://img.shields.io/badge/Hackathon-Maverick_AI_Effect_Challenge-purple.svg)](https://www.maverickeffectchallenge.com)
+<p align="center">
+  <a href="https://kotlinlang.org"><img src="https://img.shields.io/badge/Kotlin-2.1.0-blue.svg?style=flat&logo=kotlin" alt="Kotlin"></a>
+  <a href="https://developer.android.com"><img src="https://img.shields.io/badge/Android-API%2026%2B-green.svg?style=flat&logo=android" alt="Android"></a>
+  <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License"></a>
+  <a href="https://github.com/kgp134134-sys/GramKavach-CyberShield/releases"><img src="https://img.shields.io/badge/Version-0.4.5-orange.svg" alt="Version"></a>
+  <a href="https://www.maverickeffectchallenge.com"><img src="https://img.shields.io/badge/Hackathon-Maverick_AI_Effect_Challenge-purple.svg" alt="Hackathon"></a>
+</p>
 
 > **"Think Before You Tap. AI Already Did."**
 
