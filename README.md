@@ -268,9 +268,9 @@ Explore the GramKavach interface and dynamic safety alerts:
 | <img src="screenshots/critical-alert.jpg" width="200"/> | <img src="screenshots/moderate-alert.jpg" width="200"/> | <img src="screenshots/alert-history.jpg" width="200"/> |
 
 ### ⚙️ Settings & App Info
-| My Profile | Settings | About GramKavach |
-| :--- | :--- | :--- |
-| <img src="screenshots/my-profile.jpg" width="200"/> | <img src="screenshots/settings.jpg" width="200"/> | <img src="screenshots/about-gramkavach.jpg" width="200"/> |
+| My Profile | Settings | Language Selection | About |
+| :--- | :--- | :--- | :--- |
+| <img src="screenshots/my-profile.jpg" width="200"/> | <img src="screenshots/settings.jpg" width="200"/> | <img src="screenshots/languages.jpg" width="200"/> | <img src="screenshots/about-gramkavach.jpg" width="200"/> |
 
 ---
 
