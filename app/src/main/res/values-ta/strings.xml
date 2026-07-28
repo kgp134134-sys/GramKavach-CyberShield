@@ -70,7 +70,7 @@
     <string name="voice_alerts_desc">அதிக அபாயகரமான அழைப்புகளின் போது எச்சரிக்கைகளைப் பேசவும்</string>
     <string name="app_language">செயலி மொழி</string>
     <string name="about_gramkavach">கிராம்கவச் பற்றி</string>
-    <string name="version">பதிப்பு 0.4.0</string>
+    <string name="version">பதிப்பு 0.4.5</string>
     <string name="choose_language">மொழியைத் தேர்ந்தெடுக்கவும்</string>
 
     <string name="about_desc">கிராம்கவச் என்பது கிராமப்புற மற்றும் முதல் முறை டிஜிட்டல் முறையில் பணம் செலுத்தும் பயனர்களை UPI மோசடியிலிருந்து பாதுகாக்க வடிவமைக்கப்பட்ட ஒரு டிஜிட்டல் நிதி பாதுகாப்பு உதவியாளர் ஆகும்.</string>

@@ -90,7 +90,7 @@
     <string name="voice_alerts_desc">उच्च जोखीम असलेल्या कॉल दरम्यान चेतावणी बोला</string>
     <string name="app_language">अॅपची भाषा</string>
     <string name="about_gramkavach">ग्रामकवच बद्दल</string>
-    <string name="version">आवृत्ती 0.4.0</string>
+    <string name="version">आवृत्ती 0.4.5</string>
     <string name="choose_language">भाषा निवडा</string>
 
     <string name="about_desc">ग्रामकवच हे ग्रामीण आणि प्रथमच डिजिटल पेमेंट करणाऱ्या वापरकर्त्यांना UPI फसवणुकीपासून वाचवण्यासाठी डिझाइन केलेले डिजिटल आर्थिक सुरक्षा सहाय्यक आहे.</string>

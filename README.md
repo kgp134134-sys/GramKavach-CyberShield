@@ -58,7 +58,7 @@ GramKavach continuously evaluates multiple risk signals on the device and alerts
 ## 📥 Download & Demo
 
 **Get the latest hackathon-ready build here:**
-[**Download GramKavach v0.4.5 APK**](https://github.com/kgp134134-sys/GramKavach456/releases/latest/download/app-release.apk)
+[**Download GramKavach v0.4.5 APK**](https://github.com/kgp134134-sys/GramKavach456/releases/tag/v0.4.5)
 
 > [!NOTE]
 > **Installation Tip**: Since this is a **hackathon demo prototype** and not yet published on the Play Store, Android may show a "Play Protect" or "Unknown Developer" warning.

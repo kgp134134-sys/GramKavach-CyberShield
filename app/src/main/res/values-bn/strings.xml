@@ -70,7 +70,7 @@
     <string name="voice_alerts_desc">উচ্চ ঝুঁকির কলের সময় সতর্কতা প্রদান করুন</string>
     <string name="app_language">অ্যাপের ভাষা</string>
     <string name="about_gramkavach">গ্রামকবচ সম্পর্কে</string>
-    <string name="version">ভার্সন 0.4.0</string>
+    <string name="version">ভার্সন 0.4.5</string>
     <string name="choose_language">ভাষা নির্বাচন করুন</string>
 
     <string name="about_desc">গ্রামকবচ হল একটি স্থানীয় ডিজিটাল আর্থিক নিরাপত্তা সহকারী যা গ্রামীণ এবং প্রথমবারের ডিজিটাল পেমেন্ট ব্যবহারকারীদের UPI প্রতারণা থেকে রক্ষা করার জন্য ডিজাইন করা হয়েছে।</string>
