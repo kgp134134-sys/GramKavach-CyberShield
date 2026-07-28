@@ -2,7 +2,6 @@
 
 The core "Pre-PIN" prevention loop ensures that high-risk transactions are flagged before the user authorizes them.
 
-```mermaid
 sequenceDiagram
     autonumber
     participant C as Context Monitor
@@ -15,18 +14,15 @@ sequenceDiagram
     E->>E: 🧠 Rules + ONNX ML score
     E->>U: 📊 Score, level, analysis
     
-    alt [High Risk]
-        par Visual & Audio Alert
-            U->>U: 🚨 Show Critical Overlay
-            U->>V: 🗣️ Play Regional Voice Warning
-        end
+    alt High Risk Alert
+        U->>U: 🚨 Show Critical Overlay
+        U->>V: 🗣️ Play Regional Voice Warning
         E->>S: 💾 Store local alert history
-    else [Moderate Risk]
+    else Moderate Risk
         U->>U: ⚠️ Warn user; show safety tips
-    else [Safe]
+    else Safe System
         U->>U: ✅ System Protected badge
     end
-```
 
 ### Guiding Principles
 
