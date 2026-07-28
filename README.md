@@ -114,10 +114,10 @@ flowchart TD
 
     %% Flow and Inversion
     UI --> Domain
-    UI ..> Data
-    UI ..> AI
-    UI ..> Alerts
-    UI ..> Monitor
+    UI -.-> Data
+    UI -.-> AI
+    UI -.-> Alerts
+    UI -.-> Monitor
 
     UC --> ScorerIntf
     
