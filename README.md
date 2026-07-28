@@ -1,18 +1,8 @@
 # 🛡️ GramKavach
 
-```text
- ##############################################################################
- #                                                                            #
- #    ____  ____   _   __  __  _  __  _   _   _   ____  _   _                 #
- #   / ___||  _ \ / \ |  \/  || |/ / / \ | | | | / ___|| | | |                #
- #  | |  _ | |_) / _ \| |\/| || ' / / _ \| | | || |    | |_| |                #
- #  | |_| ||  _ / ___ \ |  | ||  < / ___ \ \_/ /| |___ |  _  |                #
- #   \____||_| /_/   \_\_|  |_||_|\_\_/   \_\___/  \____||_| |_|                #
- #                                                                            #
- #         AI-POWERED PRE-PIN FRAUD PREVENTION SYSTEM FOR RURAL INDIA         #
- #                                                                            #
- ##############################################################################
-```
+<p align="center">
+  <img src="docs/images/rainbow_banner.svg" width="850" alt="GramKavach Rainbow Banner">
+</p>
 
 [![Kotlin](https://img.shields.io/badge/Kotlin-2.1.0-blue.svg?style=flat&logo=kotlin)](https://kotlinlang.org)
 [![Android](https://img.shields.io/badge/Android-API%2026%2B-green.svg?style=flat&logo=android)](https://developer.android.com)

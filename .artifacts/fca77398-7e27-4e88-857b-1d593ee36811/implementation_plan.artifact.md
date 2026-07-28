@@ -1,31 +1,23 @@
-# Implementation Plan - Super-Creative GitHub Documentation Overhaul
+# Implementation Plan - Rainbow ASCII SVG Banner
 
-This plan focuses on elevating the project's GitHub presence with "Elite" visual storytelling, ASCII art, and dynamic-style dashboards, without changing the application code.
-
-## User Review Required
-
-> [!IMPORTANT]
-> - **ASCII Header**: I will add a large, stylized "GRAMKAVACH" ASCII banner at the top of the README.
-> - **System Telemetry Dashboard**: I will create a creative "Live Status" section using HTML/Unicode that looks like a cybersecurity terminal.
-> - **3D-Layered Architecture**: I will update the Mermaid diagram to use nested subgraphs and custom styling to simulate a 3D hardware/software stack.
-> - **Creative Feature Highlights**: I will use high-quality Unicode icons and stylized formatting to make the features section pop.
+This plan introduces a visually stunning **Rainbow Gradient SVG** version of the "Massive Block" ASCII art. Since plain text cannot be colored in GitHub Markdown, using an SVG allows us to keep the powerful block style while applying a vibrant rainbow effect.
 
 ## Proposed Changes
 
-### 🎨 Documentation - `README.md`
+### 🎨 Visual Identity
+
+#### [NEW] [rainbow_banner.svg](file:///C:/Project/gram%20kavacha/docs/images/rainbow_banner.svg)
+- Create an SVG file containing the exact "Massive Block" ASCII characters.
+- Use a `<linearGradient>` to apply a horizontal rainbow transition (Red -> Orange -> Yellow -> Green -> Blue -> Purple).
+- Style the SVG to be responsive and look sharp on both high-res displays and mobile.
 
 #### [MODIFY] [README.md](file:///C:/Project/gram%20kavacha/README.md)
-- **Header**: Insert a high-quality ASCII art banner.
-- **Project Pulse Section**: Add a "System Telemetry" dashboard (Static but styled to look live).
-- **Elite Architecture**: Update the Mermaid diagram with "Deep Stack" styling (nested subgraphs with offset shadows).
-- **Enhanced Icons**: Replace standard emojis with a curated set of technical Unicode symbols.
-
-#### [MODIFY] [Architecture.md](file:///C:/Project/gram%20kavacha/docs/Architecture.md)
-- **Data Flow ASCII**: Add a detailed "Pipeline" ASCII diagram showing how risk signals flow from hardware to the UI.
+- Replace the current font-safe ASCII banner with the new **Rainbow SVG**.
+- Use the standard Markdown image syntax: `![GramKavach Banner](docs/images/rainbow_banner.svg)`.
 
 ## Verification Plan
 
 ### Manual Verification
-- Render the `README.md` and `Architecture.md` in Android Studio's Markdown preview.
-- Verify that the ASCII art is correctly aligned and the Mermaid diagram renders with the intended "layered" look.
-- Ensure all HTML elements (tables/status bars) are responsive and look good in both Light and Dark modes.
+- Verify the SVG rendering in a browser or IDE preview.
+- Ensure the gradient flows smoothly across the entire width of the "GRAMKAVACH" text.
+- Check the `README.md` preview to ensure the banner is centered and properly sized.
