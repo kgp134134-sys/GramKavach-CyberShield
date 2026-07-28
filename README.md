@@ -85,6 +85,8 @@ GramKavach follows a strict **Domain-Centric Architecture**, where the `domain` 
 
 ```mermaid
 graph TD
+    %% SUBGRAPH BUILDINGS FOR EXACT REFERENCE IMAGE MATCH
+    
     subgraph UI_Proj ["App Project (UI Layer)"]
         direction TB
         Ctrl["app: MainActivity"]
@@ -100,28 +102,28 @@ graph TD
         SMS["monitoring: Signal Service"]
     end
 
-    subgraph Core_Proj ["Application Core Project (Domain Center)"]
+    subgraph Core_Proj ["Application Core Project (Domain)"]
         direction TB
-        Intf["domain: Interfaces & Contracts"]
-        UC["domain: Use Cases"]
-        Models["domain: Domain Models"]
-        Rules["domain: Risk Entities"]
+        Intf["Interfaces & Contracts"]
+        UC["Use Cases"]
+        Models["Domain Models & Entities"]
+        Rules["Risk Scorer Rules"]
     end
 
-    %% Dependency Connections (Solid for Run-time, Dashed for Compile-time Impl)
+    %% CONNECTIONS (Dashed & Solid like reference image)
     UI_Proj --> Core_Proj
     Infra_Proj -.->|Implements| Core_Proj
 
-    %% Color Styles matching the reference image exactly
-    %% BLUE: UI/Presentation
+    %% EXACT COLOR COMBO MATCHING REFERENCE IMAGE
+    %% Blue for UI App Project
     classDef uiBox fill:#2196F3,stroke:#1976D2,stroke-width:2px,color:#FFFFFF
     class Ctrl,VM,Views uiBox
 
-    %% GREEN: Infrastructure
+    %% Green for Infrastructure Project
     classDef infraBox fill:#4CAF50,stroke:#388E3C,stroke-width:2px,color:#FFFFFF
     class DB_Cache,AI_ONNX,Voice,SMS infraBox
 
-    %% RED/ORANGE: Core Logic
+    %% Orange / Red for Application Core Project
     classDef coreBox fill:#FF5722,stroke:#E64A19,stroke-width:2px,color:#FFFFFF
     class Intf,UC,Models,Rules coreBox
 ```
