@@ -119,7 +119,7 @@ flowchart TD
     %% Styling for Premium Look
     classDef ui fill:#E3F2FD,stroke:#0D47A1,stroke-width:2px,color:#0D47A1
     classDef infra fill:#E8F5E9,stroke:#1B5E20,stroke-width:2px,color:#1B5E20
-    classDef domain fill:#FFF8E1,stroke:#FF6F00,stroke-width:2px,color:#FF6F00
+    classDef domain fill:#FFEBEE,stroke:#C62828,stroke-width:2px,color:#C62828
     
     class MA,VM,Screens ui
     class DB,AI,Voice,Monitor infra
