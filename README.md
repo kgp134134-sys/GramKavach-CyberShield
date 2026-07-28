@@ -81,60 +81,39 @@ GramKavach honors the "Maverick Effect" legacy through:
 
 ## 📐 Architecture
 
-GramKavach follows a **Domain-Centric Dependency Inverted Architecture** (Clean Architecture). The core business logic remains independent of frameworks and implementation details.
-
-### Dependency Flow
-*   **Domain**: Center of the universe. Pure Kotlin. No external dependencies.
-*   **Data/AI/Alerts**: Implementation layers. They depend on `domain` and implement its interfaces.
-*   **Monitoring**: Service orchestration layer. Depends only on `domain` abstractions.
-*   **App**: Composition root. Wires everything together using Hilt.
+GramKavach follows a strict **Domain-Centric Architecture**, where the `domain` module sits at the absolute center, encapsulating core risk evaluation logic without depending on any external Android frameworks or libraries.
 
 ```mermaid
-flowchart TD
-    subgraph UI ["app: UI Layer (Hilt Host)"]
-        MA[MainActivity]
-        Nav[Navigation Graph]
-        Screens[UI Screens]
+graph TD
+    subgraph Outer ["Infrastructure & Presentation Layer (Outer Ring)"]
+        UI["app: Jetpack Compose UI & Hilt"]
+        DB["data: Room DB & DataStore"]
+        AI["ai: ONNX ML Scorer"]
+        Voice["bhashini: Voice Adapter"]
+        Signal["monitoring: Service Facade"]
     end
 
-    subgraph Domain ["domain: Business Logic (Center)"]
-        UC[Use Cases]
-        Model[Models]
-        RepoIntf[Repository Interfaces]
-        NotifIntf[Notifier Interfaces]
-        ScorerIntf[ModelScorer Interface]
+    subgraph Core ["Application Core (Domain Center)"]
+        UC["domain: Use Cases"]
+        Model["domain: Models & Entities"]
+        Intf["domain: Contracts & Interfaces"]
     end
 
-    subgraph Infrastructure ["Implementation Layers"]
-        Data[data: Room/DataStore]
-        AI[ai: ONNX Scorer]
-        Alerts[alerts: Overlay/Notify]
-        Monitor[monitoring: Service]
-    end
-
-    %% Flow and Inversion
-    UI --> Domain
-    UI -.-> Data
-    UI -.-> AI
-    UI -.-> Alerts
-    UI -.-> Monitor
-
-    UC --> ScorerIntf
+    %% Dependency Direction (Always Inward)
+    UI --> UC
+    DB -- Implements --> Intf
+    AI -- Implements --> Intf
+    Voice -- Implements --> Intf
+    Signal --> UC
     
-    Data -- implements --> RepoIntf
-    AI -- implements --> ScorerIntf
-    Alerts -- implements --> NotifIntf
-    Monitor -- uses --> UC
-    Monitor -- uses --> NotifIntf
+    UC --> Model
+    UC --> Intf
 
-    %% Styling
-    classDef ui fill:#E1F5FE,stroke:#01579B,stroke-width:2px,color:#000
-    classDef domain fill:#FFF9C4,stroke:#FBC02D,stroke-width:2px,color:#000
-    classDef infra fill:#E8F5E9,stroke:#2E7D32,stroke-width:2px,color:#000
-
-    class MA,Nav,Screens ui
-    class UC,Model,RepoIntf,NotifIntf,ScorerIntf domain
-    class Data,AI,Alerts,Monitor infra
+    classDef outer fill:#E1F5FE,stroke:#0288D1,stroke-width:2px;
+    classDef core fill:#FFF9C4,stroke:#FBC02D,stroke-width:2px;
+    
+    class UI,DB,AI,Voice,Signal outer;
+    class UC,Model,Intf core;
 ```
 
 See [Architecture.md](docs/Architecture.md) and [Workflow.md](docs/Workflow.md) for more details.
