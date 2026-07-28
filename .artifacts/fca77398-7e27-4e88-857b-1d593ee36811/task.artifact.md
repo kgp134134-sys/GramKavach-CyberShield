@@ -1,9 +1,9 @@
-# Task: Implement Rainbow ASCII SVG Banner
+# Task: Add Project Overview Section
 
-- [x] **🎨 Create Rainbow SVG Banner**
-    - [x] Generate `docs/images/rainbow_banner.svg` with the Rainbow block-ASCII content
-- [x] **📐 Update README.md**
-    - [x] Replace the text ASCII banner with the SVG image
+- [x] **📖 README.md Update**
+    - [x] Insert "📖 Overview" section with Elite styling
+    - [x] Detail the Mission, Pre-PIN Advantage, and Inclusivity
 - [ ] **Verification**
-    - [ ] Verify image rendering in Markdown preview
-    - [ ] Ensure alignment is centered
+    - [ ] Visual check in Markdown preview
+- [ ] **🚀 Deploy**
+    - [ ] Push changes to GitHub

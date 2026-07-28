@@ -23,6 +23,23 @@
 
 ---
 
+## 📖 Overview
+
+**GramKavach** is a mission-driven digital security layer designed to protect the next billion users in Rural India from the rising epidemic of UPI fraud. Unlike traditional security apps that alert you *after* a loss, GramKavach operates on a **Zero-Trust, Pre-PIN Prevention** philosophy.
+
+### 🛡️ The Mission
+To build a culturally resonant, technically superior safety shield for Bharat's digital economy, ensuring that technology becomes an enabler, not a vulnerability.
+
+### ⚡ The "Pre-PIN" Advantage
+The core innovation lies in the **Simultaneous Signal Interception**. By analyzing background risks (Remote Access Apps, Suspicious Call States, and Phishing URLs) in real-time, GramKavach triggers high-impact **Voice & Visual Alerts** *before* the user authorizes a transaction.
+
+### 🌀 Designed for Inclusivity
+- **Voice-First**: Regional language alerts via Bhashini ensure accessibility for low-literacy users.
+- **Sanskriti UI**: A visual language rooted in Indian culture to build immediate trust and familiarity.
+- **100% Offline**: Zero-data-leakage architecture where all AI inference happens locally.
+
+---
+
 ## 📍 Table of Contents
 - [📥 Download & Demo](#-download--demo)
 - [🎯 Problem Statement](#-problem-statement)
