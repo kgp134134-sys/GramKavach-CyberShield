@@ -92,11 +92,6 @@ GramKavach embodies the three core pillars of the **Maverick Effect** legacy:
   <b>Scan to Install v0.4.5</b>
 </p>
 
-## 📊 Presentation PDF
-
-**View the official project presentation for Maverick AI Effect Challenge:**
-[**GramKavach CyberShield Presentation PDF**](docs/GramKavach_CyberShield_MaverickAI.pdf)
-
 > [!NOTE]
 > **Installation Tip**: Since this is a **hackathon demo prototype** and not yet published on the Play Store, Android may show a "Play Protect" or "Unknown Developer" warning.
 > - To install: Click **"More Details"** -> **"Install Anyway"**.
@@ -108,6 +103,12 @@ GramKavach embodies the three core pillars of the **Maverick Effect** legacy:
 - **Detailed Safety Rules**: High-impact "Do's and Don'ts" guide specifically for rural fraud scenarios.
 - **Explainable AI**: Dynamic "Detection Analysis" table explaining risk scores.
 - **Winner Dashboard**: Real-time pulsing risk gauge and safety status.
+
+  ## 📊 Presentation PDF
+
+**View the official project presentation for Maverick AI Effect Challenge:**
+[**GramKavach CyberShield Presentation PDF**](docs/GramKavach_CyberShield_MaverickAI.pdf)
+
 
 ## 🎯 Problem Statement
 
