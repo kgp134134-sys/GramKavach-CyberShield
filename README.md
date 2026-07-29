@@ -104,7 +104,7 @@ GramKavach embodies the three core pillars of the **Maverick Effect** legacy:
 - **Explainable AI**: Dynamic "Detection Analysis" table explaining risk scores.
 - **Winner Dashboard**: Real-time pulsing risk gauge and safety status.
 
-  ## 📊 Presentation PDF
+## 📊 Presentation PDF
 
 **View the official project presentation for Maverick AI Effect Challenge:**
 [**GramKavach CyberShield Presentation PDF**](docs/GramKavach_CyberShield_MaverickAI.pdf)
