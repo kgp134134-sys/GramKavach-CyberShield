@@ -1,4 +1,8 @@
-# 🛡️ GramKavach
+# GramKavach CyberShield
+
+> Offline AI-Powered Fraud Detection for Secure Digital Payments
+
+GramKavach CyberShield is an offline-first Android application that detects potential UPI fraud using on-device AI, real-time risk analysis, multilingual voice alerts with Bhashini, and privacy-first architecture.
 
 <p align="center">
   <img src="docs/images/rainbow_banner.svg" width="850" alt="GramKavach Rainbow Banner">
@@ -87,6 +91,11 @@ GramKavach embodies the three core pillars of the **Maverick Effect** legacy:
   <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://github.com/kgp134134-sys/GramKavach-CyberShield/releases/download/v0.4.5/app-release.apk" alt="Download QR Code"><br/>
   <b>Scan to Install v0.4.5</b>
 </p>
+
+## 📊 Presentation PDF
+
+**View the official project presentation for Maverick AI Effect Challenge:**
+[**GramKavach CyberShield Presentation PDF**](docs/GramKavach_CyberShield_MaverickAI.pdf)
 
 > [!NOTE]
 > **Installation Tip**: Since this is a **hackathon demo prototype** and not yet published on the Play Store, Android may show a "Play Protect" or "Unknown Developer" warning.
