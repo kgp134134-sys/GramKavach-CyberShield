@@ -83,6 +83,11 @@ GramKavach embodies the three core pillars of the **Maverick Effect** legacy:
 **Get the latest hackathon-ready build here:**
 [**Download GramKavach v0.4.5 (Verified APK)**](https://github.com/kgp134134-sys/GramKavach-CyberShield/releases/tag/v0.4.5)
 
+<p align="center">
+  <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://github.com/kgp134134-sys/GramKavach-CyberShield/releases/download/v0.4.5/app-release.apk" alt="Download QR Code"><br/>
+  <b>Scan to Install v0.4.5</b>
+</p>
+
 > [!NOTE]
 > **Installation Tip**: Since this is a **hackathon demo prototype** and not yet published on the Play Store, Android may show a "Play Protect" or "Unknown Developer" warning.
 > - To install: Click **"More Details"** -> **"Install Anyway"**.
@@ -321,7 +326,12 @@ Explore the GramKavach interface and dynamic safety alerts:
 Solo Developer  
 Government Engineering College, Patan
 
-GitHub: https://github.com/kgp134134-sys
+GitHub: [https://github.com/kgp134134-sys](https://github.com/kgp134134-sys)
+
+<p align="left">
+  <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://github.com/kgp134134-sys/GramKavach-CyberShield" alt="Repo QR Code"><br/>
+  <b>Scan to visit Repository</b>
+</p>
 
 ## 🙏 Acknowledgments
 
